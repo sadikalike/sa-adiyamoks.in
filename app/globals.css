@@ -1,0 +1,249 @@
+@import "tailwindcss";
+
+/* ಕನ್ನಡ ಫಾಂಟ್ */
+@font-face {
+  font-family: 'AnekKannada';
+  src: url('/fonts/anek-kannada.light.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'AnekKannada';
+  src: url('/fonts/anek-kannada.bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* MOKS ಲೋಗೋ ಫಾಂಟ್ (Cooper Black) */
+@font-face {
+  font-family: 'CooperBlack';
+  src: url('/fonts/CooperBlack.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-sans: var(--font-jakarta), 'AnekKannada', sans-serif;
+}
+
+body {
+  font-family: var(--font-jakarta), sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ಇಂಗ್ಲಿಷ್ ಫಾಂಟ್ */
+:lang(en) {
+  font-family: var(--font-jakarta), sans-serif;
+  font-weight: 500;
+}
+
+/* ಕನ್ನಡ ಫಾಂಟ್ */
+:lang(kn) {
+  font-family: 'AnekKannada', sans-serif !important;
+}
+
+:lang(kn) h1, :lang(kn) h2, :lang(kn) h3, :lang(kn) h4, :lang(kn) h5, :lang(kn) h6 {
+  font-weight: 700;
+}
+
+:lang(kn) p, :lang(kn) span, :lang(kn) a, :lang(kn) div, :lang(kn) li {
+  font-weight: 400;
+}
+
+@source "../app/**/*.{ts,tsx}";
+@source "../components/**/*.{ts,tsx}";
+
+/* ಅನಿಮೇಷನ್‌ಗಳು */
+@layer utilities {
+  .animate-blob { animation: blob 7s infinite; }
+  .animation-delay-2000 { animation-delay: 2s; }
+  .animation-delay-4000 { animation-delay: 4s; }
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  .animation-delay-100 { animation-delay: 100ms; }
+  .animation-delay-200 { animation-delay: 200ms; }
+  .animation-delay-300 { animation-delay: 300ms; }
+}
+@keyframes blob {
+  0% { transform: translate(0px, 0px) scale(1); }
+  33% { transform: translate(30px, -50px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+@keyframes fadeInUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ... ನಿಮ್ಮ ಹಿಂದಿನ ಕೋಡ್ ... */
+
+/* ಹೊಸ ಅನಿಮೇಷನ್: ಪೋಸ್ಟರ್ ಎಡದಿಂದ ಬಂದು ಅಲುಗಾಡಿ ನಿಲ್ಲಲು */
+@keyframes slideInShake {
+  0% {
+    transform: translateX(-100px) rotate(-5deg);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(15px) rotate(2deg);
+    opacity: 1;
+  }
+  70% {
+    transform: translateX(-8px) rotate(-1deg);
+  }
+  85% {
+    transform: translateX(4px) rotate(0.5deg);
+  }
+  100% {
+    transform: translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@layer utilities {
+  .animate-slide-in-shake {
+    animation: slideInShake 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  }
+}
+
+/* ... ನಿಮ್ಮ ಹಿಂದಿನ ಅನಿಮೇಷನ್‌ಗಳು ... */
+
+/* ಹೊಸ Premium 3D Zoom & Rotate ಅನಿಮೇಷನ್ */
+@keyframes zoom3dIn {
+  0% {
+    opacity: 0;
+    transform: perspective(1000px) scale(0.6) rotateY(-15deg) rotateX(10deg) translateZ(-100px);
+  }
+  60% {
+    opacity: 1;
+    transform: perspective(1000px) scale(1.05) rotateY(0deg) rotateX(0deg) translateZ(0);
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(1000px) scale(1) rotateY(0deg) rotateX(0deg) translateZ(0);
+  }
+}
+
+@layer utilities {
+  .animate-zoom-3d {
+    animation: zoom3dIn 1.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  }
+}
+
+/* ... ನಿಮ್ಮ ಹಿಂದಿನ ಅನಿಮೇಷನ್‌ಗಳು ... */
+
+/* ನಿರಂತರವಾಗಿ ತೇಲುತ್ತಾ ತಿರುಗುವ (Floating 3D) ಅನಿಮೇಷನ್ */
+@keyframes float3D {
+  0% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+  }
+  25% {
+    transform: translateY(-15px) rotate(2deg) scale(1.02);
+  }
+  50% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+  }
+  75% {
+    transform: translateY(15px) rotate(-2deg) scale(0.98);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+  }
+}
+
+@layer utilities {
+  .animate-float-3d {
+    animation: float3D 6s ease-in-out infinite;
+  }
+}
+
+/* ... ನಿಮ್ಮ ಹಿಂದಿನ ಅನಿಮೇಷನ್‌ಗಳು ... */
+
+/* ದಾರದಿಂದ ನೇತಾಡುತ್ತಾ ಗಾಳಿಗೆ ತೂಗಾಡುವ (Pendulum Swing) ಅನಿಮೇಷನ್ */
+@keyframes swing {
+  0% { transform: rotate(3deg); }
+  50% { transform: rotate(-3deg); }
+  100% { transform: rotate(3deg); }
+}
+
+@layer utilities {
+  .animate-swing {
+    /* transform-origin: top center ಎಂದರೆ ಪೋಸ್ಟರ್ ಮೇಲ್ಭಾಗವನ್ನು ಅಂಟಿಸಿ ತೂಗಾಡುತ್ತದೆ */
+    transform-origin: top center;
+    animation: swing 4s ease-in-out infinite;
+  }
+}
+
+/* ... ನಿಮ್ಮ ಹಿಂದಿನ ಅನಿಮೇಷನ್‌ಗಳು ... */
+
+/* ಎಡದಿಂದ ಬಲಕ್ಕೆ ಚಲಿಸುವ ಪಠ್ಯದ ಅನಿಮೇಷನ್ */
+@keyframes marquee-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@layer utilities {
+  .animate-marquee-left {
+    animation: marquee-left 20s linear infinite;
+  }
+}
+@layer utilities {
+  .animate-marquee-left {
+    animation: marquee-left 12s linear infinite; /* ವೇಗ ಹೆಚ್ಚಿಸಲಾಗಿದೆ */
+  }
+}
+
+/* ... ನಿಮ್ಮ ಹಿಂದಿನ ಅನಿಮೇಷನ್‌ಗಳು ... */
+
+/* ಎಡದಿಂದ ಎಡಕ್ಕೆ ಜಾರುವ (Marquee) ಅನಿಮೇಷನ್ */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@layer utilities {
+  .animate-marquee {
+    animation: marquee 25s linear infinite;
+  }
+}
+/* ... ನಿಮ್ಮ ಹಿಂದಿನ ಕೋಡ್ ... */
+
+/* 3D ತೇಲುವ (Floating) ಅನಿಮೇಷನ್ */
+@keyframes float3d {
+  0% { transform: translateY(0px) rotate(0deg) scale(1); }
+  50% { transform: translateY(-30px) rotate(10deg) scale(1.05); }
+  100% { transform: translateY(0px) rotate(0deg) scale(1); }
+}
+
+@layer utilities {
+  .animate-float-3d {
+    animation: float3d 8s ease-in-out infinite;
+  }
+}
+/* ... ನಿಮ್ಮ ಹಿಂದಿನ ಕೋಡ್ ... */
+
+/* ನಿಧಾನವಾಗಿ ತಿರುಗುವ (Spin) ಅನಿಮೇಷನ್ */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* 3D ತೇಲುವ (Floating) ಅನಿಮೇಷನ್ */
+@keyframes float3d {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-30px) rotate(10deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+@layer utilities {
+  .animate-spin-slow {
+    animation: spin-slow 15s linear infinite;
+  }
+  .animate-float-3d {
+    animation: float3d 8s ease-in-out infinite;
+  }
+}

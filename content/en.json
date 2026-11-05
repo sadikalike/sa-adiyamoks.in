@@ -1,0 +1,25 @@
+{
+  "nav": {
+    "home": "Home",
+    "visionaries": "Visionaries",
+    "about": "About",
+    "faculties": "Faculties",
+    "gallery": "Gallery",
+    "library": "Library",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "MOKS",
+    "subtitle": "Misbahussuada Karnataka Students Organisation",
+    "tagline": "Knowledge, Unity, Service",
+    "cta": "Learn About Us"
+  },
+  "sections": {
+    "visionaries": { "title": "Visionaries", "more": "View All" },
+    "about": { "title": "About Us", "more": "Read More" },
+    "faculties": { "title": "Faculties", "more": "All Faculties" },
+    "gallery": { "title": "Gallery", "more": "All Photos" },
+    "library": { "title": "Library", "more": "Visit Library" },
+    "contact": { "title": "Contact", "more": "Contact Page" }
+  }
+}
