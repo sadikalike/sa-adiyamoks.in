@@ -32,9 +32,14 @@
 /* ========================================= */
 /* 2. ಮೂಲ ಸ್ಟೈಲ್‌ಗಳು (Base Styles) */
 /* ========================================= */
+html {
+  scroll-behavior: smooth; /* ಸ್ಮೂತ್ ಸ್ಕ್ರೋಲ್ */
+}
+
 body {
   font-family: var(--font-jakarta), sans-serif;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 :lang(en) {
@@ -57,12 +62,9 @@ body {
 @source "../app/**/*.{ts,tsx}";
 @source "../components/**/*.{ts,tsx}";
 
-
 /* ========================================= */
 /* 3. ಅನಿಮೇಷನ್‌ಗಳು (Animations - Keyframes) */
 /* ========================================= */
-
-/* Blob Animation (Background Orbs) */
 @keyframes blob {
   0% { transform: translate(0px, 0px) scale(1); }
   33% { transform: translate(30px, -50px) scale(1.1); }
@@ -70,60 +72,28 @@ body {
   100% { transform: translate(0px, 0px) scale(1); }
 }
 
-/* Fade In Up (Text Animations) */
 @keyframes fadeInUp {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Slide In Shake (Poster Entry) */
-@keyframes slideInShake {
-  0% { transform: translateX(-100px) rotate(-5deg); opacity: 0; }
-  50% { transform: translateX(15px) rotate(2deg); opacity: 1; }
-  70% { transform: translateX(-8px) rotate(-1deg); }
-  85% { transform: translateX(4px) rotate(0.5deg); }
-  100% { transform: translateX(0) rotate(0deg); opacity: 1; }
-}
-
-/* 3D Zoom & Rotate (Premium Entry) */
-@keyframes zoom3dIn {
-  0% { opacity: 0; transform: perspective(1000px) scale(0.6) rotateY(-15deg) rotateX(10deg) translateZ(-100px); }
-  60% { opacity: 1; transform: perspective(1000px) scale(1.05) rotateY(0deg) rotateX(0deg) translateZ(0); }
-  100% { opacity: 1; transform: perspective(1000px) scale(1) rotateY(0deg) rotateX(0deg) translateZ(0); }
-}
-
-/* Floating 3D (Continuous Floating) */
-@keyframes float3d {
-  0% { transform: translateY(0px) rotate(0deg) scale(1); }
-  50% { transform: translateY(-30px) rotate(10deg) scale(1.05); }
-  100% { transform: translateY(0px) rotate(0deg) scale(1); }
-}
-
-/* Pendulum Swing (String Hanging) */
 @keyframes swing {
   0% { transform: rotate(3deg); }
   50% { transform: rotate(-3deg); }
   100% { transform: rotate(3deg); }
 }
 
-/* Marquee (Left Scroll) */
-@keyframes marquee-left {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+@keyframes float3d {
+  0% { transform: translateY(0px) rotate(0deg) scale(1); }
+  50% { transform: translateY(-30px) rotate(10deg) scale(1.05); }
+  100% { transform: translateY(0px) rotate(0deg) scale(1); }
 }
 
-/* Marquee (Standard) */
-@keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+@keyframes boardSwing {
+  0% { transform: rotate(2deg) translateY(0px); }
+  50% { transform: rotate(-2deg) translateY(-10px); }
+  100% { transform: rotate(2deg) translateY(0px); }
 }
 
-/* Spin Slow (Rotating Elements) */
-@keyframes spin-slow {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-/* Floating Books (Library) */
 @keyframes floatBook1 {
   0% { transform: translateY(0px) rotate(12deg); }
   50% { transform: translateY(-30px) rotate(15deg); }
@@ -140,20 +110,21 @@ body {
   100% { transform: translateY(0px) rotate(45deg); }
 }
 
-/* A-Frame Board Swing (Notice Board) */
-@keyframes boardSwing {
-  0% { transform: rotate(2deg) translateY(0px); }
-  50% { transform: rotate(-2deg) translateY(-10px); }
-  100% { transform: rotate(2deg) translateY(0px); }
+@keyframes marquee-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
 
 /* ========================================= */
 /* 4. ಯುಟಿಲಿಟಿ ಕ್ಲಾಸ್‌ಗಳು (Utility Classes) */
 /* ========================================= */
 @layer utilities {
-  /* Basic Animations */
-  .animate-blob { animation: blob 7s infinite; }
+  .animate-blob { animation: blob 7s infinite; will-change: transform; }
   .animation-delay-2000 { animation-delay: 2s; }
   .animation-delay-4000 { animation-delay: 4s; }
   
@@ -161,59 +132,30 @@ body {
     animation: fadeInUp 0.8s ease-out forwards;
     opacity: 0;
     transform: translateY(20px);
+    will-change: transform, opacity;
   }
   .animation-delay-100 { animation-delay: 100ms; }
   .animation-delay-200 { animation-delay: 200ms; }
   .animation-delay-300 { animation-delay: 300ms; }
 
-  /* Entry Animations */
-  .animate-slide-in-shake { animation: slideInShake 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
-  .animate-zoom-3d { animation: zoom3dIn 1.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
-
-  /* Continuous Animations */
-  .animate-float-3d { animation: float3d 8s ease-in-out infinite; }
-  .animate-spin-slow { animation: spin-slow 15s linear infinite; }
+  .animate-float-3d { animation: float3d 8s ease-in-out infinite; will-change: transform; }
+  .animate-spin-slow { animation: spin-slow 15s linear infinite; will-change: transform; }
   
-  /* Marquee Animations */
-  .animate-marquee-left { animation: marquee-left 12s linear infinite; }
-  .animate-marquee { animation: marquee 25s linear infinite; }
-
-  /* String Swing */
   .animate-swing {
     transform-origin: top center;
     animation: swing 4s ease-in-out infinite;
+    will-change: transform;
   }
-
-  /* Library Specific Animations */
-  .animate-float-book-1 { animation: floatBook1 10s ease-in-out infinite; }
-  .animate-float-book-2 { animation: floatBook2 12s ease-in-out infinite; }
-  .animate-float-book-3 { animation: floatBook3 8s ease-in-out infinite; }
 
   .animate-board-swing {
     animation: boardSwing 6s ease-in-out infinite;
     transform-origin: bottom center;
+    will-change: transform;
   }
-}
-/* ಪೋಸ್ಟರ್ ಸ್ಲೈಡ್ ಆಗುವ (Slide In/Out) ಅನಿಮೇಷನ್ */
-@keyframes posterSlide {
-  0% { transform: translateX(100%); opacity: 0; }
-  100% { transform: translateX(0); opacity: 1; }
-}
 
-@layer utilities {
-  .animate-poster-slide {
-    animation: posterSlide 0.8s ease-out forwards;
-  }
-}
-/* ಪೋಸ್ಟರ್ ಸ್ಲೈಡ್ ಆಗುವ (Slide In/Out) ಅನಿಮೇಷನ್ */
-@keyframes posterSlide {
-  0% { transform: translateX(100%); opacity: 0; }
-  100% { transform: translateX(0); opacity: 1; }
-}
+  .animate-float-book-1 { animation: floatBook1 10s ease-in-out infinite; will-change: transform; }
+  .animate-float-book-2 { animation: floatBook2 12s ease-in-out infinite; will-change: transform; }
+  .animate-float-book-3 { animation: floatBook3 8s ease-in-out infinite; will-change: transform; }
 
-@layer utilities {
-  .animate-poster-slide {
-    /* ಇಲ್ಲಿ 0.8s ಬದಲಿಗೆ 1.5s ಮಾಡಲಾಗಿದೆ */
-    animation: posterSlide 1.5s ease-out forwards;
-  }
+  .animate-marquee-left { animation: marquee-left 12s linear infinite; will-change: transform; }
 }

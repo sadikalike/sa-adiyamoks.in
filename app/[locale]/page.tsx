@@ -5,6 +5,7 @@ import AboutPreview from '@/components/AboutPreview'
 import StatsPreview from '@/components/StatsPreview'
 import HerenciaPreview from '@/components/HerenciaPreview'
 import GalleryPreview from '@/components/GalleryPreview'
+import QuoteScrollSection from '@/components/QuoteScrollSection'
 import LibraryPreview from '@/components/LibraryPreview'
 import ContactPreview from '@/components/ContactPreview'
 
@@ -15,31 +16,14 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
 
   return (
     <>
-      {/* 1. Hero Section */}
       <Hero locale={locale} dict={dict} />
-      
-      {/* 2. Visionaries Preview */}
       <VisionariesPreview locale={locale} dict={dict} />
-
-      {/* 3. About Preview */}
       <AboutPreview locale={locale} dict={dict} />
-
-      {/* 4. Stats Preview */}
       <StatsPreview locale={locale} />
-
-      {/* 5. Herencia Preview */}
       <HerenciaPreview locale={locale} />
-      
-      {/* 6. Gallery Preview */}
       <GalleryPreview locale={locale} dict={dict} />
-      
-      {/* 
-        7. Library Preview 
-        ಇಲ್ಲಿ dict={dict} ತೆಗೆದುಹಾಕಲಾಗಿದೆ 
-      */}
+      <QuoteScrollSection locale={locale} />
       <LibraryPreview locale={locale} />
-      
-      {/* 8. Contact Preview */}
       <ContactPreview locale={locale} dict={dict} />
     </>
   )

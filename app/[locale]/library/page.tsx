@@ -18,9 +18,6 @@ export default async function LibraryPage({ params }: { params: Promise<{ locale
     sec2Title: "MOKS ಭಾಷಾ ಕೇಂದ್ರ (Linguistic Nexus)",
     sec2Sub: "MOKS ಭಾಷಾ ಕೇಂದ್ರ - ವೈವಿಧ್ಯತೆಯ ಆಚರಣೆ, ಸಂಸ್ಕೃತಿಗಳ ಸಂಪರ್ಕ",
     sec2Desc: "ಇಲ್ಲಿ ಭಾಷೆಗಳು ಒಂದಾಗುತ್ತವೆ. ವಿವಿಧ ಭಾಷೆಗಳು, ಸಂಸ್ಕೃತಿಗಳು ಮತ್ತು ಸಂಪ್ರದಾಯಗಳ ವರ್ಣಮಯ ತಾಣದಲ್ಲಿ ಮುಳುಗಿ. ಪರಸ್ಪರ ಕಲಿಕೆಯ ಭಾಷಾ ಕಾರ್ಯಕ್ರಮಗಳಿಂದ ಹಿಡಿದು ಸಾಂಸ್ಕೃತಿಕ ವಿನಿಮಯಗಳವರೆಗೆ, ಭಾಷಾ ವೈವಿಧ್ಯತೆಯನ್ನು ಆಚರಿಸಲು, ಸಾಂಸ್ಕೃತಿಕ ಸಂಪರ್ಕಗಳನ್ನು ಬೆಳೆಸಲು ಮತ್ತು ಜಾಗತಿಕ ತಿಳುವಳಿಕೆಯನ್ನು ಉತ್ತೇಜಿಸಲು ನಮ್ಮ ಕೇಂದ್ರವು ಸ್ವಾಗತಾರ್ಹ ಸ್ಥಳವಾಗಿದೆ. ಭಾಷಾ ಅನ್ವೇಷಣೆಯ ಪ್ರಯಾಣದಲ್ಲಿ ನಮ್ಮೊಂದಿಗೆ ಸೇರಿ.",
-
-    noticeHeading: "ಓದುಗರ ಗಮನಕ್ಕೆ :-",
-    noticeText: "ನಿಮಗಾಗಿ MOKS ಗ್ರಂಥಾಲಯ ತೆರೆದಿಟ್ಟಿದೆ.",
   } : {
     title: "Our Library",
     subtitle: "A Confluence of Knowledge and Culture",
@@ -35,9 +32,6 @@ export default async function LibraryPage({ params }: { params: Promise<{ locale
     sec2Title: "MOKS Linguistic Nexus",
     sec2Sub: "MOKS Language Hub - Celebrating Diversity, Connecting Cultures",
     sec2Desc: "Where Languages Unite. Immerse yourself in a vibrant tapestry of diverse languages, cultures, and traditions. From interactive language learning programs to cultural exchanges, our hub serves as a welcoming space to celebrate linguistic diversity, foster cross-cultural connections, and promote global understanding. Join us on a journey of linguistic exploration and expand your horizons at the MOKS Language Hub.",
-
-    noticeHeading: "Attention Readers :-",
-    noticeText: "The MOKS Library is now open for you.",
   }
 
   return (
@@ -107,68 +101,10 @@ export default async function LibraryPage({ params }: { params: Promise<{ locale
         </div>
       </div>
 
-      {/* 3. Notice Board Section */}
-      <section className="pt-24 pb-12 relative z-10">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row items-center justify-center gap-16 md:gap-24">
-            
-            <div className="w-full md:w-1/2 text-center md:text-left order-2 md:order-1">
-              <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-6">
-                {locale === 'kn' ? 'ಇಂದಿನ ವಿಶೇಷ ನೋಟಿಸ್' : "Today's Special Notice"}
-              </h2>
-              <p className="text-slate-600 text-base md:text-lg mb-8 leading-relaxed">
-                {locale === 'kn' 
-                  ? 'ಗ್ರಂಥಾಲಯದಲ್ಲಿ ಹೊಸ ಪುಸ್ತಕಗಳು ಬಂದಿವೆ! ಎಲ್ಲರೂ ಬಂದು ಓದಿ ಜ್ಞಾನವನ್ನು ಹೆಚ್ಚಿಸಿಕೊಳ್ಳಿ.' 
-                  : 'New books have arrived at the library! Everyone is welcome to come and enhance their knowledge.'}
-              </p>
-              <div className="flex items-center justify-center md:justify-start gap-4">
-                <div className="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center font-bold text-xl shadow-inner">
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <p className="font-bold text-slate-800">
-                  {locale === 'kn' ? 'ಸ್ಥಳ: MOKS ಗ್ರಂಥಾಲಯ' : 'Location: MOKS Library'}
-                </p>
-              </div>
-            </div>
-
-            <div className="w-full md:w-1/2 flex justify-center order-1 md:order-2 perspective-1000">
-              <div className="relative w-72 h-96 md:w-80 md:h-[400px] animate-board-swing">
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-full flex justify-between px-6 z-0">
-                  <div className="w-3 h-[95%] bg-slate-800 rounded-full transform origin-top rotate-[12deg] shadow-lg"></div>
-                  <div className="w-3 h-[95%] bg-slate-800 rounded-full transform origin-top -rotate-[12deg] shadow-lg"></div>
-                </div>
-
-                <div className="absolute top-0 left-0 w-full h-full bg-white border-[10px] border-slate-800 rounded-lg shadow-2xl z-10 overflow-hidden flex flex-col justify-center items-center p-6 transform rotateY-[3deg]">
-                  <div className="text-center w-full">
-                    <div className="inline-block mb-6">
-                      <h3 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight">
-                        {content.noticeHeading}
-                      </h3>
-                      <div className="w-full h-1 bg-emerald-500 mt-2 rounded-full"></div>
-                    </div>
-                    <p className="text-xl md:text-2xl font-bold text-slate-700 leading-snug px-2">
-                      {content.noticeText}
-                    </p>
-                  </div>
-                  <div className="absolute top-4 left-4 w-8 h-8 border-t-4 border-l-4 border-emerald-500/30"></div>
-                  <div className="absolute top-4 right-4 w-8 h-8 border-t-4 border-r-4 border-emerald-500/30"></div>
-                  <div className="absolute bottom-4 left-4 w-8 h-8 border-b-4 border-l-4 border-emerald-500/30"></div>
-                  <div className="absolute bottom-4 right-4 w-8 h-8 border-b-4 border-r-4 border-emerald-500/30"></div>
-                </div>
-                <div className="absolute top-2 left-2 w-[95%] h-[95%] bg-slate-200 rounded-lg shadow-inner z-0"></div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* 4. Founder Info Section (QuoteScrollSection) */}
+      {/* 3. Founder Info Section (QuoteScrollSection) */}
       <QuoteScrollSection locale={locale} />
 
-      {/* 5. Main Content Section */}
+      {/* 4. Main Content Section */}
       <section className="pt-20 pb-12 relative z-10">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
           

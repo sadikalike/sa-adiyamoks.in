@@ -8,15 +8,18 @@ export default function QuoteScrollSection({ locale }: { locale: string }) {
   return (
     <section className="relative py-24 bg-[#0a192f] overflow-hidden">
       
-      {/* Background Glows */}
       <div className="absolute top-0 left-0 w-96 h-96 bg-emerald-500/10 rounded-full filter blur-[100px]"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full filter blur-[100px]"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* ಹೈಲೈಟ್ ಮಾಡಿದ ಸಾಲು ಮತ್ತು ಹದೀಸ್ ಉಲ್ಲೇಖ */}
+        <div className="flex flex-col items-center justify-center mb-16">
+          <span className="inline-block py-1.5 px-5 rounded-full bg-white/5 border border-white/10 text-emerald-400 text-xs md:text-sm font-bold tracking-widest uppercase mb-4 shadow-[0_0_15px_rgba(16,185,129,0.2)] backdrop-blur-md">
+            {locale === 'kn' ? 'ಗ್ರಂಥಾಲಯ' : 'Library'}
+          </span>
+        </div>
+
         <div className="relative text-center mb-16 animate-fade-in-up max-w-4xl mx-auto">
-          {/* ದೊಡ್ಡ ಉದ್ಧರಣ ಚಿಹ್ನೆ */}
           <span className="absolute -top-10 left-1/2 -translate-x-1/2 text-[100px] md:text-[180px] text-white/5 font-serif leading-none select-none pointer-events-none">
             "
           </span>
@@ -27,7 +30,6 @@ export default function QuoteScrollSection({ locale }: { locale: string }) {
               : 'The ink of a scholar\'s pen is more sacred than the blood of a martyr'}
           </h2>
 
-          {/* ಹದೀಸ್ ಎಂದು ಕೇವಲ ನಮೂದಿಸುವುದು */}
           <p className="mt-4 text-slate-400 text-sm md:text-base font-medium tracking-wider">
             {locale === 'kn' ? '(ಹದೀಸ್)' : '(Hadith)'}
           </p>
@@ -35,29 +37,16 @@ export default function QuoteScrollSection({ locale }: { locale: string }) {
           <div className="w-24 h-1 bg-emerald-500 mx-auto mt-6 rounded-full"></div>
         </div>
 
-        {/* ಚಿತ್ರ ಮತ್ತು ವಿವರಣೆ */}
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
           
-          {/* ಎಡಭಾಗ: ಚಿತ್ರ */}
           <div className="w-full lg:w-1/3 flex flex-col items-center">
             <div className="relative w-full max-w-[400px] md:max-w-[450px] aspect-[4/5] rounded-[2rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.6)] border-4 border-white/10 bg-slate-800">
-              <Image 
-                src="/ma.png"
-                alt="Jamia Sa'adiya Founder" 
-                fill 
-                className="object-cover object-top transition-transform duration-700 hover:scale-105"
-              />
+              <Image src="/ma.png" alt="Jamia Sa'adiya Founder" fill loading="lazy" className="object-cover object-top transition-transform duration-700 hover:scale-105" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0a192f] via-transparent to-transparent opacity-40"></div>
             </div>
           </div>
 
-          {/* ಬಲಭಾಗ: ವಿವರಣೆ */}
           <div className="w-full lg:w-2/3">
-            
-            {/* 
-              ಇಲ್ಲಿ ಹಿಂದೆ ಇದ್ದ ಹಸಿರು ಬಣ್ಣದ "ಸ್ಥಾಪಕರು" (Founder) ಟ್ಯಾಗ್ ಅನ್ನು ತೆಗೆದುಹಾಕಲಾಗಿದೆ.
-              ನೇರವಾಗಿ ಹೆಸರು ಬರುತ್ತದೆ.
-            */}
             <h4 className="text-3xl md:text-5xl font-black text-white mb-6">
               M.A. Ustad
             </h4>
@@ -66,7 +55,6 @@ export default function QuoteScrollSection({ locale }: { locale: string }) {
               {descText}
             </p>
 
-            {/* ಒಂದು ಸುಂದರವಾದ ಉಲ್ಲೇಖ */}
             <div className="border-l-4 border-emerald-500 pl-6 py-2">
               <p className="text-white/90 text-lg md:text-2xl font-light italic">
                 {locale === 'kn' 
