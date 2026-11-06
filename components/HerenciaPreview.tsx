@@ -1,7 +1,21 @@
+'use client'
+
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { motion, AnimatePresence } from 'framer-motion'
 
 export default function HerenciaPreview({ locale }: { locale: string }) {
+  const [currentPoster, setCurrentPoster] = useState(1)
+
+  // ಪ್ರತಿ 5 ಸೆಕೆಂಡುಗಳಿಗೆ (5000ms) ಒಮ್ಮೆ ಪೋಸ್ಟರ್ ಬದಲಾಗುತ್ತದೆ
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentPoster((prev) => (prev === 1 ? 2 : 1))
+    }, 5000) 
+    return () => clearInterval(interval)
+  }, [])
+
   const content = locale === 'kn' ? {
     tag: "ಹೆರೆನ್ಸಿಯಾ (Herencia)",
     title: "ಮೂರು ದಶಕಗಳ ಸಾಧನೆ",
@@ -23,17 +37,16 @@ export default function HerenciaPreview({ locale }: { locale: string }) {
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:32px_32px]"></div>
       <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[600px] h-[600px] bg-amber-500/10 rounded-full filter blur-[120px] opacity-60"></div>
 
-      {/* ಇಲ್ಲಿ px-4 ಇದೆ, ಇದು ಪೋಸ್ಟರ್ ಮತ್ತು ಲೋಗೋಗೆ ಮಾತ್ರ ಅನ್ವಯವಾಗುತ್ತದೆ */}
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
         
-        {/* 1. ಹೆರೆನ್ಸಿಯಾ ಶೀರ್ಷಿಕೆ (ಟಾಪ್) */}
+        {/* 1. ಹೆರೆನ್ಸಿಯಾ ಶೀರ್ಷಿಕೆ */}
         <div className="flex flex-col items-center justify-center mb-6 animate-fade-in-up">
           <span className="inline-block py-2 px-6 rounded-full bg-amber-500/10 text-amber-400 text-sm md:text-base font-bold tracking-widest uppercase border border-amber-500/20 backdrop-blur-md shadow-[0_0_15px_rgba(245,158,11,0.2)]">
             {content.tag}
           </span>
         </div>
 
-        {/* 2. ಪೋಸ್ಟರ್ ಮತ್ತು ದಾರ */}
+        {/* 2. ಪೋಸ್ಟರ್, ದಾರ ಮತ್ತು ಪಿನ್ */}
         <div className="flex flex-col items-center w-full -mt-2">
           
           {/* ಪಿನ್ (Pin Point) */}
@@ -45,16 +58,28 @@ export default function HerenciaPreview({ locale }: { locale: string }) {
           {/* ದಾರ (String) */}
           <div className="w-[1.5px] h-16 bg-gradient-to-b from-slate-300 to-slate-500 shadow-[0_0_5px_rgba(255,255,255,0.2)]"></div>
 
-          {/* ಪೋಸ್ಟರ್ (Swinging) */}
-          <div className="relative w-full max-w-sm animate-swing z-10 mt-[-2px]">
-            <div className="relative w-full aspect-[4/5] rounded-xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.6)] border-2 border-amber-500/30 bg-slate-900">
-              <Image 
-                src="/erenpost.png" 
-                alt="Herencia 30 Years Poster" 
-                fill 
-                className="object-cover" 
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0a192f] via-transparent to-transparent opacity-40"></div>
+          {/* ಪೋಸ್ಟರ್ ಕಂಟೇನರ್ (Swinging) */}
+          <div className="relative w-full max-w-sm animate-swing z-10 mt-[-2px] overflow-hidden rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.6)]">
+            
+            <div className="relative w-full aspect-[4/5] bg-slate-900">
+              <AnimatePresence initial={false}>
+                <motion.div
+                  key={currentPoster}
+                  initial={{ x: '-100%' }} 
+                  animate={{ x: 0 }}       
+                  exit={{ x: '100%' }}     
+                  transition={{ duration: 1.2, ease: 'easeInOut' }} 
+                  className="absolute inset-0 w-full h-full"
+                >
+                  <Image 
+                    src={currentPoster === 1 ? "/erenpost.png" : "/ereiqqu.png"} 
+                    alt={`Herencia Poster ${currentPoster}`} 
+                    fill 
+                    className="object-cover" 
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a192f] via-transparent to-transparent opacity-40"></div>
+                </motion.div>
+              </AnimatePresence>
             </div>
           </div>
         </div>
@@ -80,10 +105,7 @@ export default function HerenciaPreview({ locale }: { locale: string }) {
 
       </div>
 
-      {/* 
-        3. RUNNING TEXT (Marquee) - Full Width
-        ಇದನ್ನು max-w-7xl ನಿಂದ ಹೊರಗೆ ಇರಿಸಲಾಗಿದೆ, ಇದರಿಂದ ಇಡೀ ಸ್ಕ್ರೀನ್ ಅಗಲಕ್ಕೆ ಹರಡುತ್ತದೆ.
-      */}
+      {/* 3. RUNNING TEXT (Marquee) */}
       <div className="my-12 border-y border-white/10 bg-white/5 backdrop-blur-sm py-4 overflow-hidden relative w-full">
         <div className="flex whitespace-nowrap animate-marquee-left">
           {[...Array(12)].map((_, i) => (

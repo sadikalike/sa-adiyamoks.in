@@ -1,3 +1,5 @@
+import QuoteScrollSection from '@/components/QuoteScrollSection'
+
 export default async function LibraryPage({ params }: { params: Promise<{ locale: string }> }) {
   const resolvedParams = await params
   const locale = resolvedParams.locale === 'en' ? 'en' : 'kn'
@@ -16,6 +18,9 @@ export default async function LibraryPage({ params }: { params: Promise<{ locale
     sec2Title: "MOKS ಭಾಷಾ ಕೇಂದ್ರ (Linguistic Nexus)",
     sec2Sub: "MOKS ಭಾಷಾ ಕೇಂದ್ರ - ವೈವಿಧ್ಯತೆಯ ಆಚರಣೆ, ಸಂಸ್ಕೃತಿಗಳ ಸಂಪರ್ಕ",
     sec2Desc: "ಇಲ್ಲಿ ಭಾಷೆಗಳು ಒಂದಾಗುತ್ತವೆ. ವಿವಿಧ ಭಾಷೆಗಳು, ಸಂಸ್ಕೃತಿಗಳು ಮತ್ತು ಸಂಪ್ರದಾಯಗಳ ವರ್ಣಮಯ ತಾಣದಲ್ಲಿ ಮುಳುಗಿ. ಪರಸ್ಪರ ಕಲಿಕೆಯ ಭಾಷಾ ಕಾರ್ಯಕ್ರಮಗಳಿಂದ ಹಿಡಿದು ಸಾಂಸ್ಕೃತಿಕ ವಿನಿಮಯಗಳವರೆಗೆ, ಭಾಷಾ ವೈವಿಧ್ಯತೆಯನ್ನು ಆಚರಿಸಲು, ಸಾಂಸ್ಕೃತಿಕ ಸಂಪರ್ಕಗಳನ್ನು ಬೆಳೆಸಲು ಮತ್ತು ಜಾಗತಿಕ ತಿಳುವಳಿಕೆಯನ್ನು ಉತ್ತೇಜಿಸಲು ನಮ್ಮ ಕೇಂದ್ರವು ಸ್ವಾಗತಾರ್ಹ ಸ್ಥಳವಾಗಿದೆ. ಭಾಷಾ ಅನ್ವೇಷಣೆಯ ಪ್ರಯಾಣದಲ್ಲಿ ನಮ್ಮೊಂದಿಗೆ ಸೇರಿ.",
+
+    noticeHeading: "ಓದುಗರ ಗಮನಕ್ಕೆ :-",
+    noticeText: "ನಿಮಗಾಗಿ MOKS ಗ್ರಂಥಾಲಯ ತೆರೆದಿಟ್ಟಿದೆ.",
   } : {
     title: "Our Library",
     subtitle: "A Confluence of Knowledge and Culture",
@@ -30,77 +35,39 @@ export default async function LibraryPage({ params }: { params: Promise<{ locale
     sec2Title: "MOKS Linguistic Nexus",
     sec2Sub: "MOKS Language Hub - Celebrating Diversity, Connecting Cultures",
     sec2Desc: "Where Languages Unite. Immerse yourself in a vibrant tapestry of diverse languages, cultures, and traditions. From interactive language learning programs to cultural exchanges, our hub serves as a welcoming space to celebrate linguistic diversity, foster cross-cultural connections, and promote global understanding. Join us on a journey of linguistic exploration and expand your horizons at the MOKS Language Hub.",
+
+    noticeHeading: "Attention Readers :-",
+    noticeText: "The MOKS Library is now open for you.",
   }
 
   return (
     <div className="bg-[#f8fafc] min-h-screen pb-24 overflow-hidden">
       
-      {/* ========================================= */}
-      {/* 1. Hero Section (Creative Library Background) */}
-      {/* ========================================= */}
+      {/* 1. Hero Section */}
       <section className="relative bg-[#0a192f] pt-32 pb-48 overflow-hidden">
-        
-        {/* Background Patterns & Glowing Orbs */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:32px_32px]"></div>
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-emerald-500/20 rounded-full mix-blend-screen filter blur-[100px] animate-blob"></div>
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500/20 rounded-full mix-blend-screen filter blur-[100px] animate-blob animation-delay-2000"></div>
 
-        {/* ========================================================= */}
-        {/* 3D BOOKS ANIMATION (ಪುಸ್ತಕಗಳ ರಾಶಿ ತೇಲಾಡುವ ಅನಿಮೇಷನ್) */}
-        {/* ========================================================= */}
+        {/* Floating 3D Books */}
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-          
-          {/* Book 1 - Emerald */}
           <div className="absolute top-[15%] left-[5%] animate-float-book-1 opacity-40">
             <div className="w-16 h-24 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-md shadow-2xl border-l-4 border-emerald-300 flex items-center justify-center transform rotate-12">
               <div className="w-10 h-1 bg-white/30 rounded-full"></div>
             </div>
           </div>
-
-          {/* Book 2 - Blue */}
           <div className="absolute top-[40%] left-[15%] animate-float-book-2 opacity-30">
             <div className="w-20 h-28 bg-gradient-to-br from-blue-400 to-blue-600 rounded-md shadow-2xl border-l-4 border-blue-300 flex items-center justify-center transform -rotate-12">
               <div className="w-12 h-1 bg-white/30 rounded-full"></div>
             </div>
           </div>
-
-          {/* Book 3 - Purple */}
-          <div className="absolute bottom-[20%] left-[8%] animate-float-book-3 opacity-40">
-            <div className="w-14 h-20 bg-gradient-to-br from-purple-400 to-purple-600 rounded-md shadow-2xl border-l-4 border-purple-300 flex items-center justify-center transform rotate-45">
-              <div className="w-8 h-1 bg-white/30 rounded-full"></div>
-            </div>
-          </div>
-
-          {/* Book 4 - Amber */}
-          <div className="absolute top-[20%] right-[10%] animate-float-book-2 opacity-30">
-            <div className="w-24 h-32 bg-gradient-to-br from-amber-400 to-amber-600 rounded-md shadow-2xl border-l-4 border-amber-300 flex items-center justify-center transform -rotate-12">
+          <div className="absolute bottom-[20%] right-[8%] animate-float-book-3 opacity-40">
+            <div className="w-24 h-32 bg-gradient-to-br from-amber-400 to-amber-600 rounded-md shadow-2xl border-l-4 border-amber-300 flex items-center justify-center transform rotate-45">
               <div className="w-14 h-1 bg-white/30 rounded-full"></div>
-            </div>
-          </div>
-
-          {/* Book 5 - Rose */}
-          <div className="absolute top-[50%] right-[15%] animate-float-book-1 opacity-40">
-            <div className="w-16 h-24 bg-gradient-to-br from-rose-400 to-rose-600 rounded-md shadow-2xl border-l-4 border-rose-300 flex items-center justify-center transform rotate-12">
-              <div className="w-10 h-1 bg-white/30 rounded-full"></div>
-            </div>
-          </div>
-
-          {/* Book 6 - Teal */}
-          <div className="absolute bottom-[15%] right-[5%] animate-float-book-3 opacity-30">
-            <div className="w-20 h-28 bg-gradient-to-br from-teal-400 to-teal-600 rounded-md shadow-2xl border-l-4 border-teal-300 flex items-center justify-center transform -rotate-45">
-              <div className="w-12 h-1 bg-white/30 rounded-full"></div>
-            </div>
-          </div>
-
-          {/* Book 7 - Indigo (Center Top) */}
-          <div className="absolute top-[10%] left-[45%] animate-float-book-2 opacity-20">
-            <div className="w-28 h-36 bg-gradient-to-br from-indigo-400 to-indigo-600 rounded-md shadow-2xl border-l-4 border-indigo-300 flex items-center justify-center transform rotate-6">
-              <div className="w-16 h-1 bg-white/30 rounded-full"></div>
             </div>
           </div>
         </div>
 
-        {/* Main Hero Text */}
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6 tracking-tight leading-tight animate-fade-in-up drop-shadow-2xl">
             {content.title}
@@ -108,8 +75,6 @@ export default async function LibraryPage({ params }: { params: Promise<{ locale
           <p className="text-sm md:text-xl text-emerald-400 font-bold tracking-widest uppercase animate-fade-in-up animation-delay-100 mb-8">
             {content.subtitle}
           </p>
-
-          {/* Inspirational Quote */}
           <div className="animate-fade-in-up animation-delay-200 max-w-2xl mx-auto">
             <p className="text-white/80 text-lg md:text-2xl font-light italic">
               "{content.quote}"
@@ -118,18 +83,14 @@ export default async function LibraryPage({ params }: { params: Promise<{ locale
         </div>
       </section>
 
-      {/* ========================================= */}
-      {/* 2. Introduction Section (Overlapping Card) */}
-      {/* ========================================= */}
+      {/* 2. Introduction Section */}
       <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 -mt-24 z-20">
         <div className="bg-white/90 backdrop-blur-2xl border border-white/60 p-8 md:p-14 rounded-[2.5rem] shadow-[0_20px_60px_rgba(0,0,0,0.08)] relative overflow-hidden group text-center">
           
-          {/* Creative Background Glows */}
           <div className="absolute top-0 right-0 w-72 h-72 bg-emerald-100 rounded-full mix-blend-multiply filter blur-3xl opacity-60 group-hover:scale-110 transition-transform duration-700"></div>
           <div className="absolute bottom-0 left-0 w-72 h-72 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-60 group-hover:scale-110 transition-transform duration-700"></div>
 
           <div className="relative z-10">
-            {/* Book Icon */}
             <div className="w-20 h-20 mx-auto bg-gradient-to-br from-emerald-50 to-blue-50 rounded-3xl flex items-center justify-center mb-8 shadow-xl border border-white group-hover:-translate-y-2 transition-transform duration-500">
               <svg className="w-10 h-10 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
@@ -146,47 +107,86 @@ export default async function LibraryPage({ params }: { params: Promise<{ locale
         </div>
       </div>
 
-      {/* ========================================= */}
-      {/* 3. Main Content Section (Modern Layout) */}
-      {/* ========================================= */}
-      <section className="pt-28 pb-12 relative z-10">
+      {/* 3. Notice Board Section */}
+      <section className="pt-24 pb-12 relative z-10">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-16 md:gap-24">
+            
+            <div className="w-full md:w-1/2 text-center md:text-left order-2 md:order-1">
+              <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-6">
+                {locale === 'kn' ? 'ಇಂದಿನ ವಿಶೇಷ ನೋಟಿಸ್' : "Today's Special Notice"}
+              </h2>
+              <p className="text-slate-600 text-base md:text-lg mb-8 leading-relaxed">
+                {locale === 'kn' 
+                  ? 'ಗ್ರಂಥಾಲಯದಲ್ಲಿ ಹೊಸ ಪುಸ್ತಕಗಳು ಬಂದಿವೆ! ಎಲ್ಲರೂ ಬಂದು ಓದಿ ಜ್ಞಾನವನ್ನು ಹೆಚ್ಚಿಸಿಕೊಳ್ಳಿ.' 
+                  : 'New books have arrived at the library! Everyone is welcome to come and enhance their knowledge.'}
+              </p>
+              <div className="flex items-center justify-center md:justify-start gap-4">
+                <div className="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center font-bold text-xl shadow-inner">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <p className="font-bold text-slate-800">
+                  {locale === 'kn' ? 'ಸ್ಥಳ: MOKS ಗ್ರಂಥಾಲಯ' : 'Location: MOKS Library'}
+                </p>
+              </div>
+            </div>
+
+            <div className="w-full md:w-1/2 flex justify-center order-1 md:order-2 perspective-1000">
+              <div className="relative w-72 h-96 md:w-80 md:h-[400px] animate-board-swing">
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-full flex justify-between px-6 z-0">
+                  <div className="w-3 h-[95%] bg-slate-800 rounded-full transform origin-top rotate-[12deg] shadow-lg"></div>
+                  <div className="w-3 h-[95%] bg-slate-800 rounded-full transform origin-top -rotate-[12deg] shadow-lg"></div>
+                </div>
+
+                <div className="absolute top-0 left-0 w-full h-full bg-white border-[10px] border-slate-800 rounded-lg shadow-2xl z-10 overflow-hidden flex flex-col justify-center items-center p-6 transform rotateY-[3deg]">
+                  <div className="text-center w-full">
+                    <div className="inline-block mb-6">
+                      <h3 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight">
+                        {content.noticeHeading}
+                      </h3>
+                      <div className="w-full h-1 bg-emerald-500 mt-2 rounded-full"></div>
+                    </div>
+                    <p className="text-xl md:text-2xl font-bold text-slate-700 leading-snug px-2">
+                      {content.noticeText}
+                    </p>
+                  </div>
+                  <div className="absolute top-4 left-4 w-8 h-8 border-t-4 border-l-4 border-emerald-500/30"></div>
+                  <div className="absolute top-4 right-4 w-8 h-8 border-t-4 border-r-4 border-emerald-500/30"></div>
+                  <div className="absolute bottom-4 left-4 w-8 h-8 border-b-4 border-l-4 border-emerald-500/30"></div>
+                  <div className="absolute bottom-4 right-4 w-8 h-8 border-b-4 border-r-4 border-emerald-500/30"></div>
+                </div>
+                <div className="absolute top-2 left-2 w-[95%] h-[95%] bg-slate-200 rounded-lg shadow-inner z-0"></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Founder Info Section (QuoteScrollSection) */}
+      <QuoteScrollSection locale={locale} />
+
+      {/* 5. Main Content Section */}
+      <section className="pt-20 pb-12 relative z-10">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
           
-          {/* Publication Hub */}
           <div className="relative group animate-fade-in-up">
-            <div className="absolute -top-16 -left-8 text-9xl md:text-[150px] font-black text-slate-200/50 select-none z-0 group-hover:text-emerald-100/80 transition-colors duration-500">
-              01
-            </div>
-            
+            <div className="absolute -top-16 -left-8 text-9xl md:text-[150px] font-black text-slate-200/50 select-none z-0 group-hover:text-emerald-100/80 transition-colors duration-500">01</div>
             <div className="relative z-10 pl-6 md:pl-10 border-l-4 border-emerald-500">
-              <h2 className="text-emerald-600 font-bold tracking-widest uppercase text-xs md:text-sm mb-3">
-                {content.sec1Title}
-              </h2>
-              <h3 className="text-2xl md:text-4xl font-black text-slate-900 mb-6 leading-tight">
-                {content.sec1Sub}
-              </h3>
-              <p className="text-slate-600 text-base md:text-lg leading-relaxed text-justify bg-white/50 backdrop-blur-sm p-4 md:p-6 rounded-2xl border border-white">
-                {content.sec1Desc}
-              </p>
+              <h2 className="text-emerald-600 font-bold tracking-widest uppercase text-xs md:text-sm mb-3">{content.sec1Title}</h2>
+              <h3 className="text-2xl md:text-4xl font-black text-slate-900 mb-6 leading-tight">{content.sec1Sub}</h3>
+              <p className="text-slate-600 text-base md:text-lg leading-relaxed text-justify bg-white/50 backdrop-blur-sm p-4 md:p-6 rounded-2xl border border-white">{content.sec1Desc}</p>
             </div>
           </div>
 
-          {/* Linguistic Nexus */}
           <div className="relative group animate-fade-in-up">
-            <div className="absolute -top-16 -left-8 text-9xl md:text-[150px] font-black text-slate-200/50 select-none z-0 group-hover:text-blue-100/80 transition-colors duration-500">
-              02
-            </div>
-            
+            <div className="absolute -top-16 -left-8 text-9xl md:text-[150px] font-black text-slate-200/50 select-none z-0 group-hover:text-blue-100/80 transition-colors duration-500">02</div>
             <div className="relative z-10 pl-6 md:pl-10 border-l-4 border-blue-500">
-              <h2 className="text-blue-600 font-bold tracking-widest uppercase text-xs md:text-sm mb-3">
-                {content.sec2Title}
-              </h2>
-              <h3 className="text-2xl md:text-4xl font-black text-slate-900 mb-6 leading-tight">
-                {content.sec2Sub}
-              </h3>
-              <p className="text-slate-600 text-base md:text-lg leading-relaxed text-justify bg-white/50 backdrop-blur-sm p-4 md:p-6 rounded-2xl border border-white">
-                {content.sec2Desc}
-              </p>
+              <h2 className="text-blue-600 font-bold tracking-widest uppercase text-xs md:text-sm mb-3">{content.sec2Title}</h2>
+              <h3 className="text-2xl md:text-4xl font-black text-slate-900 mb-6 leading-tight">{content.sec2Sub}</h3>
+              <p className="text-slate-600 text-base md:text-lg leading-relaxed text-justify bg-white/50 backdrop-blur-sm p-4 md:p-6 rounded-2xl border border-white">{content.sec2Desc}</p>
             </div>
           </div>
 
