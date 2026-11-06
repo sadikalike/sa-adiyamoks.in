@@ -22,11 +22,12 @@ export default function Hero({ locale, dict }: { locale: string; dict: any }) {
   }, [])
 
   return (
-    <section className="relative h-screen min-h-[600px] md:min-h-[700px] w-full flex items-center justify-center overflow-hidden bg-[#050B14]">
+    <section className="relative h-screen min-h-[650px] w-full flex items-center justify-center overflow-hidden bg-[#050B14]">
       
-      {/* 1. BACKGROUND IMAGES */}
+      {/* ========================================================= */}
+      {/* 1. BACKGROUND IMAGES (ಚಿತ್ರಗಳು ಮತ್ತು ಸಿನಿಮ್ಯಾಟಿಕ್ ಶೇಡ್) */}
+      {/* ========================================================= */}
       <div className="absolute inset-0 z-0">
-        {/* Desktop Images */}
         <div className="hidden md:block absolute inset-0">
           {[1, 2, 3, 4].map((num) => {
             const imgSrc = num === 3 ? '/bg3a.png' : `/bg${num}.png`;
@@ -34,7 +35,7 @@ export default function Hero({ locale, dict }: { locale: string; dict: any }) {
               <div key={`desktop-${num}`} className={`absolute inset-0 transition-opacity duration-[2000ms] ease-in-out ${desktopBg === num ? 'opacity-100' : 'opacity-0'}`}>
                 <div className="relative w-full h-full">
                   <Image src={imgSrc} alt="MOKS Campus" fill priority={num === 1}
-                    className={`object-cover object-center transition-transform duration-[10000ms] ease-out ${desktopBg === num ? 'scale-105' : 'scale-100'}`} quality={95}
+                    className={`object-cover object-center transition-transform duration-[12000ms] ease-out ${desktopBg === num ? 'scale-110' : 'scale-100'}`} quality={95}
                   />
                 </div>
               </div>
@@ -50,7 +51,7 @@ export default function Hero({ locale, dict }: { locale: string; dict: any }) {
               <div key={`mobile-${num}`} className={`absolute inset-0 transition-opacity duration-[2000ms] ease-in-out ${mobileBg === num ? 'opacity-100' : 'opacity-0'}`}>
                 <div className="relative w-full h-full">
                   <Image src={imgSrc} alt="MOKS Campus" fill priority={num === 1}
-                    className={`object-cover object-center transition-transform duration-[10000ms] ease-out ${mobileBg === num ? 'scale-105' : 'scale-100'}`} quality={95}
+                    className={`object-cover object-center transition-transform duration-[12000ms] ease-out ${mobileBg === num ? 'scale-110' : 'scale-100'}`} quality={95}
                   />
                 </div>
               </div>
@@ -58,67 +59,79 @@ export default function Hero({ locale, dict }: { locale: string; dict: any }) {
           })}
         </div>
         
-        {/* Deep Overlay (ಟೆಕ್ಸ್ಟ್ ಸ್ಪಷ್ಟವಾಗಿ ಕಾಣಲು) */}
-        <div className="absolute inset-0 bg-[#050B14]/85"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-[#050B14] via-transparent to-[#050B14]/60"></div>
+        {/* 
+          ಸಿನಿಮ್ಯಾಟಿಕ್ ಶೇಡ್: 
+          ಚಿತ್ರ ಸ್ಪಷ್ಟವಾಗಿ ಕಾಣಲು ಮತ್ತು ಪಠ್ಯ ಓದಲು ಸಿಗಲು ಸೂಕ್ತವಾದ ಡಾರ್ಕ್ ಓವರ್ಲೇ.
+        */}
+        <div className="absolute inset-0 bg-[#050B14]/40"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-[#050B14]/80 via-transparent to-[#050B14]"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#050B14]/60 via-transparent to-[#050B14]/60"></div>
       </div>
 
-      {/* 2. MAIN CONTENT (Perfect Size for Mobile & Laptop) */}
-      <div className="relative z-10 w-full max-w-4xl mx-auto px-6 sm:px-8 flex flex-col items-center text-center mt-8 md:mt-0">
+      {/* ========================================================= */}
+      {/* 2. MAIN CONTENT (ಅತ್ಯಾಧುನಿಕ ಮತ್ತು ಪ್ರೀಮಿಯಂ ಡಿಸೈನ್) */}
+      {/* ========================================================= */}
+      <div className="relative z-10 w-full max-w-5xl mx-auto px-6 sm:px-8 flex flex-col items-center text-center">
         
-        {/* Top Badge */}
-        <div className="mb-4 md:mb-6 animate-fade-in-up">
-          <span className="inline-flex items-center gap-2 py-1.5 md:py-2 px-4 md:px-5 rounded-full bg-white/5 backdrop-blur-md border border-white/10 text-emerald-300 text-[10px] md:text-sm font-bold tracking-widest uppercase shadow-[0_0_20px_rgba(16,185,129,0.15)]">
+        {/* Top Badge (Glassmorphism) */}
+        <div className="mb-6 md:mb-8 animate-fade-in-up">
+          <span className="inline-flex items-center gap-2 py-2 px-5 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 text-emerald-300 text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase shadow-2xl">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_10px_rgba(16,185,129,0.8)]"></span>
             {dict.hero.tagline}
           </span>
         </div>
 
-        {/* Main Heading */}
-        <div className="relative mb-6 md:mb-8 animate-fade-in-up animation-delay-100">
+        {/* Main Heading & Subheading */}
+        <div className="relative mb-8 md:mb-10 animate-fade-in-up animation-delay-100">
+          {/* Main Title */}
           <h1 
             style={{ fontFamily: '"Arial Black", Impact, sans-serif', fontWeight: 900 }}
-            className="relative text-6xl sm:text-7xl md:text-8xl lg:text-9xl text-white leading-none tracking-tighter drop-shadow-2xl"
+            className="relative text-7xl sm:text-8xl md:text-9xl lg:text-[130px] text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-slate-400 leading-none tracking-tighter drop-shadow-[0_10px_30px_rgba(0,0,0,0.8)]"
           >
             MOKS
           </h1>
 
-          {/* Sub Heading */}
-          <div className="relative mt-3 md:mt-5 flex items-center justify-center gap-3 md:gap-4">
-            <div className="h-[1px] md:h-[2px] w-8 md:w-16 bg-emerald-500/50"></div>
+          {/* Sub Heading (Gradient Text & Lines) */}
+          <div className="relative mt-2 flex items-center justify-center gap-4">
+            <div className="h-[2px] w-12 md:w-24 bg-gradient-to-r from-transparent to-emerald-400"></div>
             <span 
               lang={locale}
-              className="text-emerald-400 font-bold tracking-[0.2em] md:tracking-[0.3em] text-[10px] sm:text-xs md:text-lg lg:text-xl uppercase"
+              className="text-white font-bold tracking-[0.3em] text-xs sm:text-sm md:text-base lg:text-lg uppercase drop-shadow-lg"
             >
               {locale === 'kn' ? 'ಕರ್ನಾಟಕ ವಿದ್ಯಾರ್ಥಿ ಸಂಘಟನೆ' : 'KARNATAKA STUDENTS'}
             </span>
-            <div className="h-[1px] md:h-[2px] w-8 md:w-16 bg-emerald-500/50"></div>
+            <div className="h-[2px] w-12 md:w-24 bg-gradient-to-l from-transparent to-emerald-400"></div>
           </div>
         </div>
 
-        {/* Subtitle */}
-        <p className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-300 mb-8 md:mb-12 max-w-2xl mx-auto font-light leading-relaxed drop-shadow-lg animate-fade-in-up animation-delay-200">
-          {dict.hero.subtitle}
-        </p>
+        {/* Subtitle Container (Modern Glass Box) */}
+        <div className="bg-black/30 backdrop-blur-md border border-white/10 p-6 md:p-8 rounded-3xl mb-10 max-w-3xl mx-auto animate-fade-in-up animation-delay-200 shadow-2xl">
+          <p className="text-sm sm:text-base md:text-xl lg:text-2xl text-slate-200 font-light leading-relaxed drop-shadow-md">
+            {dict.hero.subtitle}
+          </p>
+        </div>
 
-        {/* Action Button */}
+        {/* Action Button (Neon Glow & Arrow) */}
         <div className="animate-fade-in-up animation-delay-300">
           <Link
             href={`/${locale}/about`}
-            className="group relative inline-flex items-center justify-center bg-white text-[#050B14] font-black text-sm md:text-lg px-6 py-3 md:px-10 md:py-4 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(255,255,255,0.3)]"
+            className="group relative inline-flex items-center justify-center bg-emerald-500 text-[#050B14] font-black text-sm md:text-lg px-8 py-4 md:px-12 md:py-5 rounded-full transition-all duration-300 hover:bg-emerald-400 hover:scale-105 shadow-[0_0_40px_rgba(16,185,129,0.5)] hover:shadow-[0_0_60px_rgba(16,185,129,0.8)] overflow-hidden"
           >
-            <span className="relative z-10 flex items-center gap-2">
+            <span className="relative z-10 flex items-center gap-3">
               {dict.hero.cta}
-              <svg className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 group-hover:translate-x-1.5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </span>
+            {/* Button Shine Effect */}
+            <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></div>
           </Link>
         </div>
 
       </div>
 
-      {/* Bottom Gradient Line */}
-      <div className="absolute bottom-0 left-0 w-full h-16 md:h-24 bg-gradient-to-t from-[#050B14] to-transparent z-10 pointer-events-none"></div>
+      {/* Bottom Gradient Line (Smooth Transition to next section) */}
+      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#050B14] to-transparent z-10 pointer-events-none"></div>
     </section>
   )
 }
