@@ -2,7 +2,7 @@ import { getDictionary } from '@/lib/getDictionary'
 import Hero from '@/components/Hero'
 import VisionariesPreview from '@/components/VisionariesPreview'
 import AboutPreview from '@/components/AboutPreview'
-import StatsPreview from '@/components/StatsPreview' // <-- ಹೊಸದಾಗಿ ಸೇರಿಸಿ
+import StatsPreview from '@/components/StatsPreview'
 import HerenciaPreview from '@/components/HerenciaPreview'
 import GalleryPreview from '@/components/GalleryPreview'
 import LibraryPreview from '@/components/LibraryPreview'
@@ -24,7 +24,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       {/* 3. About Preview */}
       <AboutPreview locale={locale} dict={dict} />
 
-      {/* 4. Stats Preview (ಹೊಸದಾಗಿ ಸೇರಿಸಲಾಗಿದೆ) */}
+      {/* 4. Stats Preview */}
       <StatsPreview locale={locale} />
 
       {/* 5. Herencia Preview */}
@@ -33,8 +33,11 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       {/* 6. Gallery Preview */}
       <GalleryPreview locale={locale} dict={dict} />
       
-      {/* 7. Library Preview */}
-      <LibraryPreview locale={locale} dict={dict} />
+      {/* 
+        7. Library Preview 
+        ಇಲ್ಲಿ dict={dict} ತೆಗೆದುಹಾಕಲಾಗಿದೆ 
+      */}
+      <LibraryPreview locale={locale} />
       
       {/* 8. Contact Preview */}
       <ContactPreview locale={locale} dict={dict} />
