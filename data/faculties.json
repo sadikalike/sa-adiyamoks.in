@@ -1,4 +1,102 @@
 [
-  { "id": 1, "nameKn": "ಉಸ್ತಾದ್ ಅಹ್ಮದ್", "nameEn": "Ustad Ahmed", "subjectKn": "ಅರಬ್ಬಿ", "subjectEn": "Arabic" },
-  { "id": 2, "nameKn": "ಉಸ್ತಾದ್ ಯೂಸುಫ್", "nameEn": "Ustad Yusuf", "subjectKn": "ಇಸ್ಲಾಮಿಕ್ ಸ್ಟಡೀಸ್", "subjectEn": "Islamic Studies" }
+  {
+    "id": 1,
+    "nameKn": "ಅಸ್ಸಯ್ಯದ್ ಕೆ.ಎಸ್ ಆಟಕೋಯ ತಂಙಳ್ ಕುಂಬೋಳ್",
+    "nameEn": "Assayyid K.S Atakoya Thangal Kumbole",
+    "titleKn": "ಅಧ್ಯಕ್ಷರು, ಜಾಮಿಅ ಸಅದಿಯಾ",
+    "titleEn": "President, Jamia Sa'adiya",
+    "descKn": "ಕುಂಬೋಲ್ ತಂಙಳ್ ಎಂದು ಹೆಸರು ಕೇಳುವಾಗಲೇ ಮನಸ್ಸಿಗೆ ಓಡಿಬರುವ ಹೆಸರು ಕೆ ಎಸ್ ಆಟಕ್ಕೋಯ ತಂಙಳ್ ಎಂದಾಗಿದೆ. ಉತ್ತರ ಕೇರಳ ಮತ್ತು ಕರ್ನಾಟಕದಲ್ಲಿ ಸುಪರಿಚಿತರು. ಹಲವಾರು ಧಾರ್ಮಿಕ, ಶೈಕ್ಷಣಿಕ ಕೇಂದ್ರಗಳಿಗೆ ನೇತೃತ್ವ ನೀಡುವುದರೊಂದಿಗೆ ದಕ್ಷಿಣ ಭಾರತದ ಅತ್ಯುನ್ನತ ಧಾರ್ಮಿಕ ಮತ್ತು ಲೌಕಿಕ ಶಿಕ್ಷಣ ಕೇಂದ್ರವಾದ ಜಾಮಿಅ ಸಅದಿಯಾ ಅರಬಿಯಾ ಎಂಬ ವಿದ್ಯಾಸಂಸ್ಥೆಗೆ 2014 ರಲ್ಲಿ ಅಧ್ಯಕ್ಷ ಸ್ಥಾನವನ್ನು ಅಲಂಕರಿಸಿದರು. ಯಾವುದೇ ರೀತಿಯ ಜಟಿಲ ಸಮಸ್ಯೆಗಳನ್ನು ಲಲಿತವಾಗಿ ಪರಿಹರಿಸಿಕೊಡುವುದರಲ್ಲಿ ನಿಪುಣರು.",
+    "descEn": "The name K.S Atakoya Thangal is synonymous with Kumbole Thangal, well-known in North Kerala and Karnataka. Along with leading several religious and educational centers, he assumed the presidency of Jamia Sa'adiya Arabia, South India's premier religious and secular educational institution, in 2014. He is an expert in amicably resolving complex issues.",
+    "image": "/atakoya.png"
+  },
+  {
+    "id": 2,
+    "nameKn": "ಸಅದುಲ್ ಉಲಮಾ ಶೈಖುನಾ ಎ.ಪಿ ಅಬ್ದುಲ್ಲಾ ಮುಸ್ಲಿಯಾರ್",
+    "nameEn": "Saadul Ulama Sheikhuna A.P Abdullah Musliyar",
+    "titleKn": "ಪ್ರಧಾನ ಕಾರ್ಯದರ್ಶಿ ಮತ್ತು ಪ್ರಾಂಶುಪಾಲರು",
+    "titleEn": "General Secretary & Principal",
+    "descKn": "1940ರಲ್ಲಿ ಮಾಣಿಕೋತ್‌ನಲ್ಲಿ ಜನಿಸಿದ ಅವರು, 1969ರಲ್ಲಿ ಫೈಝಿ ಬಿರುದು ಪಡೆದರು. 1995ರಲ್ಲಿ ಶರೀಅತ್ ಕಾಲೇಜು ಪ್ರಾರಂಭವಾದಾಗ ಮುದರಿಸರಾಗಿ ಅಧಿಕಾರ ವಹಿಸಿಕೊಂಡು, ಎಂ.ಎ.ಉಸ್ತಾದರಿಗೆ ಬೆನ್ನೆಲುಬಾಗಿ ನಿಂತರು. ಸುದೀರ್ಘ 55 ವರ್ಷಗಳ ಸಅದಿಯಾದ ಪಯಣದಲ್ಲಿ ವಿವಿಧ ಹುದ್ದೆಗಳನ್ನು ಅಲಂಕರಿಸಿ ಇದೀಗ ಸಅದಿಯಾ ಯುನಿವರ್ಸಿಟಿಯ ಪ್ರಧಾನ ಕಾರ್ಯದರ್ಶಿ ಮತ್ತು ಶರೀಅತ್ ಕಾಲೇಜಿನ ಪ್ರಾಂಶುಪಾಲರಾಗಿದ್ದಾರೆ.",
+    "descEn": "Born in 1940 at Manikoth, he earned the Faizi title in 1969. When the Sharia College started in 1995, he took charge as Mudarris and became the backbone for M.A. Ustad. Having held various positions in Sa'adiya's 55-year journey, he is now the General Secretary of Sa'adiya University and Principal of the Sharia College.",
+    "image": "/abdullah.png"
+  },
+  {
+    "id": 3,
+    "nameKn": "ಕೆ.ಕೆ. ಹುಸೈನ್ ಬಾಖವಿ",
+    "nameEn": "K.K. Hussain Baqavi",
+    "titleKn": "ಉಪ ಪ್ರಾಂಶುಪಾಲರು",
+    "titleEn": "Vice Principal",
+    "descKn": "ವಯನಾಡ್ ಜಿಲ್ಲೆಯ ತರಿಯಾಡ್‌ನಲ್ಲಿ ಜನಿಸಿದ ಅವರು, ವಿವಿಧ ದರ್ಸ್‌ಗಳಲ್ಲಿ ವಿದ್ಯಾಭ್ಯಾಸ ಪಡೆದರು. 1985ರಿಂದ ಜಾಮಿಅ ಸಅದಿಯಾ ಶರೀಅತ್ ಕಾಲೇಜಿನ ಮುದರಿಸರಾಗಿ ಕಾರ್ಯ ನಿರ್ವಹಿಸುತ್ತಿದ್ದಾರೆ. ನಾಲ್ಕು ದಶಕಗಳ ಅಧ್ಯಾಪನದಲ್ಲಿ ಸಹಸ್ರಾರು ಶಿಷ್ಯರನ್ನು ತಯಾರು ಮಾಡಿದ್ದಾರೆ.",
+    "descEn": "Born in Thariyod, Wayanad, he studied in various Dars. He has been serving as a Mudarris at Jamia Sa'adiya Sharia College since 1985. In four decades of teaching, he has mentored thousands of students.",
+    "image": "/hussainbaqavi.png"
+  },
+  {
+    "id": 4,
+    "nameKn": "ಉಬೈದುಲ್ಲಾಹ್ ಸಅದಿ ಅನ್ನದ್ವಿ",
+    "nameEn": "Ubaidullah Saadi Annadwi",
+    "titleKn": "ಪ್ರೊಫೆಸರ್ (ಅರಬ್ಬಿ ಸಾಹಿತ್ಯ)",
+    "titleEn": "Professor (Arabic Literature)",
+    "descKn": "1960ರಲ್ಲಿ ಜನಿಸಿದ ಅವರು, 1987ರಲ್ಲಿ ಸಅದಿ ಬಿರುದು ಪಡೆದರು. ಲಕ್ಕೋ ದಾರುಲ್ ಉಲೂಂ ನದ್ವತುಲ್ ಉಲಮಾದಲ್ಲಿ ಅರಬಿ ಸಾಹಿತ್ಯದಲ್ಲಿ ಸ್ನಾತಕೋತ್ತರ ಪದವಿ ಮತ್ತು 1997ರಲ್ಲಿ ಈಜಿಪ್ಟಿನ ಅಲ್ ಅಝರ್ ಯುನಿವರ್ಸಿಟಿಯಲ್ಲಿ ದಅವಾ ಕೋರ್ಸ್ ಪೂರ್ತಿಗೊಳಿಸಿದರು. 1989ರಿಂದ ಶರೀಅತ್ ಕಾಲೇಜ್‌ನ ಪ್ರೊಫೆಸರ್ ಆಗಿದ್ದಾರೆ.",
+    "descEn": "Born in 1960, he earned the Saadi title in 1987. He completed his PG in Arabic Literature from Darul Uloom Nadwatul Ulama, Lucknow, and the Da'wa course at Al-Azhar University, Egypt, in 1997. He has been a Professor at the Sharia College since 1989.",
+    "image": "/ubaidullah.png"
+  },
+  {
+    "id": 5,
+    "nameKn": "ಅಬ್ದುಲ್ಲ ಬಾಖವಿ ಕುಟ್ಟಕ್ಕೇರಿ",
+    "nameEn": "Abdullah Baqavi Kuttakkeri",
+    "titleKn": "ಪ್ರಧಾನ ಮುದರಿಸ್ (ಶರೀಅತ್ ಕಾಲೇಜು)",
+    "titleEn": "Chief Mudarris (Sharia College)",
+    "descKn": "ಮಲಪ್ಪುರಂ ಜಿಲ್ಲೆಯಲ್ಲಿ ಜನಿಸಿದ ಅವರು 1988ರಲ್ಲಿ ವೆಲ್ಲೂರು ಬಾಖಿಯಾತ್‌ನಲ್ಲಿ ಬಾಖವಿ ಬಿರುದು ಪಡೆದರು. ವೆಳ್ಳುವಂಬ್ರಂ ಅತ್ರಾಣಿಕ್ಕಲ್ ಶಿಹಾಬುಲ್ ಉಲೂಂ ಅರಬಿಕ್ ಕಾಲೇಜು ಸೇರಿದಂತೆ ವಿವಿಧ ಕಡೆ ಮುದರಿಸರಾಗಿ ಸೇವೆ ಸಲ್ಲಿಸಿದ್ದಾರೆ. 1996ರಿಂದ ಜಾಮಿಅ ಸಅದಿಯಾದಲ್ಲಿ ಸೇವೆ ಸಲ್ಲಿಸುತ್ತಿದ್ದು, ಕಳೆದ 3 ದಶಕಗಳಿಂದ ಶರೀಅತ್ ಕಾಲೇಜಿನ ಪ್ರಧಾನ ಮುದರಿಸರಾಗಿದ್ದಾರೆ.",
+    "descEn": "Born in Malappuram district, he earned the Baqavi title from Vellore Baqiyat in 1988. He served as Mudarris in various places including Shihabul Uloom Arabic College. He has been serving at Jamia Sa'adiya since 1996 and has been the Chief Mudarris of the Sharia College for the past 3 decades.",
+    "image": "/abdullabaqavi.png"
+  },
+  {
+    "id": 6,
+    "nameKn": "ಮುಹಮ್ಮದ್ ಸ್ವಾಲಿಹ್ ಸಅದಿ ಉಸ್ತಾದ್",
+    "nameEn": "Muhammad Swalih Saadi Ustad",
+    "titleKn": "ಸೀನಿಯರ್ ಮುದರಿಸ್",
+    "titleEn": "Senior Mudarris",
+    "descKn": "1960ರಲ್ಲಿ ಜನಿಸಿದ ಅವರು, 1983ರಲ್ಲಿ ಸಅದಿ ಬಿರುದು ಪಡೆದರು. 1985ರಿಂದ ಜಾಮಿಅ ಸಅದಿಯಾದಲ್ಲಿ ಮುದರಿಸರಾಗಿ ಸೇವೆ ಗೈಯ್ಯುತ್ತಿದ್ದಾರೆ. ಕರ್ಮಶಾಸ್ತ್ರ, ಹದೀಸ್, ಮಲ್ಬುಬ್ ಚರ್ಚೆಯನ್ನೊಳಗೊಂಡ ಆಕರ್ಷಣೀಯ ತರಗತಿ ಇವರ ವೈಶಿಷ್ಟತೆಯಾಗಿದೆ. ಲೇಖಕರೂ ಆದ ಇವರ ಹಲವು ಕೃತಿಗಳು ಕನ್ನಡ ಸೇರಿದಂತೆ ಹಲವು ಭಾಷೆಗಳಿಗೆ ಭಾಷಾಂತರಗೊಂಡಿವೆ.",
+    "descEn": "Born in 1960, he earned the Saadi title in 1983. He has been serving as a Mudarris at Jamia Sa'adiya since 1985. His engaging classes covering jurisprudence, Hadith, and Malabari discussions are his specialty. An author, his works have been translated into several languages including Kannada.",
+    "image": "/swalih.png"
+  },
+  {
+    "id": 7,
+    "nameKn": "ತ್ರಿಕರಿಪುರ್ ಮುಹಮ್ಮದಲೀ ಸಖಾಫಿ",
+    "nameEn": "Thrikaripur Muhammadali Sakafi",
+    "titleKn": "ಸೀನಿಯರ್ ಮುದರಿಸ್",
+    "titleEn": "Senior Mudarris",
+    "descKn": "1964ರಲ್ಲಿ ತ್ರಿಕರಿಪುರಿನಲ್ಲಿ ಜನಿಸಿದ ಅವರು, ಮರ್ಕಝ್‌ನಲ್ಲಿ ಹೊಸದಾಗಿ ಶರೀಅತ್ ಕಾಲೇಜ್ ಸ್ಥಾಪನೆಗೊಂಡ ಸುದ್ದಿ ಕೇಳಿ ಸಖಾಫಿ ಬಿರುದುದಾರರಾಗಿ ಹೊರ ಹೊಮ್ಮಿದರು. ಇಸ್ಲಾಂ ಎದುರಿಸುವ ನೂತನ ಯುಕ್ತಿವಾದ ಮತ್ತು ಸಮಸ್ಯೆಗಳಿಗೆ ಪರಿಹಾರ ಕಂಡುಕೊಳ್ಳುವಲ್ಲಿ ಪ್ರಮುಖರಾಗಿದ್ದಾರೆ. ದಶಕಗಳ ಕಾಲ ಜಾಮಿಅ ಸಅದಿಯಾದಲ್ಲಿ ಪ್ರಧಾನ ಮುದರಿಸರಾಗಿ ಕಾರ್ಯ ನಿರ್ವಹಿಸುತ್ತಿದ್ದಾರೆ.",
+    "descEn": "Born in 1964 at Thrikaripur, he earned the Sakafi title after joining the newly established Sharia College at Markaz. He is prominent in finding solutions to modern rationalism and issues facing Islam. He has been serving as a Chief Mudarris at Jamia Sa'adiya for decades.",
+    "image": "/muhammadali.png"
+  },
+  {
+    "id": 8,
+    "nameKn": "ಕೆ.ಪಿ. ಹುಸೈನ್ ಸಅದಿ ಕೆ.ಸಿ. ರೋಡ್",
+    "nameEn": "K.P. Hussain Saadi K.C. Road",
+    "titleKn": "ಮುದರಿಸ್",
+    "titleEn": "Mudarris",
+    "descKn": "ಕುಂಬಳೆ ಸಮೀಪದ ಕಳತ್ತೂರು ಮೂಲದ ಅವರು, ಉಪ್ಪಳಕುನ್ನು ಜುಮಾ ಮಸೀದಿಯಲ್ಲಿ 10 ವರ್ಷಗಳ ಕಾಲ ಕಲಿತರು. 1985ರಲ್ಲಿ ಸಅದಿಯಾದಲ್ಲಿ ಸಅದಿ ಬಿರುದು ಪಡೆದರು. ತಲಪ್ಪಾಡಿ ಸಮೀಪದ ಕೆ.ಸಿ ರೋಡಿನಲ್ಲಿ 18 ವರ್ಷಗಳ ಕಾಲ ದರ್ಸ್ ನಡೆಸಿದ್ದಾರೆ. ಇದೀಗ ಸಅದಿಯಾ ಶರೀಅತ್ ಕಾಲೇಜು ಮುದರಿಸರಾಗಿ ಸೇವೆ ಸಲ್ಲಿಸುತ್ತಿದ್ದಾರೆ.",
+    "descEn": "A native of Kalathur near Kumbala, he studied at Uppalaqunnu Juma Masjid for 10 years. He earned the Saadi title at Sa'adiya in 1985. He ran a Dars at K.C. Road for 18 years. He is currently serving as a Mudarris at Sa'adiya Sharia College.",
+    "image": "/kphussain.png"
+  },
+  {
+    "id": 9,
+    "nameKn": "ಜಾಫರ್ ಉಮರ್ ಸಅದಿ ಅಚೂರು",
+    "nameEn": "Jafar Umar Saadi Achoor",
+    "titleKn": "ಮುದರಿಸ್ ಮತ್ತು ನಿರ್ದೇಶಕ (ICERT)",
+    "titleEn": "Mudarris & Director (ICERT)",
+    "descKn": "1980ರಲ್ಲಿ ವಯನಾಡ್‌ನ ಅಚೂರ್‌ನಲ್ಲಿ ಜನಿಸಿದ ಅವರು, 2002ರಲ್ಲಿ ಸಅದಿ ಪದವಿ ಮತ್ತು 2003ರಲ್ಲಿ ಅರಬಿಯಲ್ಲಿ ತಖಸ್ಸುಸ್ ಪದವಿ ಪಡೆದರು. ಪ್ರಸ್ತುತ ಸಅದಿಯಾದ ಮುದರಿಸರಾಗಿ, ಅಲಪ್ಪುಝ ಪಾಣವಳ್ಳಿ ಕೇಂದ್ರವಾಗಿ ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತಿರುವ ICERT ಯೋಜನೆಯ ನಿರ್ದೇಶಕರಾಗಿದ್ದಾರೆ.",
+    "descEn": "Born in 1980 at Achoor, Wayanad, he earned his Saadi degree in 2002 and Takhasus in Arabic in 2003. He is currently a Mudarris at Sa'adiya and the Director of the ICERT educational project operating from Panavally, Alappuzha.",
+    "image": "/jafar.png"
+  },
+  {
+    "id": 10,
+    "nameKn": "ಅಲಿ ಅಸ್ಕರ್ ಬಾಖವಿ",
+    "nameEn": "Ali Askar Baqavi",
+    "titleKn": "ಮುದರಿಸ್",
+    "titleEn": "Mudarris",
+    "descKn": "1978ರಲ್ಲಿ ಮಲಪ್ಪುರಂ ಜಿಲ್ಲೆಯಲ್ಲಿ ಜನಿಸಿದ ಅವರು, 1999ರಲ್ಲಿ ಬಾಕಿಯಾತು ಸ್ವಾಲಿಹಾತ್‌ನಿಂದ ಬಾಖಾವಿ ಪದವೀಧರರಾದರು. ಖತೀಬ್ ಮತ್ತು ಮುದರಿಸ್ ಆಗಿ ಅಪಾರ ಅನುಭವ ಹೊಂದಿದ್ದಾರೆ. ಜ್ಯೋತಿಷ್ಯ, ಸಮರ್ಥ ಸಂವಹನ, ವಿಮರ್ಶಾತ್ಮಕ ಚಿಂತನೆ, ವ್ಯಾಪಾರ ಅಭಿವೃದ್ಧಿ ಮುಂತಾದ ಕೌಶಲ್ಯಗಳನ್ನು ಹೊಂದಿದ್ದಾರೆ. 2024ರಲ್ಲಿ ಜಾಮಿಯಾ ಸಅದಿಯಾದ ಪ್ರಮುಖ ಮುದರಿಸರಾಗಿ ಸೇವೆ ಸಲ್ಲಿಸುತ್ತಿದ್ದಾರೆ.",
+    "descEn": "Born in 1978 in Malappuram, he graduated as Baqavi from Baqiyath Swalihath in 1999. He has vast experience as a Khatib and Mudarris. He possesses skills in astrology, effective communication, critical thinking, and business development. He has been serving as a senior Mudarris at Jamia Sa'adiya since 2024.",
+    "image": "/aliasgar.png"
+  }
 ]

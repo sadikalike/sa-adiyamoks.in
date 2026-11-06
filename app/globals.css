@@ -247,3 +247,48 @@ body {
     animation: float3d 8s ease-in-out infinite;
   }
 }
+/* 3D ತೇಲುವ (Floating) ಅನಿಮೇಷನ್ */
+@keyframes float3d {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-30px) rotate(10deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+@layer utilities {
+  .animate-float-3d {
+    animation: float3d 8s ease-in-out infinite;
+  }
+}
+
+/* ... ನಿಮ್ಮ ಹಿಂದಿನ ಕೋಡ್ ... */
+
+/* 3D ಪುಸ್ತಕಗಳ ತೇಲುವ (Floating Books) ಅನಿಮೇಷನ್ */
+@keyframes floatBook1 {
+  0% { transform: translateY(0px) rotate(12deg); }
+  50% { transform: translateY(-30px) rotate(15deg); }
+  100% { transform: translateY(0px) rotate(12deg); }
+}
+
+@keyframes floatBook2 {
+  0% { transform: translateY(0px) rotate(-12deg); }
+  50% { transform: translateY(-40px) rotate(-8deg); }
+  100% { transform: translateY(0px) rotate(-12deg); }
+}
+
+@keyframes floatBook3 {
+  0% { transform: translateY(0px) rotate(45deg); }
+  50% { transform: translateY(-25px) rotate(48deg); }
+  100% { transform: translateY(0px) rotate(45deg); }
+}
+
+@layer utilities {
+  .animate-float-book-1 {
+    animation: floatBook1 10s ease-in-out infinite;
+  }
+  .animate-float-book-2 {
+    animation: floatBook2 12s ease-in-out infinite;
+  }
+  .animate-float-book-3 {
+    animation: floatBook3 8s ease-in-out infinite;
+  }
+}
