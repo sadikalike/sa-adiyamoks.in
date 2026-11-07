@@ -1,5 +1,6 @@
 import './globals.css'
 import { Plus_Jakarta_Sans } from 'next/font/google'
+import Preloader from '@/components/Preloader' // ಇದನ್ನು ಸೇರಿಸಿ
 
 const jakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -21,6 +22,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${jakarta.variable} antialiased bg-[#0a192f] text-slate-800 font-sans`}>
+        {/* ಇಲ್ಲಿ Preloader ಸೇರಿಸಿ */}
+        <Preloader />
+        
         {children}
       </body>
     </html>
