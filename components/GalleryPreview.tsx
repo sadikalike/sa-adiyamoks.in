@@ -55,14 +55,15 @@ export default function GalleryPreview({ locale, dict }: { locale: string; dict:
       {/* Sliding Container */}
       <div className="relative w-full overflow-hidden">
         
+        {/* 
+          ಇಲ್ಲಿ 'animate-marquee' ಕ್ಲಾಸ್ ಇದೆ. 
+          ಇದು globals.css ನಲ್ಲಿ ವ್ಯಾಖ್ಯಾನಿಸಲ್ಪಟ್ಟಿರಬೇಕು.
+        */}
         <div className="flex w-max animate-marquee gap-6 px-6 hover:[animation-play-state:paused]">
           
           {[...galleryItems, ...galleryItems].map((item, index) => (
             <div 
               key={index} 
-              // 
-              // ಹಿಂದಿನಂತೆಯೇ ಸಣ್ಣ ಗಾತ್ರದ ಕಾರ್ಡ್, ಆದರೆ ಇಲ್ಲಿ ವಿವರಣೆಗಳು ಸ್ಪಷ್ಟವಾಗಿ ಕಾಣುತ್ತವೆ.
-              //
               className="relative w-[85vw] sm:w-[350px] md:w-[400px] shrink-0 rounded-2xl overflow-hidden shadow-lg group cursor-pointer bg-white border border-slate-100"
             >
               {/* Image */}
@@ -71,12 +72,13 @@ export default function GalleryPreview({ locale, dict }: { locale: string; dict:
                   src={item.image}
                   alt={locale === 'kn' ? item.titleKn : item.titleEn}
                   fill
+                  loading="lazy" // ಇದನ್ನು ಸೇರಿಸಲಾಗಿದೆ
                   className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
                 <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-300"></div>
               </div>
 
-              {/* Content Box below Image (ಹಿಂದಿನಂತೆ) */}
+              {/* Content Box below Image */}
               <div className="p-5 md:p-6 bg-white">
                 <h3 className="text-slate-900 font-bold text-lg md:text-xl mb-2 leading-tight line-clamp-1 group-hover:text-emerald-600 transition-colors">
                   {locale === 'kn' ? item.titleKn : item.titleEn}

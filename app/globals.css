@@ -159,3 +159,17 @@ body {
 
   .animate-marquee-left { animation: marquee-left 12s linear infinite; will-change: transform; }
 }
+/* ... ನಿಮ್ಮ ಹಿಂದಿನ ಕೋಡ್ ... */
+
+/* ಎಡದಿಂದ ಎಡಕ್ಕೆ ಜಾರುವ (Marquee) ಅನಿಮೇಷನ್ */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@layer utilities {
+  .animate-marquee {
+    animation: marquee 25s linear infinite;
+    will-change: transform;
+  }
+}
