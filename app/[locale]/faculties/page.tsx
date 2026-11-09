@@ -32,7 +32,11 @@ export default function FacultiesPage({ params }: { params: Promise<{ locale: st
 
       {/* Grid Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 relative z-20">
-        <div className="grid md:grid-cols-2 gap-8 items-start">
+        {/* 
+          ಇಲ್ಲಿ grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ಬಳಸಲಾಗಿದೆ.
+          ಇದರಿಂದ ಲ್ಯಾಪ್‌ಟಾಪ್‌ನಲ್ಲಿ 3 ಕಾರ್ಡ್‌ಗಳು ಒಂದೇ ಸಾಲಿನಲ್ಲಿ ಬರುತ್ತವೆ.
+        */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
           
           {faculties.map((f: any) => {
             const isExpanded = expandedId === f.id
@@ -40,22 +44,29 @@ export default function FacultiesPage({ params }: { params: Promise<{ locale: st
             return (
               <div 
                 key={f.id} 
-                className={`group bg-white rounded-[2rem] overflow-hidden border border-slate-100 transition-all duration-500 flex flex-col sm:flex-row ${
+                // 
+                // ಇಲ್ಲಿ flex-col ಬಳಸಲಾಗಿದೆ. ಇದರಿಂದ ಚಿತ್ರ ಮೇಲೆ ಮತ್ತು ಪಠ್ಯ ಕೆಳಗೆ ಬರುತ್ತದೆ.
+                // 
+                className={`group bg-white rounded-[2rem] overflow-hidden border border-slate-100 transition-all duration-500 flex flex-col ${
                   isExpanded ? 'shadow-[0_20px_50px_rgba(16,185,129,0.15)] border-emerald-200' : 'shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_20px_40px_rgba(16,185,129,0.15)] hover:-translate-y-1'
                 }`}
               >
                 
-                {/* Image Container (Avatar placeholder if no image) */}
-                <div className="relative w-full sm:w-[40%] h-64 sm:h-auto overflow-hidden bg-slate-100 shrink-0">
+                {/* 
+                  Image Container 
+                  ಇಲ್ಲಿ h-80 (ಮೊಬೈಲ್) ಮತ್ತು md:h-96 (ಲ್ಯಾಪ್) ನೀಡಲಾಗಿದೆ.
+                  ಇದರಿಂದ ಚಿತ್ರದ ಎತ್ತರ ಸ್ಥಿರವಾಗಿದ್ದು, ಜೂಮ್ ಆಗುವುದಿಲ್ಲ.
+                */}
+                <div className="relative w-full h-80 md:h-96 overflow-hidden bg-slate-100 shrink-0">
                   {f.image ? (
                     <Image
                       src={f.image}
                       alt={locale === 'kn' ? f.nameKn : f.nameEn}
                       fill
-                      className="object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out"
+                      // object-center ನೀಡಿರುವುದರಿಂದ ಚಿತ್ರದ ಮಧ್ಯಭಾಗ ಸ್ಪಷ್ಟವಾಗಿ ಕಾಣುತ್ತದೆ
+                      className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
                     />
                   ) : (
-                    // ಚಿತ್ರವಿಲ್ಲದಿದ್ದಾಗ ಅವರ ಹೆಸರಿನ ಮೊದಲ ಅಕ್ಷರವನ್ನು ತೋರಿಸುವ ಸುಂದರ ವೃತ್ತ
                     <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-emerald-50 to-blue-50 relative overflow-hidden">
                       <div className="absolute inset-0 bg-[radial-gradient(#10b98110_1px,transparent_1px)] [background-size:16px_16px]"></div>
                       <div className="w-24 h-24 rounded-full bg-white shadow-xl flex items-center justify-center border-4 border-emerald-100 z-10">
@@ -71,17 +82,14 @@ export default function FacultiesPage({ params }: { params: Promise<{ locale: st
                 {/* Content Container */}
                 <div className="p-6 md:p-8 flex-grow flex flex-col relative bg-white">
                   
-                  {/* Tag (ಹುದ್ದೆ) */}
                   <span className="inline-block py-1 px-3 rounded-full bg-emerald-50 border border-emerald-100 text-emerald-700 text-[10px] md:text-xs font-bold tracking-wider uppercase mb-3 w-fit">
-                    {locale === 'kn' ? f.titleKn : f.titleEn}
+                    {locale === 'kn' ? 'ಉಸ್ತಾದ್' : 'USTHAD'}
                   </span>
                   
-                  {/* Name */}
                   <h3 className="font-black text-xl md:text-2xl text-slate-900 mb-3 leading-tight group-hover:text-emerald-600 transition-colors">
                     {locale === 'kn' ? f.nameKn : f.nameEn}
                   </h3>
 
-                  {/* Description (Expand / Collapse) */}
                   <p 
                     className={`text-slate-600 text-sm leading-relaxed text-justify mb-6 flex-grow transition-all duration-500 ${
                       isExpanded ? 'line-clamp-none' : 'line-clamp-3'
@@ -90,23 +98,18 @@ export default function FacultiesPage({ params }: { params: Promise<{ locale: st
                     {locale === 'kn' ? f.descKn : f.descEn}
                   </p>
 
-                  {/* Read More / Read Less Button */}
-                  <div className="mt-auto pt-4 border-t border-slate-100">
+                  <div className="mt-auto pt-4 border-t border-slate-100 flex justify-end">
                     <button
                       onClick={() => toggleReadMore(f.id)}
-                      className="inline-flex items-center justify-center gap-2 text-emerald-600 font-bold text-sm hover:text-emerald-700 transition-colors group/btn focus:outline-none"
+                      className="w-8 h-8 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600 hover:bg-emerald-100 hover:text-emerald-700 transition-all duration-300 group/btn focus:outline-none"
                     >
-                      {isExpanded 
-                        ? (locale === 'kn' ? 'ಕಡಿಮೆ ಓದಿ' : 'Read Less') 
-                        : (locale === 'kn' ? 'ಇನ್ನಷ್ಟು ಓದಿ' : 'Read More')}
-                      
                       <svg 
                         className={`w-4 h-4 transition-transform duration-300 ${isExpanded ? '-rotate-90' : 'rotate-0'}`} 
                         fill="none" 
                         stroke="currentColor" 
                         viewBox="0 0 24 24"
                       >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                       </svg>
                     </button>
                   </div>
