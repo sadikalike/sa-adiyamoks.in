@@ -37,50 +37,38 @@ export default function Navbar({ locale, dict }: { locale: string; dict: any }) 
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8">
         
-        {/* Logo & Brand */}
-        <Link href={`/${locale}`} className="flex items-center gap-2 group relative">
-          <div className="absolute -inset-2 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-2xl blur opacity-0 group-hover:opacity-30 transition duration-500"></div>
+        {/* Logo Only */}
+        <Link href={`/${locale}`} className="flex items-center group relative">
           
-          {/* 
-            Logo Image Box: 
-            ಇಲ್ಲಿ ಬಾಕ್ಸ್ ಸೈಜ್ ಅನ್ನು w-10 h-10 ಗೆ ಸ್ವಲ್ಪ ದೊಡ್ಡದಾಗಿಸಲಾಗಿದೆ.
-            ಒಳಗಿನ ಇಮೇಜ್‌ಗೆ scale-100 ಕೊಟ್ಟಿರುವುದರಿಂದ ಇಮೇಜ್ ಜೂಮ್ ಆಗುವುದಿಲ್ಲ (ಸೈಜ್ ಹಾಗೆಯೇ ಇರುತ್ತದೆ).
-          */}
-          <div className="relative w-10 h-10 bg-white/95 rounded-md shadow-[0_0_15px_rgba(255,255,255,0.1)] group-hover:scale-105 transition-transform duration-500 shrink-0 border border-white/20 overflow-hidden flex items-center justify-center">
-            <Image 
-              src="/logo.png" 
-              alt="MOKS Logo" 
-              width={40}
-              height={40}
-              className="object-contain scale-100" 
-              priority 
-            />
-          </div>
-          
-          {/* Text Container */}
-          <div className="flex flex-col justify-center">
+          {/* Logo Container */}
+          <div className="relative w-12 h-12 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center shrink-0 shadow-[0_0_20px_rgba(255,255,255,0.05)] overflow-hidden group-hover:border-emerald-500/50 transition-colors duration-500">
             
-            {/* MOKS ಫಾಂಟ್ */}
-            <span 
-              style={{ 
-                fontFamily: '"Arial Black", Impact, sans-serif',
-                fontWeight: 900,
+            {/* 
+              1. ಹೊರಗಿನ ಬಣ್ಣಗಳ ರಿಂಗ್ (Conic Gradient) 
+              ಇಲ್ಲಿ from 0deg ಮತ್ತು 3 ಬಣ್ಣಗಳನ್ನು (Blue, Green, Brown) ಮಾತ್ರ ಸರಿಯಾಗಿ ಜೋಡಿಸಲಾಗಿದೆ.
+              ಇದರಿಂದ ಬಣ್ಣಗಳು ಸುತ್ತುವಾಗ ಯಾವುದೇ ಒಂದು ಬಣ್ಣ ದೊಡ್ಡದಾಗಿ/ಚಿಕ್ಕದಾಗಿ ಕಾಣುವುದಿಲ್ಲ (No Big/Short).
+            */}
+            <div 
+              className="absolute inset-0 rounded-xl opacity-90 group-hover:opacity-100 animate-spin-slow"
+              style={{
+                background: 'conic-gradient(from 0deg, #0ea5e9, #22c55e, #b45309, #0ea5e9)'
               }}
-              className={`text-white leading-none drop-shadow-md group-hover:text-emerald-400 transition-colors duration-300 ${
-                locale === 'kn' ? 'text-[32px]' : 'text-[28px]'
-              }`}
-            >
-              MOKS
-            </span>
+            ></div>
+
+            {/* 2. ಒಳಗಿನ ಲೋಗೋ ಬಾಕ್ಸ್ */}
+            <div className="absolute inset-[2.5px] bg-white rounded-[9px] flex items-center justify-center overflow-hidden">
+              <Image 
+                src="/logo.png" 
+                alt="MOKS Logo" 
+                width={40}
+                height={40}
+                className="object-contain scale-110 group-hover:scale-125 transition-transform duration-500" 
+                priority 
+              />
+            </div>
             
-            {/* Subline */}
-            <span 
-              lang={locale} 
-              className={`text-emerald-400 font-bold tracking-[0.15em] leading-none opacity-95 uppercase whitespace-nowrap
-                ${locale === 'kn' ? 'text-[11px] -mt-1' : 'text-[10px] mt-[1px]'}`}
-            >
-              {locale === 'kn' ? 'ಕರ್ನಾಟಕ ವಿದ್ಯಾರ್ಥಿ ಸಂಘಟನೆ' : 'KARNATAKA STUDENTS'}
-            </span>
+            {/* ಹೊರಗಿನ ಗ್ಲೋ */}
+            <div className="absolute -inset-2 bg-gradient-to-r from-blue-500 to-green-500 rounded-xl blur opacity-0 group-hover:opacity-40 transition duration-500 pointer-events-none"></div>
           </div>
         </Link>
 
@@ -126,6 +114,7 @@ export default function Navbar({ locale, dict }: { locale: string; dict: any }) 
           <button 
             onClick={() => setIsOpen(!isOpen)}
             className="lg:hidden relative w-10 h-10 flex items-center justify-center rounded-full bg-white/5 border border-white/10 text-white hover:bg-white/10 hover:text-emerald-400 transition-all"
+            aria-label="Toggle Menu"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               {isOpen ? (

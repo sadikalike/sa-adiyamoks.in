@@ -38,7 +38,10 @@ export default function ContactPreview({ locale, dict }: { locale: string; dict:
   ]
 
   return (
-    <Section title={dict.sections.contact.title} bg="gradient" moreHref={`/${locale}/contact`} moreLabel={dict.sections.contact.more}>
+    // 
+    // ಇಲ್ಲಿ moreHref ಮತ್ತು moreLabel ಅನ್ನು ತೆಗೆದುಹಾಕಲಾಗಿದೆ.
+    // 
+    <Section title={dict.sections.contact.title} bg="gradient">
       
       <div className="max-w-5xl mx-auto bg-white/80 backdrop-blur-xl border border-white/60 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.05)] p-8 md:p-12 relative overflow-hidden">
         

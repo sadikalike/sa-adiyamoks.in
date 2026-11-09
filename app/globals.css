@@ -208,3 +208,71 @@ body {
     animation: pingSlow 2s cubic-bezier(0, 0, 0.2, 1) infinite;
   }
 }
+/* ... ನಿಮ್ಮ ಹಿಂದಿನ ಕೋಡ್ ... */
+
+/* ನಿಧಾನವಾಗಿ ತಿರುಗುವ (Spin) ಅನಿಮೇಷನ್ */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@layer utilities {
+  .animate-spin-slow {
+    animation: spin-slow 8s linear infinite;
+  }
+}
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@layer utilities {
+  .animate-spin-slow {
+    animation: spin-slow 8s linear infinite;
+  }
+}
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@layer utilities {
+  .animate-spin-slow {
+    animation: spin-slow 8s linear infinite;
+  }
+}
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@layer utilities {
+  .animate-spin-slow {
+    animation: spin-slow 8s linear infinite;
+  }
+}
+/* ... ನಿಮ್ಮ ಹಿಂದಿನ ಕೋಡ್ ... */
+
+/* 1. ಪಠ್ಯದ ಮೇಲೆ ಬೆಳಕು ಹಾದುಹೋಗುವ (Shimmer) ಅನಿಮೇಷನ್ */
+@keyframes shimmer {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+/* 2. 3D ನಿಂದ ಹೊರಕ್ಕೆ ಬರುವ (Pop In) ಅನಿಮೇಷನ್ */
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(20px) rotateX(30deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0) rotateX(0deg);
+  }
+}
+
+@layer utilities {
+  .animate-3d-pop {
+    animation: popIn 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  }
+}
