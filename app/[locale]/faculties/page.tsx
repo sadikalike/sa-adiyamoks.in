@@ -32,10 +32,6 @@ export default function FacultiesPage({ params }: { params: Promise<{ locale: st
 
       {/* Grid Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 relative z-20">
-        {/* 
-          ಇಲ್ಲಿ grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ಬಳಸಲಾಗಿದೆ.
-          ಇದರಿಂದ ಲ್ಯಾಪ್‌ಟಾಪ್‌ನಲ್ಲಿ 3 ಕಾರ್ಡ್‌ಗಳು ಒಂದೇ ಸಾಲಿನಲ್ಲಿ ಬರುತ್ತವೆ.
-        */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
           
           {faculties.map((f: any) => {
@@ -44,26 +40,18 @@ export default function FacultiesPage({ params }: { params: Promise<{ locale: st
             return (
               <div 
                 key={f.id} 
-                // 
-                // ಇಲ್ಲಿ flex-col ಬಳಸಲಾಗಿದೆ. ಇದರಿಂದ ಚಿತ್ರ ಮೇಲೆ ಮತ್ತು ಪಠ್ಯ ಕೆಳಗೆ ಬರುತ್ತದೆ.
-                // 
                 className={`group bg-white rounded-[2rem] overflow-hidden border border-slate-100 transition-all duration-500 flex flex-col ${
                   isExpanded ? 'shadow-[0_20px_50px_rgba(16,185,129,0.15)] border-emerald-200' : 'shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_20px_40px_rgba(16,185,129,0.15)] hover:-translate-y-1'
                 }`}
               >
                 
-                {/* 
-                  Image Container 
-                  ಇಲ್ಲಿ h-80 (ಮೊಬೈಲ್) ಮತ್ತು md:h-96 (ಲ್ಯಾಪ್) ನೀಡಲಾಗಿದೆ.
-                  ಇದರಿಂದ ಚಿತ್ರದ ಎತ್ತರ ಸ್ಥಿರವಾಗಿದ್ದು, ಜೂಮ್ ಆಗುವುದಿಲ್ಲ.
-                */}
+                {/* Image Container */}
                 <div className="relative w-full h-80 md:h-96 overflow-hidden bg-slate-100 shrink-0">
                   {f.image ? (
                     <Image
                       src={f.image}
                       alt={locale === 'kn' ? f.nameKn : f.nameEn}
                       fill
-                      // object-center ನೀಡಿರುವುದರಿಂದ ಚಿತ್ರದ ಮಧ್ಯಭಾಗ ಸ್ಪಷ್ಟವಾಗಿ ಕಾಣುತ್ತದೆ
                       className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
                     />
                   ) : (
@@ -82,10 +70,13 @@ export default function FacultiesPage({ params }: { params: Promise<{ locale: st
                 {/* Content Container */}
                 <div className="p-6 md:p-8 flex-grow flex flex-col relative bg-white">
                   
+                  {/* 
+                    ಇಲ್ಲಿ 'ಉಸ್ತಾದ್' ಎಂಬ ಲೇಬಲ್ ಸೇರಿಸಲಾಗಿದೆ 
+                  */}
                   <span className="inline-block py-1 px-3 rounded-full bg-emerald-50 border border-emerald-100 text-emerald-700 text-[10px] md:text-xs font-bold tracking-wider uppercase mb-3 w-fit">
                     {locale === 'kn' ? 'ಉಸ್ತಾದ್' : 'USTHAD'}
                   </span>
-                  
+
                   <h3 className="font-black text-xl md:text-2xl text-slate-900 mb-3 leading-tight group-hover:text-emerald-600 transition-colors">
                     {locale === 'kn' ? f.nameKn : f.nameEn}
                   </h3>
