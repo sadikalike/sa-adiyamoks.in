@@ -18,7 +18,8 @@ export default function PullStringCard({ locale = 'kn' }: { locale?: string }) {
   const onPointerMove = (e: React.PointerEvent) => {
     if (!pulling) return
     const dy = Math.max(0, Math.min(MAX_PULL, e.clientY - startY.current))
-    setPullDist(dy)
+    // Skip re-render for tiny changes → smoother drag
+    setPullDist(prev => (Math.abs(prev - dy) > 1 ? dy : prev))
   }
 
   const onPointerUp = () => {
@@ -45,9 +46,8 @@ export default function PullStringCard({ locale = 'kn' }: { locale?: string }) {
   return (
     <div className="flex flex-col items-center justify-center p-8">
       <div className="relative w-[360px] max-w-full">
-        {/* Inner dark/bright surface — compact when OFF, grows to fit text when ON */}
         <div
-          className="relative rounded-3xl overflow-hidden flex items-center justify-center"
+          className="relative rounded-3xl overflow-hidden flex items-center justify-center transform-gpu"
           style={{
             height: isOn ? 'auto' : '220px',
             minHeight: isOn ? '220px' : undefined,
@@ -69,7 +69,6 @@ export default function PullStringCard({ locale = 'kn' }: { locale?: string }) {
             }}
           />
 
-          {/* Content — only rendered when ON, so it defines the height */}
           {isOn && (
             <div className="relative z-10 w-full p-8 pr-16">
               <p className="text-lg md:text-xl font-semibold leading-relaxed text-slate-900 text-center">
@@ -86,7 +85,7 @@ export default function PullStringCard({ locale = 'kn' }: { locale?: string }) {
           )}
         </div>
 
-        {/* === PULL STRING — inside card, offset to the right === */}
+        {/* Pull string */}
         <div
           className="absolute z-20 flex flex-col items-center select-none"
           style={{ top: '10px', right: '26px' }}
@@ -98,6 +97,7 @@ export default function PullStringCard({ locale = 'kn' }: { locale?: string }) {
             style={{
               height: `${stringLen}px`,
               transition: pulling ? 'none' : 'height 300ms cubic-bezier(0.34, 1.56, 0.64, 1)',
+              willChange: 'height',
             }}
           />
 

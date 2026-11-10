@@ -1,4 +1,5 @@
 import Section from '@/components/Section'
+import LazyYouTube from '@/components/LazyYouTube'
 
 export default async function AboutPage({ params }: { params: Promise<{ locale: string }> }) {
   const resolvedParams = await params
@@ -19,7 +20,6 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
 
     moksTitle: "ನಮ್ಮ ಕಥೆ",
     videoTitle: "ನಮ್ಮ ಪರಂಪರೆ",
-    videoDesc: "MOKS ನ ಹೆಮ್ಮೆಯ ಪರಂಪರೆಯನ್ನು ಈ ವೀಡಿಯೊದಲ್ಲಿ ಕಣ್ತುಂಬಿಕೊಳ್ಳಿ."
   } : {
     title: "About MOKS",
     subtitle: "Nurturing Kannada Brilliance at the Heart of Jamia Sa'adiya Arabia",
@@ -35,16 +35,15 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
 
     moksTitle: "Our Story",
     videoTitle: "Our Heritage",
-    videoDesc: "Watch the proud heritage of MOKS come alive in this video."
   }
 
   return (
     <div className="bg-white">
-      {/* 1. Hero Section */}
+      {/* 1. Hero Section — lighter blurs, no mix-blend */}
       <section className="relative bg-[#0a192f] py-24 md:py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:32px_32px]"></div>
-        <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500 rounded-full mix-blend-multiply filter blur-[100px] opacity-20"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-[100px] opacity-20"></div>
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:32px_32px]" />
+        <div className="absolute top-0 right-0 w-72 h-72 bg-emerald-500/25 rounded-full blur-[60px] pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-72 h-72 bg-blue-500/25 rounded-full blur-[60px] pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
           <h1 className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tight leading-tight">
@@ -56,15 +55,14 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
         </div>
       </section>
 
-      {/* 2. Sa'adiya — Bekal Ustad Section (with video inside the card) */}
+      {/* 2. Sa'adiya — Bekal Ustad Section (video inside the card, no heading) */}
       <Section bg="gradient" title={content.saadiyaTitle}>
         <div className="max-w-4xl mx-auto">
-          {/* Modern gradient-bordered card */}
           <div className="relative rounded-[2rem] p-[1.5px] bg-gradient-to-br from-emerald-400 via-teal-300 to-blue-400 shadow-[0_20px_60px_-15px_rgba(16,185,129,0.35)]">
-            <div className="relative rounded-[calc(2rem-1.5px)] bg-white/95 backdrop-blur-md p-8 md:p-12 overflow-hidden">
-              {/* soft glow blobs */}
-              <div className="absolute -top-16 -right-16 w-56 h-56 bg-emerald-100 rounded-full blur-3xl opacity-60 pointer-events-none" />
-              <div className="absolute -bottom-16 -left-16 w-56 h-56 bg-blue-100 rounded-full blur-3xl opacity-60 pointer-events-none" />
+            {/* Solid white (no backdrop-blur) for smooth scrolling */}
+            <div className="relative rounded-[calc(2rem-1.5px)] bg-white p-8 md:p-12 overflow-hidden">
+              <div className="absolute -top-16 -right-16 w-56 h-56 bg-emerald-100 rounded-full blur-2xl opacity-50 pointer-events-none" />
+              <div className="absolute -bottom-16 -left-16 w-56 h-56 bg-blue-100 rounded-full blur-2xl opacity-50 pointer-events-none" />
 
               <div className="relative z-10 text-center mb-8">
                 <span className="inline-block px-4 py-1.5 rounded-full bg-emerald-50 text-emerald-700 text-[11px] md:text-xs font-bold tracking-widest uppercase border border-emerald-200">
@@ -76,40 +74,30 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                 {content.saadiyaDesc}
               </p>
 
-              {/* Cinematic video INSIDE the card (no heading) */}
+              {/* Cinematic video INSIDE the card (lazy, no heading) */}
               <div className="relative z-10 mt-8 md:mt-10">
                 <div className="group relative mx-auto max-w-2xl">
-                  {/* Ambient cinema glow */}
-                  <div className="absolute -inset-4 bg-gradient-to-r from-amber-400/20 via-emerald-400/20 to-blue-500/20 rounded-[1.5rem] blur-2xl opacity-60 group-hover:opacity-100 transition-opacity duration-700" />
+                  {/* Ambient glow — only on hover to save paint */}
+                  <div className="absolute -inset-3 bg-gradient-to-r from-amber-400/20 via-emerald-400/20 to-blue-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-                  {/* Film-strip body */}
                   <div className="relative rounded-xl bg-gradient-to-b from-[#0b0b0b] via-[#141414] to-[#0b0b0b] p-2 md:p-3 shadow-[0_30px_80px_-25px_rgba(0,0,0,0.75)] ring-1 ring-white/10">
                     {/* Sprocket holes — top */}
                     <div className="flex justify-between px-1 mb-1.5 md:mb-2" aria-hidden>
                       {Array.from({ length: 12 }).map((_, i) => (
-                        <span key={i} className="w-2 h-2.5 md:w-2.5 md:h-3 rounded-[2px] bg-slate-700/80 shadow-inner" />
+                        <span key={i} className="w-2 h-2.5 md:w-2.5 md:h-3 rounded-[2px] bg-slate-700/80" />
                       ))}
                     </div>
 
-                    {/* Screen */}
+                    {/* Screen (lazy YouTube) */}
                     <div className="relative rounded-md overflow-hidden bg-black">
-                      <div className="relative w-full aspect-video">
-                        <iframe
-                          className="absolute inset-0 w-full h-full"
-                          src="https://www.youtube.com/embed/gWX8qtBB5ZM"
-                          title={content.videoTitle}
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                          allowFullScreen
-                        />
-                      </div>
-                      {/* Vignette */}
-                      <div className="pointer-events-none absolute inset-0 shadow-[inset_0_0_60px_rgba(0,0,0,0.55)] rounded-md" />
+                      <LazyYouTube id="gWX8qtBB5ZM" title={content.videoTitle} />
+                      <div className="pointer-events-none absolute inset-0 shadow-[inset_0_0_40px_rgba(0,0,0,0.5)] rounded-md" />
                     </div>
 
                     {/* Sprocket holes — bottom */}
                     <div className="flex justify-between px-1 mt-1.5 md:mt-2" aria-hidden>
                       {Array.from({ length: 12 }).map((_, i) => (
-                        <span key={i} className="w-2 h-2.5 md:w-2.5 md:h-3 rounded-[2px] bg-slate-700/80 shadow-inner" />
+                        <span key={i} className="w-2 h-2.5 md:w-2.5 md:h-3 rounded-[2px] bg-slate-700/80" />
                       ))}
                     </div>
                   </div>
@@ -120,10 +108,10 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
         </div>
       </Section>
 
-      {/* 3. MOKS Story Section */}
+      {/* 3. MOKS Story Section — solid white, no backdrop-blur */}
       <Section bg="gradient" title={content.moksTitle}>
         <div className="max-w-4xl mx-auto">
-          <div className="bg-white/80 backdrop-blur-md rounded-3xl p-8 md:p-12 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white/60 space-y-6 text-slate-700 leading-relaxed text-base md:text-lg text-justify">
+          <div className="bg-white rounded-3xl p-8 md:p-12 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 space-y-6 text-slate-700 leading-relaxed text-base md:text-lg text-justify">
             <p>{content.p1}</p>
             <p>{content.p2}</p>
             <p>{content.p3}</p>
