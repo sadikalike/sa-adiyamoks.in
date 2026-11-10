@@ -7,22 +7,23 @@ export default function AboutPreview({ locale, dict }: { locale: string; dict: a
     <Section title={dict.sections.about.title} bg="gradient">
       
       <div className="relative max-w-5xl mx-auto">
-        <div className="bg-white/90 backdrop-blur-xl border border-white/60 p-8 md:p-14 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.05)] relative overflow-hidden">
+        <div className="bg-white/90 backdrop-blur-xl border border-white/60 p-8 md:p-14 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.05)] relative overflow-hidden group">
           
-          {/* Decorative glow effects (static) */}
-          <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-100 rounded-full mix-blend-multiply filter blur-3xl opacity-50 pointer-events-none"></div>
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-50 pointer-events-none"></div>
+          {/* ಅಲಂಕಾರಿಕ ಗ್ಲೋ ಎಫೆಕ್ಟ್‌ಗಳು */}
+          <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-100 rounded-full mix-blend-multiply filter blur-3xl opacity-50 group-hover:scale-110 transition-transform duration-700 pointer-events-none"></div>
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-50 group-hover:scale-110 transition-transform duration-700 pointer-events-none"></div>
 
           <div className="relative z-10 flex flex-col md:flex-row gap-10 items-start">
             
-            {/* Logo */}
-            <div className="w-32 h-32 md:w-48 md:h-48 shrink-0 rounded-full bg-gradient-to-br from-white to-slate-50 border border-white shadow-xl flex items-center justify-center relative overflow-hidden mx-auto md:mx-0">
+            {/* ಎಡಭಾಗದಲ್ಲಿ ಲೋಗೋ */}
+            <div className="w-32 h-32 md:w-48 md:h-48 shrink-0 rounded-full bg-gradient-to-br from-white to-slate-50 border border-white shadow-xl flex items-center justify-center relative overflow-hidden group-hover:scale-105 transition-transform duration-500 mx-auto md:mx-0">
+               <div className="absolute inset-1 border-2 border-dashed border-emerald-300 rounded-full animate-[spin_15s_linear_infinite] opacity-60"></div>
                <div className="relative w-20 h-20 md:w-32 md:h-32">
                  <Image src="/logo.png" alt="MOKS Logo" fill className="object-contain" />
                </div>
             </div>
 
-            {/* Description */}
+            {/* ಬಲಭಾಗದಲ್ಲಿ ವಿವರಣೆ */}
             <div className="flex-grow flex flex-col">
               <h3 className="text-2xl md:text-3xl font-black text-slate-900 mb-6 leading-tight">
                 {locale === 'kn' 
@@ -30,6 +31,7 @@ export default function AboutPreview({ locale, dict }: { locale: string; dict: a
                   : 'Nurturing Kannada Brilliance at the Heart of Jamia Sa\'adiya Arabia'}
               </h3>
 
+              {/* ಸಂಪೂರ್ಣ ವಿವರಣೆ */}
               <div className="text-slate-700 text-sm md:text-base leading-relaxed text-justify space-y-4">
                 <p>
                   {locale === 'kn'
@@ -54,10 +56,10 @@ export default function AboutPreview({ locale, dict }: { locale: string; dict: a
               <div className="mt-8">
                 <Link 
                   href={`/${locale}/about`}
-                  className="inline-flex items-center justify-center gap-2 bg-emerald-50 hover:bg-emerald-500 text-emerald-700 hover:text-white font-bold px-6 py-3 rounded-full transition-colors duration-300 shadow-sm"
+                  className="inline-flex items-center justify-center gap-2 bg-emerald-50 hover:bg-emerald-500 text-emerald-700 hover:text-white font-bold px-6 py-3 rounded-full transition-all duration-300 group/btn shadow-sm"
                 >
                   {locale === 'kn' ? 'ಇನ್ನಷ್ಟು ಓದಿ' : 'Read More'}
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </Link>
