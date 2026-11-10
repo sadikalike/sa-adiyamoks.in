@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import Link from 'next/link'
 import Image from 'next/image'
 
 export default function Hero({ locale, dict }: { locale: string; dict: any }) {
@@ -20,6 +19,10 @@ export default function Hero({ locale, dict }: { locale: string; dict: any }) {
     return () => clearInterval(interval)
   }, [])
 
+  const scrollDown = () => {
+    window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })
+  }
+
   return (
     <section className="relative h-screen min-h-[650px] w-full flex items-center justify-center overflow-hidden bg-[#050B14]">
       
@@ -31,7 +34,6 @@ export default function Hero({ locale, dict }: { locale: string; dict: any }) {
             return (
               <div key={`desktop-${num}`} className={`absolute inset-0 transition-opacity duration-[1500ms] ease-in-out ${desktopBg === num ? 'opacity-100' : 'opacity-0'}`}>
                 <div className="relative w-full h-full">
-                  {/* ಇಮೇಜ್ ಜೂಮಿಂಗ್ ತೆಗೆದುಹಾಕಲಾಗಿದೆ (scale-110 ಇಲ್ಲ) */}
                   <Image src={imgSrc} alt="MOKS Campus" fill priority={num === 1}
                     className="object-cover object-center brightness-110" quality={85}
                   />
@@ -94,19 +96,30 @@ export default function Hero({ locale, dict }: { locale: string; dict: any }) {
           </p>
         </div>
 
-        <div className="animate-fade-in-up animation-delay-300">
-          <Link href={`/${locale}/about`}
-            className="group relative inline-flex items-center justify-center bg-emerald-500 text-[#050B14] font-black text-sm md:text-lg px-8 py-4 md:px-12 md:py-5 rounded-full transition-all duration-300 hover:bg-emerald-400 hover:scale-105 shadow-[0_0_40px_rgba(16,185,129,0.4)] hover:shadow-[0_0_60px_rgba(16,185,129,0.7)] overflow-hidden">
-            <span className="relative z-10 flex items-center gap-3">
-              {dict.hero.cta}
-              <svg className="w-5 h-5 group-hover:translate-x-1.5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </span>
-            <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></div>
-          </Link>
-        </div>
       </div>
+
+      {/* Modern scroll indicator (English label in both locales) */}
+      <button
+        type="button"
+        onClick={scrollDown}
+        aria-label="Scroll down"
+        className="absolute bottom-6 md:bottom-9 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 group"
+      >
+        <span className="text-[10px] md:text-[11px] uppercase tracking-[0.35em] font-semibold text-white/60 group-hover:text-emerald-300 transition-colors duration-300">
+          Scroll
+        </span>
+        <span className="relative flex items-center justify-center w-9 h-9 md:w-10 md:h-10 rounded-full border border-white/20 bg-white/5 backdrop-blur-md group-hover:border-emerald-400/60 group-hover:bg-emerald-500/10 transition-all duration-300">
+          <svg
+            className="w-4 h-4 md:w-5 md:h-5 text-white/80 group-hover:text-emerald-300 animate-bounce"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
+          </svg>
+        </span>
+      </button>
+
       <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#050B14] to-transparent z-10 pointer-events-none"></div>
     </section>
   )

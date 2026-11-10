@@ -21,10 +21,10 @@ export default function VisionariesPage({ params }: { params: Promise<{ locale: 
         <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500 rounded-full mix-blend-multiply filter blur-[100px] opacity-20"></div>
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
-          <h1 className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tight leading-tight">
+          <h1 className="text-3xl md:text-6xl font-black text-white mb-4 md:mb-6 tracking-tight leading-tight">
             {locale === 'kn' ? 'ನಮ್ಮ ದೂರದರ್ಶಿಗಳು' : 'Our Visionaries'}
           </h1>
-          <p className="text-lg md:text-xl text-slate-300 font-medium max-w-3xl mx-auto">
+          <p className="text-sm md:text-xl text-slate-300 font-medium max-w-3xl mx-auto">
             {locale === 'kn' ? 'MOKS ನ ಮಾರ್ಗದರ್ಶಕರು ಮತ್ತು ಪ್ರೇರಣೆ' : 'Mentors and inspiration behind MOKS'}
           </p>
         </div>
@@ -32,7 +32,6 @@ export default function VisionariesPage({ params }: { params: Promise<{ locale: 
 
       {/* Grid Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 relative z-20">
-        {/* ಲ್ಯಾಪ್‌ಟಾಪ್‌ನಲ್ಲಿ 3 ಕಾರ್ಡ್‌ಗಳು ಒಂದೇ ಸಾಲಿನಲ್ಲಿ ಬರುವಂತೆ lg:grid-cols-3 */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
           
           {visionaries.map((v: any) => {
@@ -47,18 +46,19 @@ export default function VisionariesPage({ params }: { params: Promise<{ locale: 
               >
                 
                 {/* 
-                  Image Container 
-                  ಇಲ್ಲಿ h-80 (ಮೊಬೈಲ್) ಮತ್ತು md:h-[400px] (ಲ್ಯಾಪ್) ನೀಡಲಾಗಿದೆ.
-                  ಇದರಿಂದ ಚಿತ್ರದ ಎತ್ತರ ಸ್ಥಿರವಾಗಿದ್ದು, ಅತಿಯಾಗಿ ಜೂಮ್ ಆಗುವುದಿಲ್ಲ.
+                  Image Container
+                  - SAME height on all breakpoints (h-80) so mobile doesn't zoom differently
+                  - SAME object-position on all breakpoints (object-[center_20%])
+                  - No scale on hover → identical view everywhere
                 */}
-                <div className="relative w-full h-80 md:h-[400px] overflow-hidden bg-slate-100 shrink-0">
+                <div className="relative w-full h-80 overflow-hidden bg-slate-100 shrink-0">
                   {v.image ? (
                     <Image
                       src={v.image}
                       alt={locale === 'kn' ? v.nameKn : v.nameEn}
                       fill
-                      // object-top ನೀಡಿರುವುದರಿಂದ ಮುಖ ಸ್ಪಷ್ಟವಾಗಿ ಕಾಣುತ್ತದೆ
-                      className="object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover object-[center_20%]"
                     />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-emerald-50 to-blue-50 relative overflow-hidden">
@@ -73,30 +73,27 @@ export default function VisionariesPage({ params }: { params: Promise<{ locale: 
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
                 </div>
 
-                {/* Content Container */}
-                <div className="p-6 md:p-8 flex-grow flex flex-col relative bg-white">
+                {/* Content Container — smaller fonts on mobile */}
+                <div className="p-5 md:p-8 flex-grow flex flex-col relative bg-white">
                   
-                  <h3 className="font-black text-xl md:text-2xl text-slate-900 mb-3 leading-tight group-hover:text-emerald-600 transition-colors">
+                  <h3 className="font-black text-base sm:text-xl md:text-2xl text-slate-900 mb-2 md:mb-3 leading-tight group-hover:text-emerald-600 transition-colors">
                     {locale === 'kn' ? v.nameKn : v.nameEn}
                   </h3>
 
                   <p 
-                    className={`text-slate-600 text-sm leading-relaxed text-justify mb-6 flex-grow transition-all duration-500 ${
+                    className={`text-slate-600 text-xs sm:text-sm leading-relaxed text-justify mb-4 md:mb-6 flex-grow transition-all duration-500 ${
                       isExpanded ? 'line-clamp-none' : 'line-clamp-3'
                     }`}
                   >
                     {locale === 'kn' ? v.descKn : v.descEn}
                   </p>
 
-                  {/* 
-                    ಇಲ್ಲಿ 'Read More' ಪಠ್ಯವನ್ನು ತೆಗೆದುಹಾಕಿ, 
-                    ಕೇವಲ ಪ್ರೊಫೆಷನಲ್ ಆದ ಬಾಣದ ಗುರುತನ್ನು (Arrow) ಮಾತ್ರ ಇರಿಸಲಾಗಿದೆ.
-                  */}
-                  <div className="mt-auto pt-4 border-t border-slate-100 flex justify-end">
+                  <div className="mt-auto pt-3 md:pt-4 border-t border-slate-100 flex justify-end">
                     <button
                       onClick={() => toggleReadMore(v.id)}
                       className="w-8 h-8 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600 hover:bg-emerald-100 hover:text-emerald-700 transition-all duration-300 group/btn focus:outline-none"
                       aria-label="Toggle Details"
+                      aria-expanded={isExpanded}
                     >
                       <svg 
                         className={`w-4 h-4 transition-transform duration-300 ${isExpanded ? '-rotate-90' : 'rotate-0'}`} 
