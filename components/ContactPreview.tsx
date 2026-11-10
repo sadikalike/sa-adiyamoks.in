@@ -38,15 +38,15 @@ export default function ContactPreview({ locale, dict }: { locale: string; dict:
 
   return (
     <Section title={dict.sections.contact.title} bg="gradient">
-      
-      <div className="max-w-5xl mx-auto bg-white/90 backdrop-blur-md border border-white/60 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.05)] p-8 md:p-12 relative overflow-hidden">
-        
-        {/* Static accents — no mix-blend, no heavy blur */}
-        <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-100 rounded-full filter blur-2xl opacity-50 pointer-events-none"></div>
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-100 rounded-full filter blur-2xl opacity-50 pointer-events-none"></div>
+
+      <div className="max-w-5xl mx-auto bg-white border border-white/60 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.05)] p-8 md:p-12 relative overflow-hidden">
+
+        {/* Static accents — solid colors, no blur, no GPU cost */}
+        <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-50 rounded-full opacity-60 pointer-events-none"></div>
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-50 rounded-full opacity-60 pointer-events-none"></div>
 
         <div className="relative z-10 grid md:grid-cols-2 gap-12">
-          
+
           {/* Left: Contact Details */}
           <div className="flex flex-col justify-center space-y-8">
             <div>
@@ -88,7 +88,7 @@ export default function ContactPreview({ locale, dict }: { locale: string; dict:
             <h4 className="font-bold text-slate-900 mb-6 uppercase tracking-wider text-sm text-center">
               {locale === 'kn' ? 'ನಮ್ಮ ಸೋಶಿಯಲ್ ಮೀಡಿಯಾ' : 'Follow Us'}
             </h4>
-            
+
             <div className="grid grid-cols-2 gap-4">
               {socialLinks.map((social, index) => (
                 <a

@@ -36,65 +36,51 @@ export default function HerenciaPreview({ locale }: { locale: string }) {
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
 
-          {/* Top Tag — static, no clock */}
-          <m.div
-            initial={shouldReduce ? false : { opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: shouldReduce ? 0 : 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-            className="flex flex-col items-center justify-center mb-6"
-          >
+          {/* Tag — static */}
+          <div className="flex flex-col items-center justify-center mb-6">
             <span className="inline-block py-2 px-6 rounded-full bg-amber-500/10 text-amber-400 text-sm md:text-base font-bold tracking-widest uppercase border border-amber-500/20 shadow-[0_0_15px_rgba(245,158,11,0.2)]">
               {content.tag}
             </span>
-          </m.div>
+          </div>
 
-          {/* Poster — slide animation kept */}
-          <m.div
-            initial={shouldReduce ? false : { opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: shouldReduce ? 0 : 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-            className="flex flex-col items-center w-full -mt-2"
-          >
+          {/* Poster — shake (outer) + slide (inner) */}
+          <div className="flex flex-col items-center w-full -mt-2">
             <div className="relative z-20 flex flex-col items-center mt-0">
               <div className="w-2.5 h-2.5 bg-slate-300 rounded-full shadow-[0_0_10px_rgba(255,255,255,0.8)] border border-white"></div>
               <div className="w-1.5 h-1.5 bg-black/50 rounded-full blur-[1px] mt-0.5"></div>
             </div>
             <div className="w-[1.5px] h-16 bg-gradient-to-b from-slate-300 to-slate-500 shadow-[0_0_5px_rgba(255,255,255,0.2)]"></div>
-            <div className="relative w-full max-w-sm z-10 mt-[-2px] overflow-hidden rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.6)] border border-amber-500/30">
-              <div className="relative w-full aspect-[4/5] bg-slate-900">
-                <AnimatePresence initial={false}>
-                  <m.div
-                    key={currentPoster}
-                    initial={shouldReduce ? false : { x: '-100%' }}
-                    animate={{ x: 0 }}
-                    exit={shouldReduce ? undefined : { x: '100%' }}
-                    transition={{ duration: 1.2, ease: 'easeInOut' }}
-                    className="absolute inset-0 w-full h-full"
-                  >
-                    <Image
-                      src={currentPoster === 1 ? "/erenpost.png" : "/ereiqqu.png"}
-                      alt={`Herencia Poster ${currentPoster}`}
-                      fill
-                      loading="lazy"
-                      className="object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0a192f] via-transparent to-transparent opacity-40"></div>
-                  </m.div>
-                </AnimatePresence>
+
+            {/* Shake wrapper — rotates the whole poster frame */}
+            <div className={`relative w-full max-w-sm z-10 mt-[-2px] ${shouldReduce ? '' : 'animate-swing'} will-change-transform`}>
+              <div className="relative w-full aspect-[4/5] overflow-hidden rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.6)] border border-amber-500/30">
+                <div className="relative w-full h-full bg-slate-900">
+                  <AnimatePresence initial={false}>
+                    <m.div
+                      key={currentPoster}
+                      initial={shouldReduce ? false : { x: '-100%' }}
+                      animate={{ x: 0 }}
+                      exit={shouldReduce ? undefined : { x: '100%' }}
+                      transition={{ duration: 1.2, ease: 'easeInOut' }}
+                      className="absolute inset-0 w-full h-full will-change-transform"
+                    >
+                      <Image
+                        src={currentPoster === 1 ? "/erenpost.png" : "/ereiqqu.png"}
+                        alt={`Herencia Poster ${currentPoster}`}
+                        fill
+                        loading="lazy"
+                        className="object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#0a192f] via-transparent to-transparent opacity-40"></div>
+                    </m.div>
+                  </AnimatePresence>
+                </div>
               </div>
             </div>
-          </m.div>
+          </div>
 
           {/* Logo + Title + Description — static */}
-          <m.div
-            initial={shouldReduce ? false : { opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: shouldReduce ? 0 : 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-            className="flex flex-col items-center text-center mt-12"
-          >
+          <div className="flex flex-col items-center text-center mt-12">
             <div className="relative w-40 h-40 md:w-56 md:h-56 mb-6">
               <Image src="/erenlogo.png" alt="Herencia Logo" fill loading="lazy" className="object-contain" />
             </div>
@@ -114,11 +100,11 @@ export default function HerenciaPreview({ locale }: { locale: string }) {
             <p className="text-white text-lg md:text-xl leading-relaxed text-center mb-6 font-light max-w-3xl">
               {content.desc}
             </p>
-          </m.div>
+          </div>
 
         </div>
 
-        {/* Marquee — transform only */}
+        {/* Marquee */}
         <div className="my-12 border-y border-white/10 bg-white/5 py-4 overflow-hidden relative w-full">
           <div className="flex whitespace-nowrap animate-marquee-left will-change-transform">
             {[...Array(12)].map((_, i) => (
