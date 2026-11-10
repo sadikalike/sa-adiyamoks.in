@@ -1,4 +1,5 @@
 import QuoteScrollSection from '@/components/QuoteScrollSection'
+import PullStringCard from '@/components/PullStringCard'
 
 export default async function LibraryPage({ params }: { params: Promise<{ locale: string }> }) {
   const resolvedParams = await params
@@ -77,7 +78,7 @@ export default async function LibraryPage({ params }: { params: Promise<{ locale
         </div>
       </section>
 
-      {/* 2. Introduction Section */}
+      {/* 2. Introduction Section (existing card) */}
       <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 -mt-24 z-20">
         <div className="bg-white/90 backdrop-blur-2xl border border-white/60 p-8 md:p-14 rounded-[2.5rem] shadow-[0_20px_60px_rgba(0,0,0,0.08)] relative overflow-hidden group text-center">
           
@@ -104,7 +105,12 @@ export default async function LibraryPage({ params }: { params: Promise<{ locale
       {/* 3. Founder Info Section (QuoteScrollSection) */}
       <QuoteScrollSection locale={locale} />
 
-      {/* 4. Main Content Section */}
+      {/* 4. PULL-STRING LIGHT CARD (below founder section) */}
+      <div className="pt-16">
+        <PullStringCard key={locale} locale={locale} />
+      </div>
+
+      {/* 5. Main Content Section */}
       <section className="pt-20 pb-12 relative z-10">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
           
