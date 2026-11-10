@@ -30,10 +30,7 @@ export default function GalleryPreview({ locale, dict }: { locale: string; dict:
   return (
     <section className="relative w-full py-16 bg-white overflow-hidden">
       
-      {/* 
-        ಮೇಲ್ಭಾಗದ ಶೀರ್ಷಿಕೆ (Gallery)
-        ಇಲ್ಲಿ ಹಿಂದಿದ್ದ 'All Photos' ಲಿಂಕ್ ಅನ್ನು ತೆಗೆದುಹಾಕಲಾಗಿದೆ.
-      */}
+      {/* Header */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
         <div className="flex flex-col">
           <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
@@ -43,13 +40,13 @@ export default function GalleryPreview({ locale, dict }: { locale: string; dict:
         </div>
       </div>
 
-      {/* Sliding Container */}
-      <div className="relative w-full overflow-hidden">
-        <div className="flex w-max animate-marquee gap-6 px-6 hover:[animation-play-state:paused]">
-          {[...galleryItems, ...galleryItems].map((item, index) => (
+      {/* Static Grid */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {galleryItems.map((item, index) => (
             <div 
               key={index} 
-              className="relative w-[85vw] sm:w-[350px] md:w-[400px] shrink-0 rounded-2xl overflow-hidden shadow-lg group cursor-pointer bg-white border border-slate-100"
+              className="relative w-full rounded-2xl overflow-hidden shadow-lg bg-white border border-slate-100"
             >
               {/* Image */}
               <div className="relative w-full h-56 md:h-64 overflow-hidden">
@@ -58,14 +55,13 @@ export default function GalleryPreview({ locale, dict }: { locale: string; dict:
                   alt={locale === 'kn' ? item.titleKn : item.titleEn}
                   fill
                   loading="lazy"
-                  className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                  className="object-cover"
                 />
-                <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-300"></div>
               </div>
 
               {/* Content Box below Image */}
               <div className="p-5 md:p-6 bg-white">
-                <h3 className="text-slate-900 font-bold text-lg md:text-xl mb-2 leading-tight line-clamp-1 group-hover:text-emerald-600 transition-colors">
+                <h3 className="text-slate-900 font-bold text-lg md:text-xl mb-2 leading-tight line-clamp-1">
                   {locale === 'kn' ? item.titleKn : item.titleEn}
                 </h3>
                 <p className="text-slate-500 text-sm leading-relaxed line-clamp-3">
@@ -77,17 +73,14 @@ export default function GalleryPreview({ locale, dict }: { locale: string; dict:
         </div>
       </div>
 
-      {/* 
-        ಕೆಳಭಾಗದ ಬಟನ್ 
-        ಇಲ್ಲಿ size ಮತ್ತು padding ಅನ್ನು ಮೊಬೈಲ್ (px-6 py-3) ಮತ್ತು ಲ್ಯಾಪ್ (md:px-8 md:py-4) ಗೆ ಪರ್ಫೆಕ್ಟ್ ಆಗಿ ಸೆಟ್ ಮಾಡಲಾಗಿದೆ.
-      */}
+      {/* View All Button */}
       <div className="flex justify-center w-full mt-12">
         <Link
           href={`/${locale}/gallery`}
-          className="group relative inline-flex items-center justify-center gap-2 bg-slate-900 text-white font-bold text-sm md:text-base px-6 py-3 md:px-8 md:py-4 rounded-full transition-all duration-300 shadow-lg hover:bg-emerald-600 hover:shadow-[0_0_20px_rgba(16,185,129,0.4)] transform hover:-translate-y-0.5"
+          className="inline-flex items-center justify-center gap-2 bg-slate-900 text-white font-bold text-sm md:text-base px-6 py-3 md:px-8 md:py-4 rounded-full shadow-lg hover:bg-emerald-600 transition-colors duration-300"
         >
           {locale === 'kn' ? 'ಎಲ್ಲಾ ಚಿತ್ರಗಳನ್ನು ನೋಡಿ' : 'View All Photos'}
-          <svg className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
           </svg>
         </Link>
