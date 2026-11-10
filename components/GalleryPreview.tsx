@@ -40,13 +40,13 @@ export default function GalleryPreview({ locale, dict }: { locale: string; dict:
         </div>
       </div>
 
-      {/* Static Grid */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {galleryItems.map((item, index) => (
+      {/* Sliding Container */}
+      <div className="relative w-full overflow-hidden">
+        <div className="flex w-max animate-marquee gap-6 px-6">
+          {[...galleryItems, ...galleryItems].map((item, index) => (
             <div 
               key={index} 
-              className="relative w-full rounded-2xl overflow-hidden shadow-lg bg-white border border-slate-100"
+              className="relative w-[85vw] sm:w-[350px] md:w-[400px] shrink-0 rounded-2xl overflow-hidden shadow-lg bg-white border border-slate-100"
             >
               {/* Image */}
               <div className="relative w-full h-56 md:h-64 overflow-hidden">
