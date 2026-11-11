@@ -18,7 +18,6 @@ export default function PullStringCard({ locale = 'kn' }: { locale?: string }) {
   const onPointerMove = (e: React.PointerEvent) => {
     if (!pulling) return
     const dy = Math.max(0, Math.min(MAX_PULL, e.clientY - startY.current))
-    // Skip re-render for tiny changes → smoother drag
     setPullDist(prev => (Math.abs(prev - dy) > 1 ? dy : prev))
   }
 
@@ -53,10 +52,14 @@ export default function PullStringCard({ locale = 'kn' }: { locale?: string }) {
             minHeight: isOn ? '220px' : undefined,
             backgroundColor: `rgb(${bgLuminance}, ${bgLuminance}, ${bgLuminance})`,
             transition:
-              'background-color 500ms ease, box-shadow 500ms ease, height 500ms ease, min-height 500ms ease',
+              'background-color 500ms ease, box-shadow 500ms ease, height 500ms ease, min-height 500ms ease, border-color 500ms ease',
             boxShadow: isOn
-              ? '0 25px 60px -10px rgba(251,191,36,0.35), 0 0 0 1px rgba(255,255,255,0.15)'
+              ? '0 25px 60px -10px rgba(251,191,36,0.35)'
               : '0 25px 50px -12px rgba(0,0,0,0.7)',
+            // Modern border on the whole card
+            border: isOn
+              ? '2px solid rgba(251,191,36,0.55)'
+              : '2px solid rgba(148,163,184,0.35)',
           }}
         >
           <div
@@ -85,7 +88,7 @@ export default function PullStringCard({ locale = 'kn' }: { locale?: string }) {
           )}
         </div>
 
-        {/* Pull string */}
+        {/* Pull string with arrow — NO border on arrow */}
         <div
           className="absolute z-20 flex flex-col items-center select-none"
           style={{ top: '10px', right: '26px' }}
@@ -101,17 +104,31 @@ export default function PullStringCard({ locale = 'kn' }: { locale?: string }) {
             }}
           />
 
+          {/* Arrow knob — no border, clean */}
           <div
             onPointerDown={onPointerDown}
             onPointerMove={onPointerMove}
             onPointerUp={onPointerUp}
-            className={`w-8 h-8 rounded-full border-2 shadow-lg cursor-grab active:cursor-grabbing touch-none -mt-1 transition-all ${
+            className={`w-9 h-9 -mt-1 flex items-center justify-center rounded-xl cursor-grab active:cursor-grabbing touch-none transition-transform duration-300 ${
               isOn
-                ? 'bg-gradient-to-br from-yellow-300 to-amber-500 border-amber-600 shadow-[0_0_16px_rgba(251,191,36,0.7)]'
-                : 'bg-gradient-to-br from-slate-400 to-slate-600 border-slate-700'
+                ? 'bg-gradient-to-br from-yellow-300 to-amber-500 shadow-[0_0_18px_rgba(251,191,36,0.8)]'
+                : 'bg-gradient-to-br from-slate-400 to-slate-600 shadow-md'
             } ${pulling ? 'scale-110' : 'scale-100'}`}
             title={hintLabel}
-          />
+          >
+            {/* Down arrow — pull down */}
+            <svg
+              className={`w-4 h-4 ${isOn ? 'text-amber-900' : 'text-slate-100'}`}
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={2.5}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              viewBox="0 0 24 24"
+            >
+              <path d="M12 5v14M5 12l7 7 7-7" />
+            </svg>
+          </div>
 
           <span
             className={`text-[9px] uppercase tracking-widest mt-1.5 font-semibold ${

@@ -41,22 +41,22 @@ export default async function LibraryPage({ params }: { params: Promise<{ locale
       {/* 1. Hero Section */}
       <section className="relative bg-[#0a192f] pt-32 pb-48 overflow-hidden">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:32px_32px]"></div>
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-emerald-500/20 rounded-full mix-blend-screen filter blur-[100px] animate-blob"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500/20 rounded-full mix-blend-screen filter blur-[100px] animate-blob animation-delay-2000"></div>
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-emerald-500/20 rounded-full filter blur-[80px] pointer-events-none"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500/20 rounded-full filter blur-[80px] pointer-events-none"></div>
 
-        {/* Floating 3D Books */}
+        {/* Floating 3D Books — static */}
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-          <div className="absolute top-[15%] left-[5%] animate-float-book-1 opacity-40">
+          <div className="absolute top-[15%] left-[5%] opacity-40">
             <div className="w-16 h-24 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-md shadow-2xl border-l-4 border-emerald-300 flex items-center justify-center transform rotate-12">
               <div className="w-10 h-1 bg-white/30 rounded-full"></div>
             </div>
           </div>
-          <div className="absolute top-[40%] left-[15%] animate-float-book-2 opacity-30">
+          <div className="absolute top-[40%] left-[15%] opacity-30">
             <div className="w-20 h-28 bg-gradient-to-br from-blue-400 to-blue-600 rounded-md shadow-2xl border-l-4 border-blue-300 flex items-center justify-center transform -rotate-12">
               <div className="w-12 h-1 bg-white/30 rounded-full"></div>
             </div>
           </div>
-          <div className="absolute bottom-[20%] right-[8%] animate-float-book-3 opacity-40">
+          <div className="absolute bottom-[20%] right-[8%] opacity-40">
             <div className="w-24 h-32 bg-gradient-to-br from-amber-400 to-amber-600 rounded-md shadow-2xl border-l-4 border-amber-300 flex items-center justify-center transform rotate-45">
               <div className="w-14 h-1 bg-white/30 rounded-full"></div>
             </div>
@@ -64,13 +64,13 @@ export default async function LibraryPage({ params }: { params: Promise<{ locale
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6 tracking-tight leading-tight animate-fade-in-up drop-shadow-2xl">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6 tracking-tight leading-tight drop-shadow-2xl">
             {content.title}
           </h1>
-          <p className="text-sm md:text-xl text-emerald-400 font-bold tracking-widest uppercase animate-fade-in-up animation-delay-100 mb-8">
+          <p className="text-sm md:text-xl text-emerald-400 font-bold tracking-widest uppercase mb-8">
             {content.subtitle}
           </p>
-          <div className="animate-fade-in-up animation-delay-200 max-w-2xl mx-auto">
+          <div className="max-w-2xl mx-auto">
             <p className="text-white/80 text-lg md:text-2xl font-light italic">
               "{content.quote}"
             </p>
@@ -78,57 +78,68 @@ export default async function LibraryPage({ params }: { params: Promise<{ locale
         </div>
       </section>
 
-      {/* 2. Introduction Section (existing card) */}
+      {/* 2. Introduction Section — MODERN */}
       <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 -mt-24 z-20">
-        <div className="bg-white/90 backdrop-blur-2xl border border-white/60 p-8 md:p-14 rounded-[2.5rem] shadow-[0_20px_60px_rgba(0,0,0,0.08)] relative overflow-hidden group text-center">
-          
-          <div className="absolute top-0 right-0 w-72 h-72 bg-emerald-100 rounded-full mix-blend-multiply filter blur-3xl opacity-60 group-hover:scale-110 transition-transform duration-700"></div>
-          <div className="absolute bottom-0 left-0 w-72 h-72 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-60 group-hover:scale-110 transition-transform duration-700"></div>
+        <div className="relative rounded-[2.5rem] bg-gradient-to-br from-emerald-500 via-teal-500 to-blue-500 p-[2px] shadow-[0_25px_70px_-15px_rgba(16,185,129,0.35)]">
+          <div className="relative bg-white rounded-[calc(2.5rem-2px)] p-8 md:p-14 overflow-hidden text-center">
+            {/* Decorative glows — static */}
+            <div className="absolute -top-24 -right-24 w-72 h-72 bg-emerald-100 rounded-full filter blur-2xl opacity-60 pointer-events-none" />
+            <div className="absolute -bottom-24 -left-24 w-72 h-72 bg-blue-100 rounded-full filter blur-2xl opacity-60 pointer-events-none" />
 
-          <div className="relative z-10">
-            <div className="w-20 h-20 mx-auto bg-gradient-to-br from-emerald-50 to-blue-50 rounded-3xl flex items-center justify-center mb-8 shadow-xl border border-white group-hover:-translate-y-2 transition-transform duration-500">
-              <svg className="w-10 h-10 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-              </svg>
+            <div className="relative z-10">
+              {/* Icon */}
+              <div className="w-20 h-20 mx-auto bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center mb-8 shadow-lg shadow-emerald-500/30">
+                <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                </svg>
+              </div>
+
+              <h2 className="text-2xl md:text-4xl font-black text-slate-900 mb-6">
+                {content.introTitle}
+              </h2>
+
+              {/* Divider */}
+              <div className="w-16 h-1 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-full mx-auto mb-8" />
+
+              <p className="text-slate-600 text-base md:text-xl leading-relaxed max-w-3xl mx-auto text-justify md:text-center">
+                {content.introDesc}
+              </p>
             </div>
-
-            <h2 className="text-2xl md:text-4xl font-black text-slate-900 mb-6">
-              {content.introTitle}
-            </h2>
-            <p className="text-slate-600 text-base md:text-xl leading-relaxed max-w-3xl mx-auto text-justify md:text-center">
-              {content.introDesc}
-            </p>
           </div>
         </div>
       </div>
 
-      {/* 3. Founder Info Section (QuoteScrollSection) */}
-      <QuoteScrollSection locale={locale} />
+      {/* 3. Founder Info Section — M.A. Ustad */}
+      <div className="pt-16">
+        <QuoteScrollSection locale={locale} />
+      </div>
 
-      {/* 4. PULL-STRING LIGHT CARD (below founder section) */}
+      {/* 4. Pull-string Light Card */}
       <div className="pt-16">
         <PullStringCard key={locale} locale={locale} />
       </div>
 
-      {/* 5. Main Content Section */}
+      {/* 5. Cards 01 & 02 — one below the other */}
       <section className="pt-20 pb-12 relative z-10">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
           
-          <div className="relative group animate-fade-in-up">
-            <div className="absolute -top-16 -left-8 text-9xl md:text-[150px] font-black text-slate-200/50 select-none z-0 group-hover:text-emerald-100/80 transition-colors duration-500">01</div>
+          {/* Card 01 */}
+          <div className="relative">
+            <div className="absolute -top-12 -left-4 text-8xl md:text-[120px] font-black text-slate-200/60 select-none z-0 pointer-events-none">01</div>
             <div className="relative z-10 pl-6 md:pl-10 border-l-4 border-emerald-500">
               <h2 className="text-emerald-600 font-bold tracking-widest uppercase text-xs md:text-sm mb-3">{content.sec1Title}</h2>
-              <h3 className="text-2xl md:text-4xl font-black text-slate-900 mb-6 leading-tight">{content.sec1Sub}</h3>
-              <p className="text-slate-600 text-base md:text-lg leading-relaxed text-justify bg-white/50 backdrop-blur-sm p-4 md:p-6 rounded-2xl border border-white">{content.sec1Desc}</p>
+              <h3 className="text-2xl md:text-3xl font-black text-slate-900 mb-6 leading-tight">{content.sec1Sub}</h3>
+              <p className="text-slate-600 text-base md:text-lg leading-relaxed text-justify bg-white p-5 md:p-6 rounded-2xl border border-slate-200 shadow-sm">{content.sec1Desc}</p>
             </div>
           </div>
 
-          <div className="relative group animate-fade-in-up">
-            <div className="absolute -top-16 -left-8 text-9xl md:text-[150px] font-black text-slate-200/50 select-none z-0 group-hover:text-blue-100/80 transition-colors duration-500">02</div>
+          {/* Card 02 */}
+          <div className="relative">
+            <div className="absolute -top-12 -left-4 text-8xl md:text-[120px] font-black text-slate-200/60 select-none z-0 pointer-events-none">02</div>
             <div className="relative z-10 pl-6 md:pl-10 border-l-4 border-blue-500">
               <h2 className="text-blue-600 font-bold tracking-widest uppercase text-xs md:text-sm mb-3">{content.sec2Title}</h2>
-              <h3 className="text-2xl md:text-4xl font-black text-slate-900 mb-6 leading-tight">{content.sec2Sub}</h3>
-              <p className="text-slate-600 text-base md:text-lg leading-relaxed text-justify bg-white/50 backdrop-blur-sm p-4 md:p-6 rounded-2xl border border-white">{content.sec2Desc}</p>
+              <h3 className="text-2xl md:text-3xl font-black text-slate-900 mb-6 leading-tight">{content.sec2Sub}</h3>
+              <p className="text-slate-600 text-base md:text-lg leading-relaxed text-justify bg-white p-5 md:p-6 rounded-2xl border border-slate-200 shadow-sm">{content.sec2Desc}</p>
             </div>
           </div>
 

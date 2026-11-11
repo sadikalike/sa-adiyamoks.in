@@ -24,6 +24,13 @@ export default function GalleryPreview({ locale, dict }: { locale: string; dict:
       titleEn: 'Sharing Happiness Campaign',
       descKn: 'ಜಾಮಿಯಾ ಸಅದಿಯಾದಲ್ಲಿ ನಡೆಯಲಿರುವ ಸಮ್ಮೇಳನ ಪ್ರಯುಕ್ತ MOKS ವಿದ್ಯಾರ್ಥಿಗಳು "ಶೇರಿಂಗ್ ಹ್ಯಾಪಿನೆಸ್" ಎಂಬ ಶೀರ್ಷಿಕೆಯಡಿ ಸಿಹಿತಿಂಡಿಗಳನ್ನು ವಿತರಿಸಿ ಪ್ರಚಾರಯಾತ್ರೆ ಕೈಗೊಂಡರು.',
       descEn: 'Ahead of the upcoming conference, MOKS students conducted a campaign titled "Sharing Happiness," distributing sweets and receiving great appreciation.'
+    },
+    {
+      image: '/ut.png',
+      titleKn: 'ಕರ್ನಾಟಕ ವಿಧಾನಸಭಾ ಅಧ್ಯಕ್ಷರ ಸನ್ಮಾನ',
+      titleEn: 'Felicitation of Karnataka Assembly Speaker',
+      descKn: 'ಜಾಮಿಅಃ ಸಅದಿಯಾ ಅರಬಿಯಾ ಕನ್ನಡ ವಿದ್ಯಾರ್ಥಿ ಸಂಘಟನೆ MOKS ವತಿಯಿಂದ ಕರ್ನಾಟಕ ವಿಧಾನಸಭಾ ಅಧ್ಯಕ್ಷರೂ, ಕರ್ನಾಟಕದ ನೆಚ್ಚಿನ ರಾಜಕಾರಣಿ ಜನಾಬ್ ಯು.ಟಿ ಖಾದರ್ ಇವರನ್ನು ಸನ್ಮಾನಿಸಲಾಯಿತು.',
+      descEn: 'The Karnataka Students Organisation (MOKS) of Jamia Sa\'adiya Arabia felicitated Janab U.T. Khader, Speaker of the Karnataka Legislative Assembly and a beloved politician of Karnataka.'
     }
   ]
 

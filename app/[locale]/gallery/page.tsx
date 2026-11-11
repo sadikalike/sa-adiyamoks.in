@@ -1,10 +1,84 @@
+'use client'
+
+import { useState, useRef, useEffect } from 'react'
 import Image from 'next/image'
 
-export default async function GalleryPage({ params }: { params: Promise<{ locale: string }> }) {
-  const resolvedParams = await params
-  const locale = resolvedParams.locale === 'en' ? 'en' : 'kn'
+function GalleryCard({ item, locale }: { item: any; locale: string }) {
+  const [expanded, setExpanded] = useState(false)
+  const [isOverflowing, setIsOverflowing] = useState(false)
+  const textRef = useRef<HTMLParagraphElement>(null)
 
-  // ನಿಮ್ಮ ಚಿತ್ರಗಳ ವಿವರಣೆ (ಕನ್ನಡ ಮತ್ತು ಇಂಗ್ಲಿಷ್)
+  useEffect(() => {
+    const el = textRef.current
+    if (!el) return
+
+    const check = () => {
+      setIsOverflowing(el.scrollHeight > el.clientHeight + 1)
+    }
+
+    check()
+    window.addEventListener('resize', check)
+    return () => window.removeEventListener('resize', check)
+  }, [item.descKn, item.descEn, locale, expanded])
+
+  return (
+    <div
+      className={`group bg-white rounded-[2rem] overflow-hidden border transition-all duration-500 flex flex-col h-full ${
+        expanded
+          ? 'shadow-[0_20px_50px_rgba(16,185,129,0.15)] border-emerald-200'
+          : 'shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.12)] hover:-translate-y-2 border-slate-100'
+      }`}
+    >
+      {/* Image */}
+      <div className="relative w-full h-64 md:h-72 overflow-hidden bg-slate-100 shrink-0">
+        <Image
+          src={item.image}
+          alt={locale === 'kn' ? item.titleKn : item.titleEn}
+          fill
+          className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-80"></div>
+        <h3 className="absolute bottom-4 left-4 right-4 text-white font-bold text-lg md:text-xl leading-tight drop-shadow-md">
+          {locale === 'kn' ? item.titleKn : item.titleEn}
+        </h3>
+      </div>
+
+      {/* Content — fixed structure */}
+      <div className="p-6 flex flex-col flex-grow">
+        <p
+          ref={textRef}
+          className={`text-slate-600 text-sm leading-relaxed text-justify mb-4 transition-all duration-500 ${
+            expanded ? 'line-clamp-none' : 'line-clamp-4'
+          }`}
+        >
+          {locale === 'kn' ? item.descKn : item.descEn}
+        </p>
+
+        {/* Arrow area — always reserved, but only clickable/visible if overflowing */}
+        <div className={`mt-auto pt-4 border-t border-slate-100 flex justify-end ${isOverflowing || expanded ? '' : 'invisible'}`}>
+          <button
+            onClick={() => setExpanded(!expanded)}
+            aria-label={expanded ? 'Read less' : 'Read more'}
+            className="w-8 h-8 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600 hover:bg-emerald-100 hover:text-emerald-700 transition-colors duration-300 focus:outline-none"
+          >
+            <svg
+              className={`w-4 h-4 transition-transform duration-300 ${expanded ? 'rotate-180' : 'rotate-0'}`}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default function GalleryPage({ params }: { params: Promise<{ locale: string }> }) {
+  const locale = typeof window !== 'undefined' && window.location.pathname.includes('/en') ? 'en' : 'kn'
+
   const galleryData = [
     {
       id: 1,
@@ -29,13 +103,37 @@ export default async function GalleryPage({ params }: { params: Promise<{ locale
       titleEn: 'Sharing Happiness Campaign',
       descKn: 'ಜಾಮಿಯಾ ಸಅದಿಯಾದಲ್ಲಿ ನಡೆಯಲಿರುವ ಸನದುಧಾನ ಸಮ್ಮೇಳನ ಮತ್ತು ತಾಜುಲ್ ಉಲಮಾ ನೂರುಲ್ ಉಲಮಾರ ಆಂಡ್ ನೇರ್ಚೆ ಪ್ರಯುಕ್ತ MOKS ವಿದ್ಯಾರ್ಥಿಗಳು "ಶೇರಿಂಗ್ ಹ್ಯಾಪಿನೆಸ್" ಎಂಬ ಶೀರ್ಷಿಕೆಯಡಿ ಪ್ರಚಾರಯಾತ್ರೆ ಕೈಗೊಂಡರು. ಸಿಹಿತಿಂಡಿಗಳನ್ನು ವಿತರಿಸಿ ಸ್ಥಳೀಯರಿಂದ ಉತ್ತಮ ಮೆಚ್ಚುಗೆ ಪಡೆದರು.',
       descEn: 'To promote the upcoming convocation and the 30th anniversary of Tajul Ulama and Noorul Ulama, MOKS students conducted a campaign titled "Sharing Happiness." They distributed sweets, which received a wonderful response and appreciation from the local community.'
+    },
+    {
+      id: 4,
+      image: '/ut.png',
+      titleKn: 'ಕರ್ನಾಟಕ ವಿಧಾನಸಭಾ ಅಧ್ಯಕ್ಷರ ಸನ್ಮಾನ',
+      titleEn: 'Felicitation of Karnataka Assembly Speaker',
+      descKn: 'ಜಾಮಿಅಃ ಸಅದಿಯಾ ಅರಬಿಯಾ ಕನ್ನಡ ವಿದ್ಯಾರ್ಥಿ ಸಂಘಟನೆ MOKS ವತಿಯಿಂದ ಕರ್ನಾಟಕ ವಿಧಾನಸಭಾ ಅಧ್ಯಕ್ಷರೂ, ಕರ್ನಾಟಕದ ನೆಚ್ಚಿನ ರಾಜಕಾರಣಿ ಜನಾಬ್ ಯು.ಟಿ ಖಾದರ್ ಇವರನ್ನು ಸನ್ಮಾನಿಸಲಾಯಿತು.',
+      descEn: 'The Karnataka Students Organisation (MOKS) of Jamia Sa\'adiya Arabia felicitated Janab U.T. Khader, Speaker of the Karnataka Legislative Assembly and a beloved politician of Karnataka.'
+    },
+    {
+      id: 5,
+      image: '/machar.png',
+      titleKn: 'ಇಸ್ಮಾಯಿಲ್ ಸಅದಿ ಮಾಚಾರ್ ಉಸ್ತಾದರ ಭೇಟಿ',
+      titleEn: 'Visit of Ismail Sa\'adi Machar Ustad',
+      descKn: 'ಪ್ರಖ್ಯಾತ ಲೇಖಕರೂ ಕವಿಯೂ ಆದ ಇಸ್ಮಾಯಿಲ್ ಸಅದಿ ಮಾಚಾರ್ ಉಸ್ತಾದರು ಪ್ರತಿಷ್ಠಿತ ಜಾಮಿಆ ಸಅದಿಯ್ಯಾ ಸಂಸ್ಥೆಗೆ ಭೇಟಿ ನೀಡಿದ ಸಂದರ್ಭದಲ್ಲಿ ಕನ್ನಡ ವಿದ್ಯಾರ್ಥಿ ಸಂಘಟನೆಯು ಪ್ರೀತಿಯಿಂದ ಬರಮಾಡಿಕೊಂಡಿತು. ಕೆಲ ಸಮಯ ಕನ್ನಡ ವಿದ್ಯಾರ್ಥಿಗಳೊಂದಿಗೆ ಆತ್ಮೀಯವಾಗಿ ಮಾತುಕತೆ ನಡೆಸಿದರು. ಭಾಷೆ, ಓದು, ಬರಹಗಳ ಕುರಿತು ಉತ್ತಮ ಸಲಹೆ ನೀಡಿದರು.',
+      descEn: 'Renowned writer and poet Ismail Sa\'adi Machar Ustad was warmly welcomed by the Kannada Students Organisation during his visit to the prestigious Jamia Sa\'adiya institution. He spent time in friendly conversation with Kannada students and offered valuable advice on language, reading, and writing.'
+    },
+    {
+      id: 6,
+      image: '/akmal.png',
+      titleKn: 'ಶರಫುದ್ದೀನ್ ಸಅದಿ ಉಸ್ತಾದರ ಭೇಟಿ',
+      titleEn: 'Visit of Sharafuddeen Sa\'adi Ustad',
+      descKn: 'ಪ್ರಮುಖ ಮುದರ್ರಿಸರಾದ ಶರಫುದ್ದೀನ್ ಸಅದಿ ಉಸ್ತಾದರು ಪ್ರತಿಷ್ಠಿತ ಜಾಮಿಅಃ ಸಅದಿಯ್ಯಾ ಸಂಸ್ಥೆಗೆ ಭೇಟಿ ನೀಡಿದ ಸಂದರ್ಭದಲ್ಲಿ ಕನ್ನಡ ವಿದ್ಯಾರ್ಥಿ ಸಂಘಟನೆಯು ಪ್ರೀತಿಯಿಂದ ಬರಮಾಡಿಕೊಂಡಿತು. ಕೆಲ ಸಮಯ ಕನ್ನಡ ವಿದ್ಯಾರ್ಥಿಗಳೊಂದಿಗೆ ಆತ್ಮೀಯವಾಗಿ ಮಾತುಕತೆ ನಡೆಸಿದರು. ಭಾಷೆ, ಓದು, ಬರಹಗಳ ಕುರಿತು ಉತ್ತಮ ಸಲಹೆ ನೀಡಿದರು.',
+      descEn: 'Prominent Mudarris Sharafuddeen Sa\'adi Ustad was warmly welcomed by the Kannada Students Organisation during his visit to the prestigious Jamia Sa\'adiya institution. He spent time in friendly conversation with Kannada students and offered valuable advice on language, reading, and writing.'
     }
   ]
 
   return (
     <div className="bg-slate-50 min-h-screen pb-24">
       
-      {/* Hero Section */}
+      {/* Hero */}
       <section className="relative bg-[#0a192f] py-24 md:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:32px_32px]"></div>
         <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500 rounded-full mix-blend-multiply filter blur-[100px] opacity-20"></div>
@@ -50,41 +148,12 @@ export default async function GalleryPage({ params }: { params: Promise<{ locale
         </div>
       </section>
 
-      {/* Gallery Grid */}
+      {/* Grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 relative z-20">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
           {galleryData.map((item) => (
-            <div 
-              key={item.id} 
-              className="group bg-white rounded-[2rem] overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.12)] border border-slate-100 hover:-translate-y-2 transition-all duration-500 flex flex-col"
-            >
-              
-              {/* Image Container */}
-              <div className="relative w-full h-64 md:h-72 overflow-hidden bg-slate-100 shrink-0">
-                <Image
-                  src={item.image}
-                  alt={locale === 'kn' ? item.titleKn : item.titleEn}
-                  fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
-                />
-                {/* Image Overlay for Title */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-80"></div>
-                <h3 className="absolute bottom-4 left-4 right-4 text-white font-bold text-lg md:text-xl leading-tight drop-shadow-md">
-                  {locale === 'kn' ? item.titleKn : item.titleEn}
-                </h3>
-              </div>
-
-              {/* Content Container */}
-              <div className="p-6 flex-grow flex flex-col justify-between">
-                <p className="text-slate-600 text-sm leading-relaxed text-justify line-clamp-4 group-hover:line-clamp-none transition-all duration-500">
-                  {locale === 'kn' ? item.descKn : item.descEn}
-                </p>
-              </div>
-
-            </div>
+            <GalleryCard key={item.id} item={item} locale={locale} />
           ))}
-
         </div>
       </div>
     </div>

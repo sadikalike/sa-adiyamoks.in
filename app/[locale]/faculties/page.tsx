@@ -4,9 +4,8 @@ import { useState } from 'react'
 import Image from 'next/image'
 import faculties from '@/data/faculties.json'
 
-export default function FacultiesPage({ params }: { params: Promise<{ locale: string }> }) {
+export default function FacultiesPage({ locale }: { locale: string }) {
   const [expandedId, setExpandedId] = useState<number | null>(null)
-  const locale = typeof window !== 'undefined' && window.location.pathname.includes('/en') ? 'en' : 'kn'
 
   const toggleReadMore = (id: number) => {
     setExpandedId(expandedId === id ? null : id)
@@ -70,9 +69,6 @@ export default function FacultiesPage({ params }: { params: Promise<{ locale: st
                 {/* Content Container */}
                 <div className="p-6 md:p-8 flex-grow flex flex-col relative bg-white">
                   
-                  {/* 
-                    ಇಲ್ಲಿ 'ಉಸ್ತಾದ್' ಎಂಬ ಲೇಬಲ್ ಸೇರಿಸಲಾಗಿದೆ 
-                  */}
                   <span className="inline-block py-1 px-3 rounded-full bg-emerald-50 border border-emerald-100 text-emerald-700 text-[10px] md:text-xs font-bold tracking-wider uppercase mb-3 w-fit">
                     {locale === 'kn' ? 'ಉಸ್ತಾದ್' : 'USTHAD'}
                   </span>

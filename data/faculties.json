@@ -39,7 +39,7 @@
     "descEn": "Born in 1960, he earned the Saadi title in 1987. He completed his PG in Arabic Literature from Darul Uloom Nadwatul Ulama, Lucknow, and the Da'wa course at Al-Azhar University, Egypt, in 1997. He has been a Professor at the Sharia College since 1989.",
     "image": "/ubaidullaah.png"
   },
-   {
+  {
     "id": 7,
     "nameKn": "ಮುಹಮ್ಮದ್ ಅಲಿ ಸಖಾಫಿ ತ್ರಿಕರಿಪುರ್",
     "nameEn": "Thrikaripur Muhammadali Saqafi",
@@ -98,6 +98,75 @@
     "descKn": "1978ರಲ್ಲಿ ಮಲಪ್ಪುರಂ ಜಿಲ್ಲೆಯಲ್ಲಿ ಜನಿಸಿದ ಅವರು, 1999ರಲ್ಲಿ ಬಾಕಿಯಾತು ಸ್ವಾಲಿಹಾತ್‌ನಿಂದ ಬಾಖಾವಿ ಪದವೀಧರರಾದರು. ಖತೀಬ್ ಮತ್ತು ಮುದರಿಸ್ ಆಗಿ ಅಪಾರ ಅನುಭವ ಹೊಂದಿದ್ದಾರೆ. ಜ್ಯೋತಿಷ್ಯ, ಸಮರ್ಥ ಸಂವಹನ, ವಿಮರ್ಶಾತ್ಮಕ ಚಿಂತನೆ, ವ್ಯಾಪಾರ ಅಭಿವೃದ್ಧಿ ಮುಂತಾದ ಕೌಶಲ್ಯಗಳನ್ನು ಹೊಂದಿದ್ದಾರೆ. 2024ರಲ್ಲಿ ಜಾಮಿಯಾ ಸಅದಿಯಾದ ಪ್ರಮುಖ ಮುದರಿಸರಾಗಿ ಸೇವೆ ಸಲ್ಲಿಸುತ್ತಿದ್ದಾರೆ.",
     "descEn": "Born in 1978 in Malappuram, he graduated as Baqavi from Baqiyath Swalihath in 1999. He has vast experience as a Khatib and Mudarris. He possesses skills in astrology, effective communication, critical thinking, and business development. He has been serving as a senior Mudarris at Jamia Sa'adiya since 2024.",
     "image": "/aliasgar.png"
+  },
+  {
+    "id": 11,
+    "nameKn": "ಸಯ್ಯಿದ್ ಇಸ್ಮಾಯಿಲ್ ಅಲ್ ಹಾದಿ ಪನೂರ್",
+    "nameEn": "Sayyid Ismayil Al Hadi Panoor",
+    "titleKn": "ಮುದರಿಸ್",
+    "titleEn": "Mudarris",
+    "descKn": "ಜಾಮಿಅ ಸಅದಿಯಾ ಅರಬಿಯಾದಲ್ಲಿ ಮುದರಿಸರಾಗಿ ಸೇವೆ ಸಲ್ಲಿಸುತ್ತಿದ್ದಾರೆ.",
+    "descEn": "Serving as a Mudarris at Jamia Sa'adiya Arabia.",
+    "image": "/ismayil.png"
+  },
+  {
+    "id": 12,
+    "nameKn": "ಅಬ್ದುಲ್ ರಹ್ಮಾನ್ ಸಅದಿ ತುವ್ವೂರ್",
+    "nameEn": "Abdul Rahman Sa'adi Thuvvor",
+    "titleKn": "ಮುದರಿಸ್",
+    "titleEn": "Mudarris",
+    "descKn": "ಜಾಮಿಅ ಸಅದಿಯಾ ಅರಬಿಯಾದಲ್ಲಿ ಮುದರಿಸರಾಗಿ ಸೇವೆ ಸಲ್ಲಿಸುತ್ತಿದ್ದಾರೆ.",
+    "descEn": "Serving as a Mudarris at Jamia Sa'adiya Arabia.",
+    "image": "/rahman.png"
+  },
+  {
+    "id": 13,
+    "nameKn": "ಅಬ್ದುಲ್ ಲತೀಫ್ ಸಅದಿ ಕೊಟ್ಟಿಲ",
+    "nameEn": "Abdul Latheef Sa'adi Kottila",
+    "titleKn": "ಮುದರಿಸ್",
+    "titleEn": "Mudarris",
+    "descKn": "ಜಾಮಿಅ ಸಅದಿಯಾ ಅರಬಿಯಾದಲ್ಲಿ ಮುದರಿಸರಾಗಿ ಸೇವೆ ಸಲ್ಲಿಸುತ್ತಿದ್ದಾರೆ.",
+    "descEn": "Serving as a Mudarris at Jamia Sa'adiya Arabia.",
+    "image": "/latheef.png"
+  },
+  {
+    "id": 14,
+    "nameKn": "ರಫೀಕ್ ಸಅದಿ ದೇಲಂಪಾಡಿ",
+    "nameEn": "Rafeeq Sa'adi Delampady",
+    "titleKn": "ಮುದರಿಸ್",
+    "titleEn": "Mudarris",
+    "descKn": "ಜಾಮಿಅ ಸಅದಿಯಾ ಅರಬಿಯಾದಲ್ಲಿ ಮುದರಿಸರಾಗಿ ಸೇವೆ ಸಲ್ಲಿಸುತ್ತಿದ್ದಾರೆ.",
+    "descEn": "Serving as a Mudarris at Jamia Sa'adiya Arabia.",
+    "image": "/rafeeq.png"
+  },
+  {
+    "id": 15,
+    "nameKn": "ಅಬ್ದುಲ್ಲಾ ಸಅದಿ ಚಿಯ್ಯೂರ್",
+    "nameEn": "Abdulla Sa'adi Chiyyur",
+    "titleKn": "ಮುದರಿಸ್",
+    "titleEn": "Mudarris",
+    "descKn": "ಜಾಮಿಅ ಸಅದಿಯಾ ಅರಬಿಯಾದಲ್ಲಿ ಮುದರಿಸರಾಗಿ ಸೇವೆ ಸಲ್ಲಿಸುತ್ತಿದ್ದಾರೆ.",
+    "descEn": "Serving as a Mudarris at Jamia Sa'adiya Arabia.",
+    "image": "/abdulla.png"
+  },
+  {
+    "id": 16,
+    "nameKn": "ಸೈಫುದ್ದೀನ್ ಸಅದಿ ನೆಕ್ಕರಜೆ",
+    "nameEn": "Saifudden Sa'adi Nekraje",
+    "titleKn": "ಮುದರಿಸ್",
+    "titleEn": "Mudarris",
+    "descKn": "ಜಾಮಿಅ ಸಅದಿಯಾ ಅರಬಿಯಾದಲ್ಲಿ ಮುದರಿಸರಾಗಿ ಸೇವೆ ಸಲ್ಲಿಸುತ್ತಿದ್ದಾರೆ.",
+    "descEn": "Serving as a Mudarris at Jamia Sa'adiya Arabia.",
+    "image": "/saifudden.png"
+  },
+  {
+    "id": 17,
+    "nameKn": "ಅಬ್ದುಲ್ ಅಜೀಜ್ ಸಅದಿ ಮಂಜೇಶ್ವರ",
+    "nameEn": "Abdul Azeez Sa'adi Mnjeshwara",
+    "titleKn": "ಮುದರಿಸ್",
+    "titleEn": "Mudarris",
+    "descKn": "ಜಾಮಿಅ ಸಅದಿಯಾ ಅರಬಿಯಾದಲ್ಲಿ ಮುದರಿಸರಾಗಿ ಸೇವೆ ಸಲ್ಲಿಸುತ್ತಿದ್ದಾರೆ.",
+    "descEn": "Serving as a Mudarris at Jamia Sa'adiya Arabia.",
+    "image": "/azeez.png"
   }
-  
 ]

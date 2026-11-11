@@ -9,13 +9,13 @@ export default function AboutPreview({ locale, dict }: { locale: string; dict: a
       <div className="relative max-w-5xl mx-auto">
         <div className="bg-white/90 backdrop-blur-md border border-white/60 p-8 md:p-14 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.05)] relative overflow-hidden">
           
-          {/* Static glow effects — no mix-blend, no scale */}
+          {/* Static glow effects */}
           <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-100 rounded-full filter blur-2xl opacity-50 pointer-events-none"></div>
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-100 rounded-full filter blur-2xl opacity-50 pointer-events-none"></div>
 
           <div className="relative z-10 flex flex-col md:flex-row gap-10 items-start">
             
-            {/* Logo — round, spinning ring kept */}
+            {/* Logo — round, spinning ring */}
             <div className="w-32 h-32 md:w-48 md:h-48 shrink-0 rounded-full bg-gradient-to-br from-white to-slate-50 border border-white shadow-xl flex items-center justify-center relative overflow-hidden mx-auto md:mx-0">
               <div className="absolute inset-1 border-2 border-dashed border-emerald-300 rounded-full animate-[spin_15s_linear_infinite] opacity-60 pointer-events-none"></div>
               <div className="relative w-20 h-20 md:w-32 md:h-32">
@@ -23,35 +23,35 @@ export default function AboutPreview({ locale, dict }: { locale: string; dict: a
               </div>
             </div>
 
-            {/* Text */}
+            {/* Text — MOKS preview */}
             <div className="flex-grow flex flex-col">
               <h3 className="text-2xl md:text-3xl font-black text-slate-900 mb-6 leading-tight">
                 {locale === 'kn' 
-                  ? 'ಜಾಮಿಅ ಸಅದಿಯ್ಯಾ ಅರಬಿಯ್ಯಾದ ಹೃದಯಭಾಗದಲ್ಲಿ ಕನ್ನಡದ ವೈಭವವನ್ನು ಬೆಳೆಸುವ ವೇದಿಕೆ' 
-                  : 'Nurturing Kannada Brilliance at the Heart of Jamia Sa\'adiya Arabia'}
+                  ? 'MOKS – ಕನ್ನಡ ವಿದ್ಯಾರ್ಥಿಗಳ ಶೈಕ್ಷಣಿಕ ಮತ್ತು ಸಾಹಿತ್ಯಿಕ ವೇದಿಕೆ' 
+                  : 'MOKS – An Academic and Literary Platform for Kannada Students'}
               </h3>
 
               <div className="text-slate-700 text-sm md:text-base leading-relaxed text-justify space-y-4">
                 <p>
                   {locale === 'kn'
-                    ? 'MOKS – ಮಿಸ್ಬಾಹುಸ್ಸುಆದಾ ಆರ್ಗನೈಸೇಶನ್ ಆಫ್ ಸಅದಿಯ್ಯಾ ಕನ್ನಡ ಸ್ಟೂಡೆಂಟ್ಸ್ (Misbahussuada Organization of Sa\'adiya Kannada Students) ಜಾಮಿಅ ಸಅದಿಯ್ಯಾ ಅರಬಿಯ್ಯಾದ ಪ್ರತಿಷ್ಠಿತ ಕ್ಯಾಂಪಸ್‌ನಲ್ಲಿ ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತಿರುವ ಕನ್ನಡ ವಿದ್ಯಾರ್ಥಿಗಳ ಸಂಘಟನೆಯಾಗಿದೆ. ದಕ್ಷಿಣ ಭಾರತದ ಪ್ರಮುಖ ಇಸ್ಲಾಮಿಕ್ ಶಿಕ್ಷಣ ಸಂಸ್ಥೆಗಳಲ್ಲಿ ಒಂದಾದ ಜಾಮಿಅ ಸಅದಿಯ್ಯಾ ಅರಬಿಯ್ಯಾ ಹಲವು ತಲೆಮಾರುಗಳಿಗೆ ಜ್ಞಾನ ಮತ್ತು ಮಾರ್ಗದರ್ಶನ ನೀಡಿದ ಮಹತ್ವದ ವಿದ್ಯಾಕೇಂದ್ರವಾಗಿದೆ.'
-                    : 'MOKS – Misbahussuada Organization of Sa\'adiya Kannada Students is a vibrant organization functioning within the prestigious campus of Jamia Sa\'adiya Arabia. As one of the prominent Islamic educational institutions in South India, Jamia Sa\'adiya Arabia has been a centre of knowledge and enlightenment for generations.'}
+                    ? 'ಶಿಕ್ಷಣ ರಂಗದಲ್ಲಿ ತನ್ನದೇ ಆದ ಕ್ರಾಂತಿಯನ್ನು ಸೃಷ್ಟಿಸುತ್ತಿರುವ ಜಾಮಿಯಾ ಸಅದಿಯ್ಯ ಶರೀಅತ್ ಕಾಲೇಜಿನ ಕನ್ನಡ ವಿದ್ಯಾರ್ಥಿಗಳ ಒಕ್ಕೂಟವಾದ "ಮಿಸಭಾಹುಸ್ಸುಅದಾ ಕನ್ನಡ ವಿಧ್ಯಾರ್ಥಿ ಸಂಘಟನೆ" (MOKS), ಕನ್ನಡ ಭಾಷೆ ಮತ್ತು ಸಾಹಿತ್ಯದ ಜತೆಗೆ ಸುನ್ನತ್ ಜಮಾಅತ್ತಿನ ಆದರ್ಶಗಳನ್ನು ಪಸರಿಸುವಲ್ಲಿ ಪ್ರಮುಖ ಪಾತ್ರ ವಹಿಸುತ್ತಿರುವ ಪ್ರತಿಷ್ಠಿತ ಸಂಸ್ಥೆಯಾಗಿದೆ.'
+                    : 'The "Misbahussuada Kannada Students Organisation" (MOKS), a federation of Kannada students of Jamia Sa\'adiya Sharia College, which is creating its own revolution in the field of education, is a prestigious institution playing a major role in spreading the ideals of Sunnat Jama\'at along with Kannada language and literature.'}
                 </p>
 
                 <p>
                   {locale === 'kn'
-                    ? 'ತಾಜುಲ್ ಉಲಮಾ ಮತ್ತು ನೂರುಲ್ ಉಲಮಾ ಅವರ ದೂರದೃಷ್ಟಿ ಹಾಗೂ ಕನ್ನಡ ಭಾಷೆ, ಸಂಸ್ಕೃತಿ ಮತ್ತು ಪರಂಪರೆಯನ್ನು ಉಳಿಸಿ ಬೆಳೆಸುವ ಮಹತ್ತರ ಆಶಯದೊಂದಿಗೆ MOKS ಸ್ಥಾಪನೆಯಾಯಿತು. ಕನ್ನಡ ವಿದ್ಯಾರ್ಥಿಗಳ ಪ್ರತಿಭೆ, ಜ್ಞಾನ ಮತ್ತು ವ್ಯಕ್ತಿತ್ವ ವಿಕಸನಕ್ಕೆ ಪೂರಕವಾದ ವೇದಿಕೆಯಾಗಿ ಸಂಸ್ಥೆಯು ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತಿದೆ.'
-                    : 'Founded through the vision and inspiration of Thajul Ulama and Noorul Ulama, MOKS reflects their commitment to preserving and promoting the Kannada language, culture and traditions. It provides a supportive platform for Kannada students, encouraging their overall development while celebrating their cultural identity.'}
+                    ? 'ಮಲಯಾಳಂ, ಉರ್ದು ಮತ್ತು ಅರೇಬಿಕ್ ಭಾಷೆಗಳ ಪ್ರಾಬಲ್ಯವಿರುವ ಈ ವಿದ್ಯಾಸಂಸ್ಥೆಯಲ್ಲಿ ಕನ್ನಡ ವಿದ್ಯಾರ್ಥಿಗಳ ಶೈಕ್ಷಣಿಕ ಹಾಗೂ ಸಾಹಿತ್ಯಿಕ ಬೆಳವಣಿಗೆಯ ಕೊರತೆಯನ್ನು ನೀಗಿಸಲು, 1996ರಲ್ಲಿ ಈ ಸಂಘಟನೆಯು ಉದಯಿಸಿತು. ವಿದ್ಯಾರ್ಥಿಗಳಲ್ಲಿ ಅಂತರ್ಲೀನವಾಗಿರುವ ಸೃಜನಶೀಲತೆಗೆ ಜೀವ ತುಂಬಿ, ಇಸ್ಲಾಮಿನ ಸುಂದರ ಆಶಯಗಳನ್ನು ಜನತೆಯ ಮನಸ್ಸಿನಲ್ಲಿ ಪಡಿಮೂಡಿಸುವುದು ಇದರ ಮುಖ್ಯ ಧ್ಯೇಯವಾಗಿದೆ.'
+                    : 'To fill the lack of academic and literary development of Kannada students in this educational institution dominated by Malayalam, Urdu and Arabic languages, this organization arose in 1996. Its main objective is to breathe life into the creativity inherent in students and to instill the beautiful ideals of Islam in the minds of the people.'}
                 </p>
 
                 <p className="hidden md:block">
                   {locale === 'kn'
-                    ? 'ಶೈಕ್ಷಣಿಕ ಪ್ರಗತಿ, ನಾಯಕತ್ವದ ಗುಣಗಳು ಮತ್ತು ವೈಯಕ್ತಿಕ ಬೆಳವಣಿಗೆಗೆ ಆದ್ಯತೆ ನೀಡುವ MOKS, ವಿವಿಧ ಶೈಕ್ಷಣಿಕ ಕಾರ್ಯಾಗಾರಗಳು, ಸಾಂಸ್ಕೃತಿಕ ಕಾರ್ಯಕ್ರಮಗಳು, ಸಾಮಾಜಿಕ ಸೇವಾ ಚಟುವಟಿಕೆಗಳು ಹಾಗೂ ಹಲವು ಅಭಿವೃದ್ಧಿಪರ ಯೋಜನೆಗಳನ್ನು ಆಯೋಜಿಸುತ್ತದೆ. ಏಕತೆ ಮತ್ತು ವೈವಿಧ್ಯತೆಯೇ ನಮ್ಮ ಸಂಘಟನೆಯ ಪ್ರಮುಖ ಶಕ್ತಿಯಾಗಿದೆ. ವಿವಿಧ ಹಿನ್ನೆಲೆಯ ವಿದ್ಯಾರ್ಥಿಗಳನ್ನು ಒಂದೇ ವೇದಿಕೆಯಲ್ಲಿ ಒಗ್ಗೂಡಿಸಿ, ಸ್ನೇಹ, ಸಹಕಾರ ಮತ್ತು ಪರಸ್ಪರ ಗೌರವದ ವಾತಾವರಣವನ್ನು ನಿರ್ಮಿಸುವುದು ನಮ್ಮ ಉದ್ದೇಶವಾಗಿದೆ.'
-                    : 'With a strong focus on academic excellence, leadership and personal growth, MOKS organizes various educational workshops, cultural programmes, community service activities and developmental initiatives. At MOKS, we believe in the strength of unity and diversity. We bring together students from different backgrounds, creating a welcoming environment built on friendship, cooperation and mutual respect.'}
+                    ? 'ವಿದ್ಯಾರ್ಥಿಗಳಲ್ಲಿ ಭಾಷಣ ಕಲೆ ಮತ್ತು ಸಾಹಿತ್ಯಿಕ ಅಭಿರುಚಿಯನ್ನು ಬೆಳೆಸಲು ವಾರಕ್ಕೊಮ್ಮೆ ಭಾಷಣ ಪರಿಶೀಲನೆ, ತಿಂಗಳಿಗೊಮ್ಮೆ ಸಂಯುಕ್ತ ವೇದಿಕೆ ಮತ್ತು ಬೃಹತ್ ವಾಚನಾಲಯವು ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತಿದೆ. ಇದೀಗ MOKS ಸಂಘಟನೆ Herencia ಎಂಬ ನಾಮದಿಂದ 30 ನೇ ವಾರ್ಷಿಕೋತ್ಸವದ ಸಂಭ್ರಮಕ್ಕೆ ಬಂದು ತಲುಪಿದೆ.'
+                    : 'To develop oratory skills and literary taste among students, weekly speech reviews, monthly joint forums and a large reading library are functioning. The organization MOKS has now reached the celebration of its 30th anniversary under the name Herencia.'}
                 </p>
               </div>
 
-              {/* Read More Button — color transition only */}
+              {/* Read More Button */}
               <div className="mt-8">
                 <Link 
                   href={`/${locale}/about`}
