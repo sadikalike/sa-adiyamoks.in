@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 
 export default function LibraryPreview({ locale }: { locale: string }) {
@@ -14,58 +15,74 @@ export default function LibraryPreview({ locale }: { locale: string }) {
   }
 
   return (
-    <section className="relative py-16 bg-[#f8fafc] overflow-hidden">
-
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:32px_32px]"></div>
+    <section className="relative py-20 bg-[#f8fafc] overflow-hidden">
+      
+      {/* Modern subtle background pattern */}
+      <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:24px_24px] opacity-40"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+        
+        {/* Main Card Container (Modern Glass/Shadow) */}
+        <div className="bg-white rounded-[2.5rem] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] border border-slate-100 p-6 md:p-10 lg:p-12">
+          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
 
-          {/* ಪುಸ್ತಕದ ಭಾಗ */}
-          <div className="w-full lg:w-1/2">
-            <div className="relative aspect-square md:aspect-[4/3] rounded-[3rem] bg-white/60 backdrop-blur-md border border-white shadow-[0_20px_50px_rgba(0,0,0,0.05)] flex items-center justify-center overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-emerald-50/50 to-blue-50/50"></div>
-
-              <div className="relative z-10 w-48 h-64 md:w-56 md:h-72">
-                <div className="absolute inset-0 bg-emerald-900 rounded-r-xl shadow-2xl transform translate-x-2 translate-y-2"></div>
-                <div className="absolute inset-y-1 right-0 w-4 bg-slate-100 rounded-r-md border-y border-slate-200"></div>
-                <div className="absolute inset-0 bg-gradient-to-br from-emerald-600 to-teal-800 rounded-xl shadow-inner flex flex-col items-center justify-center p-6 border-l-8 border-emerald-900/50">
-                  <svg className="w-16 h-16 text-white/80 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+            {/* Left Side: Poster Image with Modern Frame */}
+            <div className="w-full lg:w-[45%] relative group">
+              {/* Image Container */}
+              <div className="relative w-full max-w-[420px] mx-auto aspect-[4/5] rounded-2xl overflow-hidden bg-slate-50 shadow-md">
+                <Image
+                  src="/libr.png"
+                  alt={content.title}
+                  fill
+                  priority
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                />
+              </div>
+              
+              {/* Floating Modern Badge on Image */}
+              <div className="absolute -bottom-5 -right-2 md:-right-5 bg-white border border-slate-100 shadow-xl px-5 py-3 rounded-2xl flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                   </svg>
-                  <div className="w-16 h-1 bg-white/30 rounded-full mb-2"></div>
-                  <div className="w-12 h-1 bg-white/30 rounded-full"></div>
+                </div>
+                <div>
+                  <p className="text-xs font-bold text-slate-400 uppercase tracking-wider">MOKS</p>
+                  <p className="text-sm font-black text-slate-800">Library</p>
                 </div>
               </div>
             </div>
-          </div>
 
-          {/* ಪಠ್ಯದ ಭಾಗ */}
-          <div className="w-full lg:w-1/2">
-            <div className="text-center lg:text-left">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 mb-4 leading-tight tracking-tight">
-                {content.title}
-              </h2>
+            {/* Right Side: Text Section */}
+            <div className="w-full lg:w-[55%] relative z-30">
+              <div className="text-center lg:text-left">
+                
+                {/* Subtitle Badge */}
+                <span className="inline-block py-1.5 px-4 rounded-full bg-emerald-50 text-emerald-700 text-xs md:text-sm font-bold tracking-wider uppercase mb-5 border border-emerald-100">
+                  {content.subtitle}
+                </span>
 
-              <p className="text-lg md:text-xl text-emerald-600 font-bold mb-6">
-                {content.subtitle}
-              </p>
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 mb-6 leading-[1.1] tracking-tight">
+                  {content.title}
+                </h2>
 
-              <p className="text-slate-600 text-base md:text-lg leading-relaxed text-justify lg:text-left mb-10">
-                {content.desc}
-              </p>
+                <p className="text-slate-600 text-base md:text-lg leading-relaxed text-justify lg:text-left mb-10 font-medium">
+                  {content.desc}
+                </p>
 
-              <Link href={`/${locale}/library`}
-                className="inline-flex items-center justify-center gap-3 bg-slate-900 text-white font-bold text-base md:text-lg px-8 py-4 rounded-full shadow-lg hover:bg-emerald-600 transition-colors duration-300">
-                {content.btn}
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </Link>
+                <Link href={`/${locale}/library`}
+                  className="group inline-flex items-center justify-center gap-3 bg-slate-900 text-white font-bold text-base md:text-lg px-8 py-4 rounded-xl shadow-lg hover:bg-emerald-600 transition-all duration-300 hover:-translate-y-1 hover:shadow-emerald-500/30">
+                  {content.btn}
+                  <svg className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </Link>
+              </div>
             </div>
-          </div>
 
+          </div>
         </div>
+
       </div>
     </section>
   )

@@ -63,6 +63,12 @@ export default function Hero({ locale, dict }: { locale: string; dict: any }) {
         <div className="absolute inset-0 bg-[#050B14]/40"></div>
         <div className="absolute inset-0 bg-gradient-to-b from-[#050B14]/80 via-[#050B14]/30 to-[#050B14]/95"></div>
         <div className="absolute inset-0 bg-gradient-to-r from-[#050B14]/60 via-transparent to-[#050B14]/60"></div>
+
+        {/* 💡 ಹೊಸದಾಗಿ ಸೇರಿಸಿದ ಬೆಳಕಿನ ಪರಿಣಾಮ (Corner Lights) */}
+        {/* ಎಡ ಮೇಲಿನ ಮೂಲೆಯಿಂದ ಬರುವ ಬೆಳಕು */}
+        <div className="absolute -top-32 -left-32 w-[30rem] h-[30rem] bg-emerald-500/20 rounded-full blur-[100px] pointer-events-none"></div>
+        {/* ಬಲ ಮೇಲಿನ ಮೂಲೆಯಿಂದ ಬರುವ ಬೆಳಕು */}
+        <div className="absolute -top-32 -right-32 w-[30rem] h-[30rem] bg-blue-500/20 rounded-full blur-[100px] pointer-events-none"></div>
       </div>
 
       <div className="relative z-10 w-full max-w-5xl mx-auto px-6 sm:px-8 flex flex-col items-center text-center">
