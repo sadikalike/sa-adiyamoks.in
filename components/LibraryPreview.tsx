@@ -26,21 +26,27 @@ export default function LibraryPreview({ locale }: { locale: string }) {
         <div className="bg-white rounded-[2.5rem] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] border border-slate-100 p-6 md:p-10 lg:p-12">
           <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
 
-            {/* Left Side: Poster Image with Modern Frame */}
-            <div className="w-full lg:w-[45%] relative group">
-              {/* Image Container */}
-              <div className="relative w-full max-w-[420px] mx-auto aspect-[4/5] rounded-2xl overflow-hidden bg-slate-50 shadow-md">
-                <Image
-                  src="/libr.png"
-                  alt={content.title}
-                  fill
-                  priority
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                />
-              </div>
+            {/* Left Side: Poster Image with Modern Background & Glow */}
+            <div className="w-full lg:w-[45%] relative flex justify-center lg:justify-start">
               
+              {/* 💡 Modern Background Wrapper (Glow + Gradient Border) - ಇಲ್ಲಿ ನಿನ್ನೆ ಮಾಡಿದ್ದ ಎಫೆಕ್ಟ್ ಇದೆ */}
+              <div className="relative p-2 rounded-[2.5rem] bg-gradient-to-br from-amber-200 via-emerald-100 to-blue-100 shadow-[0_20px_60px_-15px_rgba(245,158,11,0.3)] z-10">
+                <div className="relative w-[320px] sm:w-[350px] md:w-[400px] aspect-[4/5] rounded-[2rem] overflow-hidden bg-[#fffbeb]">
+                  <Image
+                    src="/libr.png"
+                    alt={content.title}
+                    fill
+                    priority
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  />
+                </div>
+              </div>
+
+              {/* ಹಿಂದೆ ಒಂದು ಸಣ್ಣ ಗ್ಲೋ ಎಫೆಕ್ಟ್ (Modern Look) */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] bg-amber-400/20 blur-3xl rounded-full pointer-events-none z-0"></div>
+
               {/* Floating Modern Badge on Image */}
-              <div className="absolute -bottom-5 -right-2 md:-right-5 bg-white border border-slate-100 shadow-xl px-5 py-3 rounded-2xl flex items-center gap-3">
+              <div className="absolute -bottom-5 -right-2 md:-right-5 bg-white border border-slate-100 shadow-xl px-5 py-3 rounded-2xl flex items-center gap-3 z-20">
                 <div className="w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600">
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
