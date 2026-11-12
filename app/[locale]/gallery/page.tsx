@@ -2,6 +2,8 @@
 
 import { useState, useRef, useEffect } from 'react'
 import Image from 'next/image'
+import { usePathname } from 'next/navigation' // 💡 ಲೊಕೇಲ್ ಸರಿಯಾಗಿ ಪಡೆಯಲು ಇದನ್ನು ಸೇರಿಸಲಾಗಿದೆ
+import FilmStripGallery from '@/components/FilmStripGallery' // 💡 ಫಿಲ್ಮ್ ಸ್ಟ್ರಿಪ್ ಇಂಪೋರ್ಟ್
 
 function GalleryCard({ item, locale }: { item: any; locale: string }) {
   const [expanded, setExpanded] = useState(false)
@@ -11,11 +13,9 @@ function GalleryCard({ item, locale }: { item: any; locale: string }) {
   useEffect(() => {
     const el = textRef.current
     if (!el) return
-
     const check = () => {
       setIsOverflowing(el.scrollHeight > el.clientHeight + 1)
     }
-
     check()
     window.addEventListener('resize', check)
     return () => window.removeEventListener('resize', check)
@@ -29,7 +29,6 @@ function GalleryCard({ item, locale }: { item: any; locale: string }) {
           : 'shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.12)] hover:-translate-y-2 border-slate-100'
       }`}
     >
-      {/* Image */}
       <div className="relative w-full h-64 md:h-72 overflow-hidden bg-slate-100 shrink-0">
         <Image
           src={item.image}
@@ -43,7 +42,6 @@ function GalleryCard({ item, locale }: { item: any; locale: string }) {
         </h3>
       </div>
 
-      {/* Content — fixed structure */}
       <div className="p-6 flex flex-col flex-grow">
         <p
           ref={textRef}
@@ -54,7 +52,6 @@ function GalleryCard({ item, locale }: { item: any; locale: string }) {
           {locale === 'kn' ? item.descKn : item.descEn}
         </p>
 
-        {/* Arrow area — always reserved, but only clickable/visible if overflowing */}
         <div className={`mt-auto pt-4 border-t border-slate-100 flex justify-end ${isOverflowing || expanded ? '' : 'invisible'}`}>
           <button
             onClick={() => setExpanded(!expanded)}
@@ -76,8 +73,10 @@ function GalleryCard({ item, locale }: { item: any; locale: string }) {
   )
 }
 
-export default function GalleryPage({ params }: { params: Promise<{ locale: string }> }) {
-  const locale = typeof window !== 'undefined' && window.location.pathname.includes('/en') ? 'en' : 'kn'
+export default function GalleryPage() {
+  // 💡 usePathname ಬಳಸಿ ಭಾಷೆ ಬದಲಾಯಿಸಿದಾಗ ಆಟೋಮ್ಯಾಟಿಕ್ ಆಗಿ ರೀ-ರೆಂಡರ್ ಆಗುತ್ತದೆ
+  const pathname = usePathname()
+  const locale = pathname.includes('/en') ? 'en' : 'kn'
 
   const galleryData = [
     {
@@ -156,6 +155,12 @@ export default function GalleryPage({ params }: { params: Promise<{ locale: stri
           ))}
         </div>
       </div>
+
+      {/* 💡 ಇಲ್ಲಿ ಫಿಲ್ಮ್ ಸ್ಟ್ರಿಪ್ ಗ್ಯಾಲರಿ ಸೇರಿಸಲಾಗಿದೆ */}
+      <div className="mt-20">
+        <FilmStripGallery locale={locale} />
+      </div>
+
     </div>
   )
 }
