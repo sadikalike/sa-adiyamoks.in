@@ -22,7 +22,7 @@ export default function VisionariesPage({ params }: { params: Promise<{ locale: 
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
           <h1 className="text-3xl md:text-6xl font-black text-white mb-4 md:mb-6 tracking-tight leading-tight">
-            {locale === 'kn' ? 'ನಮ್ಮ ದೂರದರ್ಶಿಗಳು' : 'Our Visionaries'}
+           {locale === 'kn' ? 'ನಮ್ಮ ಮಾರ್ಗದರ್ಶಕರು' : 'Our Visionaries'}
           </h1>
           <p className="text-sm md:text-xl text-slate-300 font-medium max-w-3xl mx-auto">
             {locale === 'kn' ? 'MOKS ನ ಮಾರ್ಗದರ್ಶಕರು ಮತ್ತು ಪ್ರೇರಣೆ' : 'Mentors and inspiration behind MOKS'}
