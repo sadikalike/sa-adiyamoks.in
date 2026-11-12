@@ -35,7 +35,6 @@ export default function GalleryPreview({ locale, dict }: { locale: string; dict:
   ]
 
   return (
-    // ಇಲ್ಲಿ bg-white ಮತ್ತು ಸ್ವಚ್ಛವಾದ ಹಿನ್ನೆಲೆ ಇದೆ
     <section className="relative w-full py-16 bg-white overflow-hidden">
       
       <div className="relative z-10">
@@ -52,24 +51,28 @@ export default function GalleryPreview({ locale, dict }: { locale: string; dict:
 
         {/* Sliding Container */}
         <div className="relative w-full overflow-hidden">
-          {/* ❌ ಇಲ್ಲಿದ್ದ Gradient Masks (ಬಿಳಿ ಶೇಡ್) ತೆಗೆದುಹಾಕಲಾಗಿದೆ */}
-
-          <div className="flex w-max animate-marquee gap-6 px-6 py-4">
+          
+          {/* 
+            💡 ಇಲ್ಲಿ style={{ animation: 'marquee 40s linear infinite' }} ಬಳಸಿ ವೇಗವನ್ನು ಫಿಕ್ಸ್ ಮಾಡಲಾಗಿದೆ.
+            ಇದರಿಂದ ಎಲ್ಲಾ ಮೊಬೈಲ್‌ಗಳಲ್ಲಿ ಒಂದೇ ನಿಧಾನ ವೇಗದಲ್ಲಿ ಸ್ಲೈಡ್ ಆಗುತ್ತದೆ.
+          */}
+          <div 
+            className="flex w-max gap-6 px-6 py-4 hover:[animation-play-state:paused]"
+            style={{ animation: 'marquee 40s linear infinite' }}
+          >
             {[...galleryItems, ...galleryItems].map((item, index) => (
               <div 
                 key={index} 
-                // 💡 ಇಲ್ಲಿ ಕಾರ್ಡ್‌ಗಳನ್ನು ಆಧುನಿಕವಾಗಿ (Modern) ವಿನ್ಯಾಸಗೊಳಿಸಲಾಗಿದೆ
                 className="group relative w-[85vw] sm:w-[350px] md:w-[400px] shrink-0 rounded-2xl overflow-hidden bg-white border border-slate-100 shadow-sm hover:shadow-[0_20px_40px_rgba(16,185,129,0.15)] hover:border-emerald-200 transition-all duration-500 hover:-translate-y-2 flex flex-col"
               >
                 
-                {/* Image Area - Modern padding and rounded corners */}
+                {/* Image Area */}
                 <div className="relative w-full h-56 md:h-64 overflow-hidden m-2.5 rounded-xl bg-slate-50">
                   <Image
                     src={item.image}
                     alt={locale === 'kn' ? item.titleKn : item.titleEn}
                     fill
                     loading="lazy"
-                    // Hover ಮಾಡಿದಾಗ ಇಮೇಜ್ ಸ್ಮೂತ್ ಆಗಿ ಜೂಮ್ ಆಗುತ್ತದೆ
                     className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                   />
                 </div>

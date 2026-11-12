@@ -86,10 +86,16 @@ export default function Navbar({ locale, dict }: { locale: string; dict: any }) 
         {/* Logo Only */}
         <Link href={`/${locale}`} className="flex items-center group relative">
           <div className="relative w-12 h-12 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center shrink-0 shadow-[0_0_20px_rgba(255,255,255,0.05)] overflow-hidden group-hover:border-emerald-500/50 transition-colors duration-500">
+            
+            {/* 
+              💡 ಇಲ್ಲಿ animate-spin-slow ಬದಲಿಗೆ ನೇರವಾಗಿ animate-[spin_8s_linear_infinite] ನೀಡಲಾಗಿದೆ.
+              8 ಸೆಕೆಂಡ್‌ಗಳಿಗೆ ಒಮ್ಮೆ ಸುತ್ತು ಹಾಕುತ್ತದೆ, ಇದರಿಂದ ವೇಗ ನಿಧಾನವಾಗಿರುತ್ತದೆ.
+            */}
             <div
-              className="absolute inset-0 rounded-xl opacity-90 group-hover:opacity-100 animate-spin-slow"
+              className="absolute inset-0 rounded-xl opacity-90 group-hover:opacity-100 animate-[spin_8s_linear_infinite]"
               style={{
                 background: 'conic-gradient(from 0deg, #0ea5e9, #22c55e, #b45309, #0ea5e9)',
+                willChange: 'transform',
               }}
             ></div>
 

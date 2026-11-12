@@ -9,6 +9,7 @@ export default function HerenciaPreview({ locale }: { locale: string }) {
   const shouldReduce = useReducedMotion()
 
   useEffect(() => {
+    // ಪೋಸ್ಟರ್ ಬದಲಾಗುವ ಸಮಯ (5 ಸೆಕೆಂಡ್)
     const interval = setInterval(() => {
       setCurrentPoster((prev) => (prev === 1 ? 2 : 1))
     }, 5000)
@@ -51,7 +52,7 @@ export default function HerenciaPreview({ locale }: { locale: string }) {
             </div>
             <div className="w-[1.5px] h-16 bg-gradient-to-b from-slate-300 to-slate-500 shadow-[0_0_5px_rgba(255,255,255,0.2)]"></div>
 
-            {/* Shake wrapper — rotates the whole poster frame */}
+            {/* Shake wrapper */}
             <div className={`relative w-full max-w-sm z-10 mt-[-2px] ${shouldReduce ? '' : 'animate-swing'} will-change-transform`}>
               <div className="relative w-full aspect-[4/5] overflow-hidden rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.6)] border border-amber-500/30">
                 <div className="relative w-full h-full bg-slate-900">
@@ -61,6 +62,7 @@ export default function HerenciaPreview({ locale }: { locale: string }) {
                       initial={shouldReduce ? false : { x: '-100%' }}
                       animate={{ x: 0 }}
                       exit={shouldReduce ? undefined : { x: '100%' }}
+                      // 💡 ಪೋಸ್ಟರ್ ಸ್ಲೈಡ್ ಆಗುವ ವೇಗವನ್ನು ಸ್ವಲ್ಪ ನಿಧಾನ (1.2s) ಮತ್ತು ಸ್ಮೂತ್ ಮಾಡಲಾಗಿದೆ
                       transition={{ duration: 1.2, ease: 'easeInOut' }}
                       className="absolute inset-0 w-full h-full will-change-transform"
                     >
@@ -104,9 +106,19 @@ export default function HerenciaPreview({ locale }: { locale: string }) {
 
         </div>
 
-        {/* Marquee */}
+        {/* 
+          Marquee - Fixed Speed 
+          💡 ಇಲ್ಲಿ will-change-transform ಮತ್ತು animate-marquee-left ಸರಿಪಡಿಸಲಾಗಿದೆ.
+          ಮೊಬೈಲ್‌ನಲ್ಲಿ ವೇಗ ಜಾಸ್ತಿ ಆಗದಂತೆ duration (30s) ನಿಗದಿಪಡಿಸಲಾಗಿದೆ.
+        */}
         <div className="my-12 border-y border-white/10 bg-white/5 py-4 overflow-hidden relative w-full">
-          <div className="flex whitespace-nowrap animate-marquee-left will-change-transform">
+          <div 
+            className="flex whitespace-nowrap"
+            style={{
+              animation: shouldReduce ? 'none' : 'marquee 30s linear infinite',
+              willChange: 'transform'
+            }}
+          >
             {[...Array(12)].map((_, i) => (
               <span key={i} className="text-2xl md:text-4xl font-black text-white mx-4 tracking-normal uppercase opacity-70">
                 {content.marqueeText}
