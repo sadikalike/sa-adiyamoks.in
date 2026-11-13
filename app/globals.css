@@ -259,18 +259,6 @@ body {
   0% { transform: translateX(0%); }
   100% { transform: translateX(-50%); }
 }
-/* 
-  💡 ಎಲ್ಲಾ ಮೊಬೈಲ್‌ಗಳಲ್ಲಿ ಆನಿಮೇಷನ್ ಒಂದೇ ರೀತಿ ಕೆಲಸ ಮಾಡಲು (Reduce Motion ನಿರ್ಲಕ್ಷಿಸಲು)
-  ಇದು ಸಿಸ್ಟಮ್ ಸೆಟ್ಟಿಂಗ್ಸ್ ಅನ್ನು ಓವರ್‌ರೈಡ್ ಮಾಡುತ್ತದೆ.
-*/
-*, ::before, ::after {
-  animation-duration: auto !important;
-  animation-iteration-count: auto !important;
-  transition-duration: auto !important;
-  scroll-behavior: auto !important;
-}
-
-/* Marquee ಸ್ಪೀಡ್ ಫಿಕ್ಸ್ (ಗ್ಯಾಲರಿ ಮತ್ತು ಹೆರೆನ್ಸಿಯಾ ಎರಡಕ್ಕೂ) */
 @keyframes marquee {
   0% { transform: translateX(0%); }
   100% { transform: translateX(-50%); }
